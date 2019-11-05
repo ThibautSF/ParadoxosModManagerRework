@@ -21,12 +21,14 @@ This repository is for work in progress developpment for Java 11 migration of [J
 For build :
 * OpenJDK 11 (set `JAVA_HOME`)
 * OpenJFX 11 (set `PATH_TO_FX`)
+
 See [OpenJFX Documentation](https://openjfx.io/openjfx-docs/) for more details.
 
 ## Usefull links
 ### Download
 * Google Drive : ~~https://drive.google.com/open?id=0B2162Wd9vePmRXdieVc2QzdraFU~~ 
 * Github release : ~~https://github.com/ThibautSF/ParadoxosModManager/releases~~
+
 See : [Java 8 Paradoxos Mod Manager](https://github.com/ThibautSF/ParadoxosModManager)
 
 ### Documentation
