@@ -1,0 +1,60 @@
+{
+  "_comment":{
+    "About":"Will only support Paradox games with modding structure similar from CK2 to Imperator Rome",
+    "File structure":"Each option choice should have a json block, the key is the label of the choice",
+    "game_name":"Real game name (the best is to take the default name of the save folder; ie 'Europa Universalis IV' for EU4)",
+    "steam_id":"The steam ID, must be an integer",
+    "setting_file":"File where the game settings are stored : generaly <settings.txt>",
+    "actmod_file":"File where the activated mods are stored : generally <settings.txt|dlc_load.json>",
+    "actmod_type":"type of storage : <txt|json>"
+  },
+  "Stellaris >= 2.4":{
+    "game_name":"Stellaris",
+    "steam_id":281990,
+    "setting_file":"settings.txt",
+    "actmod_file":"dlc_load.json",
+    "actmod_type":"json"
+  },
+  "Stellaris <= 2.3 (legacy launcher)":{
+    "game_name":"Stellaris",
+    "steam_id":281990,
+    "setting_file":"settings.txt",
+    "actmod_file":"settings.txt",
+    "actmod_type":"txt"
+  },
+  "Europa Universalis IV >= 1.24":{
+    "game_name":"Europa Universalis IV",
+    "steam_id":236850,
+    "setting_file":"settings.txt",
+    "actmod_file":"dlc_load.json",
+    "actmod_type":"json"
+  },
+  "Europa Universalis IV <= 1.23 (legacy launcher)":{
+    "game_name":"Europa Universalis IV",
+    "steam_id":236850,
+    "setting_file":"settings.txt",
+    "actmod_file":"settings.txt",
+    "actmod_type":"txt"
+  },
+  "Crusader Kings II":{
+    "game_name":"Crusader Kings II",
+    "steam_id":203770,
+    "setting_file":"settings.txt",
+    "actmod_file":"settings.txt",
+    "actmod_type":"txt"
+  },
+  "Hearts of Iron IV":{
+    "game_name":"Hearts of Iron IV",
+    "steam_id":394360,
+    "setting_file":"settings.txt",
+    "actmod_file":"settings.txt",
+    "actmod_type":"txt"
+  },
+  "Imperator":{
+    "game_name":"Imperator",
+    "steam_id":859580,
+    "setting_file":"pdx_settings.txt",
+    "actmod_file":"dlc_load.json",
+    "actmod_type":"json"
+  }
+}
