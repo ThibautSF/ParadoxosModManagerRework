@@ -9,6 +9,7 @@ module ParadoxosGameModManager {
 	requires org.junit.jupiter.api;
 	requires org.mockito;
 	requires java.xml;
-	
+
 	exports com.pmm.ParadoxosGameModManager;
+	exports com.pmm.ParadoxosGameModManager.mod;
 }
