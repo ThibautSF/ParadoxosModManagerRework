@@ -1,7 +1,8 @@
 package com.pmm.ParadoxosGameModManager.settings;
 
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,19 +13,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.jdom2.Attribute;
-import org.jdom2.DataConversionException;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
-import org.jdom2.output.Format;
-import org.jdom2.output.XMLOutputter;
-
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import com.pmm.ParadoxosGameModManager.ModManager;
-import com.pmm.ParadoxosGameModManager.debug.ErrorPrint;
 import com.pmm.ParadoxosGameModManager.mod.Languages;
 import com.pmm.ParadoxosGameModManager.mod.Mod;
 import com.pmm.ParadoxosGameModManager.mod.ModList;
@@ -51,66 +45,146 @@ public class MyJSON {
 	private static final String MOD_ORDER = "order";
 
 	private static final String APP_SETTINGS = "appsettings";
-	private static final String GAME = "game";
-	private static final String ATTR_GAMELABEL = "gamelabel";
-	private static final String ATTR_VALUE = "value";
 
-	private static Element root;
-	private static org.jdom2.Document document;
-	private static Element root_exported;
-	private static org.jdom2.Document document_exported;
+	private static JsonObject root;
 	private String file;
 
 	/**
 	 * @param file
 	 * @throws IOException
-	 * @throws JDOMException
-	 * @throws ParserConfigurationException
-	 * @throws Exception
 	 */
-	public void readFile(String file) throws JDOMException, IOException, ParserConfigurationException {
-		SAXBuilder sxb = new SAXBuilder();
-		File xml = new File(file);
-		if (xml.exists()) {
-			document = sxb.build(xml);
-			root = document.getRootElement();
-		} else {
-			root = new Element(USER_LISTS);
-			document = new Document(root);
-		}
+	public void readFile(String file) throws IOException {
+		Gson gson = new Gson();
+		File json = new File(file);
+		if (json.exists()) {
+			FileReader fileReader = new FileReader(json);
 
-		// Init for export lists
-		root_exported = new Element(EXPORTED_LIST);
-		root_exported.setAttribute(GAME_ID, ModManager.STEAM_ID.toString());
-		document_exported = new Document(root_exported);
+			root = gson.fromJson(fileReader, JsonObject.class);
+
+			fileReader.close();
+		} else {
+			root = new JsonObject();
+			root.add(USER_LISTS, new JsonArray());
+		}
 
 		this.file = file;
 	}
 
 	/**
 	 * @param file
-	 * @throws Exception
+	 * @throws IOException
 	 */
-	public void readSettingFile(String file) throws Exception {
-		SAXBuilder sxb = new SAXBuilder();
-		File xml = new File(file);
-		if (xml.exists()) {
-			document = sxb.build(xml);
-			root = document.getRootElement();
+	public void readSettingFile(String file) throws IOException {
+		Gson gson = new Gson();
+		File json = new File(file);
+
+		if (json.exists()) {
+			FileReader fileReader = new FileReader(json);
+
+			root = gson.fromJson(fileReader, JsonObject.class);
+
+			fileReader.close();
 		} else {
-			root = new Element(APP_SETTINGS);
-			document = new Document(root);
+			root = new JsonObject();
+			root.add(APP_SETTINGS, new JsonObject());
 		}
 
 		this.file = file;
 	}
 
 	/**
-	 * @throws Exception
+	 * @throws IOException
 	 */
-	public void saveFile() throws Exception {
-		XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
-		sortie.output(document, new FileOutputStream(file));
+	public void saveFile() throws IOException {
+		FileWriter fileWriter = new FileWriter(file);
+		fileWriter.write(root.toString());
+		fileWriter.close();
+	}
+
+	/**
+	 * @param availableMods
+	 * @param oneListElement
+	 * @return
+	 */
+	private ModList getModList(Map<String, Mod> availableMods, JsonObject oneListElement) {
+		List<Mod> listMods = new ArrayList<>();
+		Map<Integer, Mod> sortedMods = new TreeMap<>();
+		List<Mod> unsortedMods = new ArrayList<>();
+
+		String listName = oneListElement.get(NAME).getAsString();
+
+		boolean listCustomOrder = oneListElement.get(CUSTOM_ORDER).getAsBoolean();
+
+		String listDescr = oneListElement.get(DESCR).getAsString();
+
+		String launchArgs = oneListElement.get(LAUNCHARGS).getAsString();
+
+		String listLang = oneListElement.get(LANG).getAsString();
+
+		JsonArray mods = oneListElement.getAsJsonArray(MOD);
+		Iterator<JsonElement> j = mods.iterator();
+
+		while (j.hasNext()) {
+			JsonObject mod_json = j.next().getAsJsonObject();
+
+			String fileName = "", modName = "", remoteFileId = null;
+			int modOrder = -1;
+
+			for (String attribute : mod_json.keySet()) {
+				switch (attribute) {
+				case ID:
+				case FILE_NAME:
+					fileName = mod_json.get(attribute).getAsString();
+					break;
+				case MOD_NAME:
+					modName = mod_json.get(attribute).getAsString();
+					break;
+				case REMOTE_ID:
+					remoteFileId = mod_json.get(attribute).getAsString();
+					break;
+				case MOD_ORDER:
+					modOrder = mod_json.get(attribute).getAsInt();
+					break;
+
+				default:
+					break;
+				}
+			}
+
+			Mod oneMod = availableMods.get(fileName);
+			if (oneMod == null) {
+				oneMod = new Mod(modName, fileName, remoteFileId);
+				if (remoteFileId != null && !"".equals(remoteFileId)) {
+					for (Mod mod : availableMods.values()) {
+						if (mod.getRemoteFileID().equals(remoteFileId)) {
+							oneMod = mod;
+						}
+					}
+				}
+			}
+			if (!unsortedMods.contains(oneMod) && !sortedMods.values().contains(oneMod)) {
+				if (modOrder >= 0) {
+					sortedMods.put(modOrder, oneMod);
+				} else {
+					unsortedMods.add(oneMod);
+				}
+			}
+		}
+
+		// Append mods with order value
+		listMods.addAll(sortedMods.values());
+
+		// Append mods without order value at the end of the list
+		Collections.sort(unsortedMods, new Comparator<Mod>() {
+			@Override
+			public int compare(Mod m1, Mod m2) {
+				return m1.getName().compareTo(m2.getName());
+			}
+		});
+
+		listMods.addAll(unsortedMods);
+
+		return new ModList(listName, listDescr, Languages.getLanguage(listLang), listMods, listCustomOrder, launchArgs);
 	}
 
 	/**
@@ -118,202 +192,113 @@ public class MyJSON {
 	 */
 	public List<ModList> getSavedList(Map<String, Mod> availableMods) {
 		List<ModList> userLists = new ArrayList<>();
-		List<Element> modLists = root.getChildren(LIST);
-		Iterator<Element> i = modLists.iterator();
+
+		JsonArray modLists = root.get(USER_LISTS).getAsJsonArray();
+		Iterator<JsonElement> i = modLists.iterator();
+
 		while (i.hasNext()) {
-			List<Mod> listMods = new ArrayList<>();
-			Map<Integer, Mod> sortedMods = new TreeMap<>();
-			List<Mod> unsortedMods = new ArrayList<>();
+			JsonObject oneListElement = i.next().getAsJsonObject();
 
-			Element oneListElement = i.next();
-			String listName = oneListElement.getAttribute(NAME).getValue();
+			ModList oneList = getModList(availableMods, oneListElement);
 
-			boolean listCustomOrder = false;
-			try {
-				Attribute customOrderAttribute = oneListElement.getAttribute(CUSTOM_ORDER);
-				if (customOrderAttribute != null) {
-					listCustomOrder = customOrderAttribute.getBooleanValue();
-				}
-			} catch (DataConversionException e) {
-				// Bad value
-			}
-
-			String listDescr = "";
-			Element listDescrElement = oneListElement.getChild(DESCR);
-			if (listDescrElement != null)
-				listDescr = listDescrElement.getText();
-
-			String launchArgs = "";
-			Element listArgsElement = oneListElement.getChild(LAUNCHARGS);
-			if (listArgsElement != null)
-				launchArgs = listArgsElement.getText();
-
-			String listLang = null;
-			Element listLangElement = oneListElement.getChild(LANG);
-			if (listLangElement != null)
-				listLang = listLangElement.getText();
-
-			List<Element> modsElements = oneListElement.getChildren(MOD);
-			for (Element modElement : modsElements) {
-				List<Attribute> modElementAttr = modElement.getAttributes();
-				String fileName = "", modName = "", remoteFileId = null;
-				int modOrder = -1;
-				for (Attribute attribute : modElementAttr) {
-					switch (attribute.getName()) {
-					case ID:
-					case FILE_NAME:
-						fileName = attribute.getValue();
-						break;
-					case MOD_NAME:
-						modName = attribute.getValue();
-						break;
-					case REMOTE_ID:
-						remoteFileId = attribute.getValue();
-						break;
-					case MOD_ORDER:
-						try {
-							modOrder = attribute.getIntValue();
-						} catch (DataConversionException e) {
-							ErrorPrint.printError(e, "When reading mod order attribute (import)");
-							e.printStackTrace();
-						}
-						break;
-
-					default:
-						break;
-					}
-				}
-
-				Mod oneMod = availableMods.get(fileName);
-				if (oneMod == null) {
-					oneMod = new Mod(modName, fileName, remoteFileId);
-					if (remoteFileId != null && !"".equals(remoteFileId)) {
-						for (Mod mod : availableMods.values()) {
-							if (mod.getRemoteFileID().equals(remoteFileId)) {
-								oneMod = mod;
-							}
-						}
-					}
-				}
-				if (!unsortedMods.contains(oneMod) && !sortedMods.values().contains(oneMod)) {
-					if (modOrder >= 0) {
-						sortedMods.put(modOrder, oneMod);
-					} else {
-						unsortedMods.add(oneMod);
-					}
-				}
-			}
-
-			// Append mods with order value
-			listMods.addAll(sortedMods.values());
-
-			// Append mods without order value at the end of the list
-			Collections.sort(unsortedMods, new Comparator<Mod>() {
-				@Override
-				public int compare(Mod m1, Mod m2) {
-					return m1.getName().compareTo(m2.getName());
-				}
-			});
-			listMods.addAll(unsortedMods);
-
-			ModList oneList = new ModList(listName, listDescr, Languages.getLanguage(listLang), listMods,
-					listCustomOrder, launchArgs);
 			userLists.add(oneList);
 		}
+
 		return userLists;
 	}
 
 	/**
 	 * @param listName
-	 * @throws Exception
+	 * @throws IOException
 	 */
-	public void removeList(String listName) throws Exception {
-		List<Element> modLists = root.getChildren(LIST);
-		Iterator<Element> iE = modLists.iterator();
-		while (iE.hasNext()) {
-			Element oneListElement = iE.next();
-			String listElementName = oneListElement.getAttribute(NAME).getValue();
+	public void removeList(String listName) throws IOException {
+		JsonArray modLists = root.get(USER_LISTS).getAsJsonArray();
+		Iterator<JsonElement> i = modLists.iterator();
+
+		while (i.hasNext()) {
+			JsonObject oneListElement = i.next().getAsJsonObject();
+
+			String listElementName = oneListElement.get(NAME).getAsString();
 			if (listElementName.equals(listName)) {
-				root.removeContent(oneListElement);
+				modLists.remove(oneListElement);
+
+				// TODO check updated
+				// root.add(USER_LISTS, modLists);
+
 				break;
 			}
 		}
+
 		this.saveFile();
 	}
 
 	/**
 	 * @param list
-	 * @throws Exception
+	 * @throws IOException
 	 */
-	public void modifyList(ModList list) throws Exception {
+	public void modifyList(ModList list) throws IOException {
 		modifyList(list, null);
 	}
 
 	/**
 	 * @param list
 	 * @param listName
-	 * @throws Exception
+	 * @throws IOException
 	 */
-	public void modifyList(ModList list, String listName) throws Exception {
-		Element oneListElement = null, listDescrElement, listArgsElement, listLangElement, listModElement;
+	public void modifyList(ModList list, String listName) throws IOException {
+		JsonObject oneListElement = null, listModElement;
+		// JsonElement listDescrElement, listArgsElement, listLangElement;
+		JsonArray modLists = root.get(USER_LISTS).getAsJsonArray();
+
 		List<Mod> listMods;
 
 		boolean isNew = (listName != null) ? false : true;
 
 		if (!isNew) {
-			List<Element> modLists = root.getChildren(LIST);
-			Iterator<Element> i = modLists.iterator();
+
+			Iterator<JsonElement> i = modLists.iterator();
+
 			while (i.hasNext()) {
-				Element oneListElementIterated = i.next();
-				String listElementName = oneListElementIterated.getAttribute(NAME).getValue();
+				JsonObject oneListElementIterated = i.next().getAsJsonObject();
+
+				String listElementName = oneListElementIterated.get(NAME).getAsString();
 				if (listElementName.equals(listName)) {
 					oneListElement = oneListElementIterated;
+
 					break;
 				}
 			}
 		}
 
 		if (oneListElement != null) {
-			oneListElement.removeChildren(MOD);
+			oneListElement.remove(MOD);
 		} else {
-			oneListElement = new Element(LIST);
-			root.addContent(oneListElement);
+			oneListElement = new JsonObject();
+			modLists.add(oneListElement);
+
+			// TODO check updated
+			// root.add(USER_LISTS, modLists);
 		}
 
-		listDescrElement = oneListElement.getChild(DESCR);
-		if (listDescrElement == null) {
-			listDescrElement = new Element(DESCR);
-			oneListElement.addContent(listDescrElement);
-		}
+		oneListElement.add(NAME, new JsonPrimitive(list.getName()));
+		oneListElement.add(NAME, new JsonPrimitive(list.isCustomOrder()));
 
-		listLangElement = oneListElement.getChild(LANG);
-		if (listLangElement == null) {
-			listLangElement = new Element(LANG);
-			oneListElement.addContent(listLangElement);
-		}
-
-		listArgsElement = oneListElement.getChild(LAUNCHARGS);
-		if (listArgsElement == null) {
-			listArgsElement = new Element(LAUNCHARGS);
-			oneListElement.addContent(listArgsElement);
-		}
-
-		oneListElement.setAttribute(NAME, list.getName());
-		oneListElement.setAttribute(CUSTOM_ORDER, list.isCustomOrder() + "");
-
-		listDescrElement.setText(list.getDescription());
-		listArgsElement.setText(list.getLaunchArgs());
-		listLangElement.setText(list.getLanguageName());
+		oneListElement.add(DESCR, new JsonPrimitive(list.getDescription()));
+		oneListElement.add(LAUNCHARGS, new JsonPrimitive(list.getLaunchArgs()));
+		oneListElement.add(LANG, new JsonPrimitive(list.getLanguageName()));
 
 		listMods = list.getModlist();
 		for (int i = 0; i < listMods.size(); i++) {
 			Mod mod = listMods.get(i);
-			listModElement = new Element(MOD);
-			listModElement.setAttribute(MOD_NAME, mod.getName());
-			listModElement.setAttribute(FILE_NAME, mod.getFileName());
-			listModElement.setAttribute(REMOTE_ID, mod.getRemoteFileID());
-			listModElement.setAttribute(MOD_ORDER, i + "");
-			oneListElement.addContent(listModElement);
+
+			listModElement = new JsonObject();
+			listModElement.add(MOD_NAME, new JsonPrimitive(mod.getName()));
+			listModElement.add(FILE_NAME, new JsonPrimitive(mod.getFileName()));
+			listModElement.add(REMOTE_ID, new JsonPrimitive(mod.getRemoteFileID()));
+			listModElement.add(MOD_ORDER, new JsonPrimitive(i));
+
+			oneListElement.add(MOD, listModElement);
+			// TODO check updated
 		}
 
 		this.saveFile();
@@ -321,222 +306,122 @@ public class MyJSON {
 
 	/**
 	 * @param listName
-	 * @throws Exception
+	 * @throws IOException
 	 */
-	public void exportList(String listName) throws Exception {
-		List<Element> modLists = root.getChildren(LIST);
-		Iterator<Element> iE_export = modLists.iterator();
-		while (iE_export.hasNext()) {
-			Element oneListElement = iE_export.next();
-			String listElementName = oneListElement.getAttribute(NAME).getValue();
+	public void exportList(String listName) throws IOException {
+		JsonArray modLists = root.get(USER_LISTS).getAsJsonArray();
+		Iterator<JsonElement> i = modLists.iterator();
+
+		while (i.hasNext()) {
+			JsonObject oneListElement = i.next().getAsJsonObject();
+			String listElementName = oneListElement.get(NAME).getAsString();
+
 			if (listElementName.equals(listName)) {
-				root_exported.addContent(oneListElement.detach());
-				XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
+				JsonObject newroot = new JsonObject();
+				newroot.add(GAME_ID, new JsonPrimitive(ModManager.STEAM_ID));
+				newroot.add(EXPORTED_LIST, oneListElement.deepCopy());
+
 				String exportFileName = "Export_" + ModManager.GAME + "_" + listName + ".xml";
-				sortie.output(document_exported,
-						new FileOutputStream(ModManager.xmlDir + File.separator + exportFileName));
+
+				FileWriter fileWriter = new FileWriter(ModManager.xmlDir + File.separator + exportFileName);
+				fileWriter.write(newroot.toString());
+				fileWriter.close();
+
 				break;
 			}
 		}
-	}
-
-	public String importList(String xml, Map<String, Mod> availableMods) throws Exception {
-		SAXBuilder sxb = new SAXBuilder();
-		Document importDocument = sxb.build(xml);
-		Element importRoot = importDocument.getRootElement();
-		if (importRoot.getAttribute(GAME_ID).getValue().equals(ModManager.STEAM_ID.toString())) {
-			List<Element> modLists = importRoot.getChildren(LIST);
-			Iterator<Element> i = modLists.iterator();
-			while (i.hasNext()) {
-				List<Mod> listMods = new ArrayList<>();
-				Map<Integer, Mod> sortedMods = new TreeMap<>();
-				List<Mod> unsortedMods = new ArrayList<>();
-
-				Element oneListElement = i.next();
-				String listName = oneListElement.getAttribute(NAME).getValue();
-
-				boolean listCustomOrder = false;
-				try {
-					Attribute customOrderAttribute = oneListElement.getAttribute(CUSTOM_ORDER);
-					if (customOrderAttribute != null) {
-						listCustomOrder = customOrderAttribute.getBooleanValue();
-					}
-				} catch (DataConversionException e) {
-					// Bad value
-				}
-
-				String listDescr = "";
-				Element listDescrElement = oneListElement.getChild(DESCR);
-				if (listDescrElement != null)
-					listDescr = listDescrElement.getText();
-
-				String launchArgs = "";
-				Element listArgsElement = oneListElement.getChild(LAUNCHARGS);
-				if (listArgsElement != null)
-					launchArgs = listArgsElement.getText();
-
-				String listLang = null;
-				Element listLangElement = oneListElement.getChild(LANG);
-				if (listLangElement != null)
-					listLang = listLangElement.getText();
-
-				List<Element> modsElements = oneListElement.getChildren(MOD);
-				for (Element modElement : modsElements) {
-					List<Attribute> modElementAttr = modElement.getAttributes();
-					String fileName = "", modName = "", remoteFileId = null;
-					int modOrder = -1;
-					for (Attribute attribute : modElementAttr) {
-						switch (attribute.getName()) {
-						case ID:
-						case FILE_NAME:
-							fileName = attribute.getValue();
-							break;
-						case MOD_NAME:
-							modName = attribute.getValue();
-							break;
-						case REMOTE_ID:
-							remoteFileId = attribute.getValue();
-							break;
-						case MOD_ORDER:
-							try {
-								modOrder = attribute.getIntValue();
-							} catch (DataConversionException e) {
-								ErrorPrint.printError(e, "When reading mod order attribute (import)");
-								e.printStackTrace();
-							}
-							break;
-
-						default:
-							break;
-						}
-					}
-
-					Mod oneMod = availableMods.get(fileName);
-					if (oneMod == null) {
-						oneMod = new Mod(modName, fileName, remoteFileId);
-						if (remoteFileId != null && !"".equals(remoteFileId)) {
-							for (Mod mod : availableMods.values()) {
-								if (mod.getRemoteFileID().equals(remoteFileId)) {
-									oneMod = mod;
-								}
-							}
-						}
-					}
-					if (!unsortedMods.contains(oneMod) && !sortedMods.values().contains(oneMod)) {
-						if (modOrder >= 0) {
-							sortedMods.put(modOrder, oneMod);
-						} else {
-							unsortedMods.add(oneMod);
-						}
-					}
-				}
-
-				// Append mods with order value
-				listMods.addAll(sortedMods.values());
-
-				// Append mods without order value at the end of the list
-				Collections.sort(unsortedMods, new Comparator<Mod>() {
-					@Override
-					public int compare(Mod m1, Mod m2) {
-						return m1.getName().compareTo(m2.getName());
-					}
-				});
-				listMods.addAll(unsortedMods);
-
-				ModList oneList = new ModList("[Imported]" + listName + "_" + System.currentTimeMillis(), listDescr,
-						Languages.getLanguage(listLang), listMods, listCustomOrder, launchArgs);
-				modifyList(oneList);
-			}
-			return "Import done.";
-		}
-		return "Import procedure aborted, this list is not for the current game !";
 	}
 
 	/**
-	 * @throws DataConversionException
-	 *
+	 * @param file
+	 * @param availableMods
+	 * @return
+	 * @throws IOException
 	 */
-	public HashMap<String, String> getGameSettings(String gameLabel) throws DataConversionException {
-		HashMap<String, String> params = new HashMap<>();
-		List<Element> gameLists = root.getChildren(GAME);
-		Iterator<Element> i = gameLists.iterator();
-		while (i.hasNext()) {
-			Element oneListElement = i.next();
+	public String importListS(String file, Map<String, Mod> availableMods) throws IOException {
+		Gson gson = new Gson();
+		File json = new File(file);
 
-			if (gameLabel.equals(oneListElement.getAttributeValue(ATTR_GAMELABEL))) {
-				List<Element> gameParamsElements = oneListElement.getChildren();
-				for (Element element : gameParamsElements) {
-					params.put(element.getName(), element.getAttributeValue(ATTR_VALUE));
+		if (json.exists()) {
+			FileReader fileReader = new FileReader(json);
+
+			JsonObject importRoot = gson.fromJson(fileReader, JsonObject.class);
+
+			fileReader.close();
+
+			if (importRoot.get(GAME_ID).getAsInt() == ModManager.STEAM_ID) {
+				JsonArray modLists = importRoot.get(LIST).getAsJsonArray();
+				Iterator<JsonElement> i = modLists.iterator();
+
+				while (i.hasNext()) {
+
+					JsonObject oneListElement = i.next().getAsJsonObject();
+
+					ModList oneList = getModList(availableMods, oneListElement);
+					oneList.setName("[Imported]" + oneList.getName());
+
+					modifyList(oneList);
 				}
-				break;
+
+				return "Import done.";
 			}
+
+			return "Import procedure aborted, this list is not for the current game !";
 		}
+
+		return "Error, file '" + file + "' not found.";
+	}
+
+	/**
+	 * @param gameLabel
+	 * @return
+	 */
+	public HashMap<String, String> getGameSettings(String gameLabel) {
+		HashMap<String, String> params = new HashMap<>();
+
+		JsonObject appsettings = root.get(APP_SETTINGS).getAsJsonObject();
+		JsonObject gamesettings = appsettings.get(gameLabel).getAsJsonObject();
+
+		for (String key : gamesettings.keySet()) {
+			params.put(key, gamesettings.get(key).getAsString());
+		}
+
 		return params;
 	}
 
 	/**
-	 * @throws DataConversionException
-	 *
+	 * @param gameLabel
+	 * @param attrName
+	 * @return
 	 */
-	public String getOneGameSetting(String gameLabel, String attrName) throws DataConversionException {
-		List<Element> gameLists = root.getChildren(GAME);
-		Iterator<Element> i = gameLists.iterator();
-		while (i.hasNext()) {
-			Element oneListElement = i.next();
+	public String getOneGameSetting(String gameLabel, String attrName) {
+		JsonObject appsettings = root.get(APP_SETTINGS).getAsJsonObject();
+		JsonObject gamesettings = appsettings.get(gameLabel).getAsJsonObject();
 
-			if (gameLabel.equals(oneListElement.getAttributeValue(ATTR_GAMELABEL))) {
-				List<Element> gameParamsElements = oneListElement.getChildren();
-				for (Element element : gameParamsElements) {
-					if (element.getName().equals(attrName)) {
-						String value = element.getAttributeValue(ATTR_VALUE);
-						return value;
-					}
-				}
-			}
+		for (String key : gamesettings.keySet()) {
+			if (key.equals(attrName))
+				return gamesettings.get(key).getAsString();
 		}
+
 		return null;
 	}
 
-	public void modifyGameSettings(String gameLabel, String attrName, String value) throws Exception {
-		List<Element> gameLists = root.getChildren(GAME);
-		Iterator<Element> i = gameLists.iterator();
-		Boolean flag_nogame = true, flag_noattrparam = true;
-		while (i.hasNext()) {
-			Element oneListElement = i.next();
+	/**
+	 * @param gameLabel
+	 * @param attrName
+	 * @param value
+	 * @throws IOException
+	 */
+	public void modifyGameSettings(String gameLabel, String attrName, String value) throws IOException {
+		JsonObject appsettings = root.get(APP_SETTINGS).getAsJsonObject();
 
-			if (gameLabel.equals(oneListElement.getAttributeValue(ATTR_GAMELABEL))) {
-				flag_nogame = false;
-				List<Element> gameParamsElements = oneListElement.getChildren();
-				Iterator<Element> j = gameParamsElements.iterator();
+		JsonObject gamesettings;
+		if (appsettings.has(gameLabel)) {
+			gamesettings = appsettings.get(gameLabel).getAsJsonObject();
 
-				while (j.hasNext()) {
-					Element oneParamElement = j.next();
-
-					if (attrName == oneParamElement.getName()) {
-						flag_noattrparam = false;
-						oneParamElement.setAttribute(ATTR_VALUE, value);
-
-						break;
-					}
-				}
-
-				if (flag_noattrparam) {
-					Element newParamElement = new Element(attrName);
-					newParamElement.setAttribute(ATTR_VALUE, value);
-					oneListElement.addContent(newParamElement);
-				}
-
-				break;
-			}
-		}
-
-		if (flag_nogame) {
-			Element newGameElement = new Element(GAME);
-			newGameElement.setAttribute(ATTR_GAMELABEL, gameLabel.toString());
-			root.addContent(newGameElement);
-			Element newParamElement = new Element(attrName);
-			newParamElement.setAttribute(ATTR_VALUE, value);
-			newGameElement.addContent(newParamElement);
+		} else {
+			gamesettings = new JsonObject();
+			appsettings.add(gameLabel, gamesettings);
 		}
 
 		saveFile();
