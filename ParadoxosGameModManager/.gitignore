@@ -1,4 +1,11 @@
 #
+# PMM excludes
+#
+
+settings/
+settings.json
+
+#
 # Default excludes
 #
 

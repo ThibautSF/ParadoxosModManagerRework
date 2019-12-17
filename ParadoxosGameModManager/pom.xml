@@ -46,15 +46,14 @@
 			<version>5.5.2</version>
 			<!--<scope>test</scope>-->
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>3.1.0</version>
-			<!--<scope>test</scope>-->
-		</dependency>
 	</dependencies>
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -70,17 +69,20 @@
 				<version>0.0.3</version>
 				<configuration>
 					<mainClass>com.pmm.ParadoxosGameModManager.ModManager</mainClass>
+					<!--
 					<options>
 						<option>-Djava.library.path=C:\tmp</option>
 					</options>
-					<!--<executable>C:\Program Files\Java\jdk-11.0.4\bin\java.exe</executable>-->
+					<!- -
+					<executable>C:\Program Files\Java\jdk-11.0.4\bin\java.exe</executable>
+					<!- -->
 					<stripDebug>true</stripDebug>
 					<compress>2</compress>
 					<noHeaderFiles>true</noHeaderFiles>
 					<noManPages>true</noManPages>
 					<launcher>LaunchParadoxosModManager</launcher>
 					<jlinkImageName>ParadoxosModManager</jlinkImageName>
-					<jlinkZipName>ParadoxosModManager</jlinkZipName>
+					<jlinkZipName>ParadoxosModManager${project.version}</jlinkZipName>
 				</configuration>
 			</plugin>
 		</plugins>
