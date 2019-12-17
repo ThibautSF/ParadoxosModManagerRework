@@ -8,8 +8,6 @@ import java.util.Set;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
 import com.pmm.ParadoxosGameModManager.mod.Languages;
 import com.pmm.ParadoxosGameModManager.mod.Mod;
@@ -18,7 +16,7 @@ import com.pmm.ParadoxosGameModManager.mod.ModList;
 
 /**
  * Test the ModList class
- * 
+ *
  * @author GROSJEAN Nicolas (alias Mouchi)
  *
  */
@@ -36,20 +34,23 @@ public class TestModList {
 	public void setUp() {
 		modList = new ModList("", "", Languages.ENGLISH, new ArrayList<>());
 
-		MockitoAnnotations.initMocks(this);
+		// MockitoAnnotations.initMocks(this);
 
-		mod1 = Mockito.mock(Mod.class);
-		Mockito.when(mod1.getName()).thenReturn("mod1");
-		Mockito.when(mod1.getModifiedFiles()).thenReturn(getModifiedFiles(true, true));
+		// mod1 = Mockito.mock(Mod.class);
+		// Mockito.when(mod1.getName()).thenReturn("mod1");
+		// Mockito.when(mod1.getModifiedFiles()).thenReturn(getModifiedFiles(true,
+		// true));
 
-		mod2 = Mockito.mock(Mod.class);
-		Mockito.when(mod2.getName()).thenReturn("mod2");
-		Mockito.when(mod2.getModifiedFiles()).thenReturn(getModifiedFiles(true, false));
+		// mod2 = Mockito.mock(Mod.class);
+		// Mockito.when(mod2.getName()).thenReturn("mod2");
+		// Mockito.when(mod2.getModifiedFiles()).thenReturn(getModifiedFiles(true,
+		// false));
 
-		MockitoAnnotations.initMocks(this);
-		mod3 = Mockito.mock(Mod.class);
-		Mockito.when(mod3.getName()).thenReturn("mod3");
-		Mockito.when(mod3.getModifiedFiles()).thenReturn(getModifiedFiles(false, true));
+		// MockitoAnnotations.initMocks(this);
+		// mod3 = Mockito.mock(Mod.class);
+		// Mockito.when(mod3.getName()).thenReturn("mod3");
+		// Mockito.when(mod3.getModifiedFiles()).thenReturn(getModifiedFiles(false,
+		// true));
 	}
 
 	@Test

@@ -32,7 +32,6 @@ import com.google.gson.JsonObject;
 import com.pmm.ParadoxosGameModManager.debug.ErrorPrint;
 import com.pmm.ParadoxosGameModManager.mod.Mod;
 import com.pmm.ParadoxosGameModManager.mod.ModList;
-import com.pmm.ParadoxosGameModManager.settings.MyXML;
 import com.pmm.ParadoxosGameModManager.window.WorkIndicatorDialog;
 
 import javafx.beans.property.ReadOnlyStringWrapper;
@@ -74,7 +73,6 @@ import javafx.stage.Stage;
  *
  */
 public class ListManager extends Stage {
-	private static MyXML userlistsXML = new MyXML();
 	// private static List<String> modFileNames = Arrays.asList("mod","mods");
 
 	// Window Var
@@ -121,7 +119,6 @@ public class ListManager extends Stage {
 	// Local Var
 	private File gameDir;
 	private String absolutePath;
-	private String fileXML;
 	private Map<String, Mod> availableMods = new HashMap<>();
 	private List<ModList> userListArray = new ArrayList<>();
 	private WorkIndicatorDialog<String> wd = null;
@@ -134,7 +131,6 @@ public class ListManager extends Stage {
 	public ListManager(String path) throws FileNotFoundException {
 		gameDir = new File(path);
 		absolutePath = gameDir.getAbsolutePath();
-		fileXML = ModManager.xmlDir + File.separator + "UserLists.xml";
 
 		setTitle(ModManager.APP_NAME + " : " + ModManager.GAME);
 
@@ -235,7 +231,7 @@ public class ListManager extends Stage {
 
 		/*
 		 * listOfLists.addListener(new ListChangeListener<ModList>() {
-		 * 
+		 *
 		 * @Override public void onChanged(Change<? extends ModList> c) { // TODO
 		 * Improve sorting ? → maybe remake all the base of PMM...
 		 * System.out.println("La liste a changé"); System.out.println(c.toString()); }
@@ -263,7 +259,7 @@ public class ListManager extends Stage {
 			TableRow<ModList> row = new TableRow<>() {
 				/*
 				 * *
-				 * 
+				 *
 				 * @Override protected void updateItem(ModList item, boolean empty) {
 				 * super.updateItem(item, empty) ; if (item == null) setStyle(""); else if
 				 * (selectedListsList.contains(item))
@@ -359,10 +355,11 @@ public class ListManager extends Stage {
 				try {
 					new ListCreator(path, availableMods, toModify);
 				} catch (Exception e) {
-					if (pos == -1)
+					if (pos == -1) {
 						ErrorPrint.printError(e, "User try to enter in list modification without selecting a list");
-					else
+					} else {
 						ErrorPrint.printError(e, "When enter in modification of a list");
+					}
 					e.printStackTrace();
 				}
 			}// end action
@@ -382,15 +379,16 @@ public class ListManager extends Stage {
 				Optional<ButtonType> result = alertConfirm.showAndWait();
 				if (result.get() == ButtonType.OK) {
 					try {
-						userlistsXML.readFile(fileXML);
-						userlistsXML.removeList(toDelete.getName());
+						ModManager.userlistsJSON.readFile(ModManager.GAME_LIST_STORAGE_FILE.getAbsolutePath());
+						ModManager.userlistsJSON.removeList(toDelete.getName());
 						updateList();
 						refreshTexts();
 					} catch (Exception e) {
-						if (pos == -1)
+						if (pos == -1) {
 							ErrorPrint.printError(e, "User try to delete a list without selecting a list");
-						else
+						} else {
 							ErrorPrint.printError(e, "When trying to delete a list");
+						}
 						e.printStackTrace();
 					}
 				}
@@ -423,8 +421,9 @@ public class ListManager extends Stage {
 									new Thread(() -> {
 										try {
 											String uristr = "steam://run/" + ModManager.STEAM_ID;
-											if (toApply.getLaunchArgs().length() > 0)
+											if (toApply.getLaunchArgs().length() > 0) {
 												uristr += "//" + toApply.getLaunchArgs();
+											}
 											URI uri = new URI(uristr);
 											Desktop.getDesktop().browse(uri);
 										} catch (IOException | URISyntaxException e) {
@@ -462,7 +461,7 @@ public class ListManager extends Stage {
 				File file = importChooser.showOpenDialog(stage.getOwner());
 				if (file != null && !file.isDirectory()) {
 					try {
-						String strResult = userlistsXML.importList(file.getAbsolutePath(), availableMods);
+						String strResult = ModManager.userlistsJSON.importList(file.getAbsolutePath(), availableMods);
 						updateList();
 						refreshTexts();
 
@@ -486,7 +485,7 @@ public class ListManager extends Stage {
 				int pos = lists.getSelectionModel().getSelectedIndex();
 				ModList toExport = lists.getSelectionModel().getSelectedItem();
 				try {
-					userlistsXML.exportList(toExport.getName());
+					ModManager.userlistsJSON.exportList(ModManager.GAME, toExport.getName());
 
 					Alert a = new Alert(AlertType.INFORMATION);
 					a.setTitle("Import result");
@@ -495,10 +494,11 @@ public class ListManager extends Stage {
 
 					a.showAndWait();
 				} catch (Exception e) {
-					if (pos == -1)
+					if (pos == -1) {
 						ErrorPrint.printError(e, "User try to export a list without selecting a list");
-					else
+					} else {
 						ErrorPrint.printError(e, "When export a list");
+					}
 					e.printStackTrace();
 				}
 			}// end action
@@ -509,8 +509,8 @@ public class ListManager extends Stage {
 	 * @throws Exception
 	 */
 	private void updateList() throws Exception {
-		userlistsXML.readFile(fileXML);
-		userListArray = userlistsXML.getSavedList(availableMods);
+		ModManager.userlistsJSON.readFile(ModManager.GAME_LIST_STORAGE_FILE.getAbsolutePath());
+		userListArray = ModManager.userlistsJSON.getSavedList(availableMods);
 
 		ObservableList<TableColumn<ModList, ?>> sortOrder = lists.getSortOrder();
 		List<TableColumn<ModList, ?>> sortColumns = new ArrayList<>();
@@ -645,10 +645,11 @@ public class ListManager extends Stage {
 					printLanguageBloc(applyList.getLanguageCode(), writer);
 					startLineRemove = "last_mods";
 				} else {
-					if (applyList.isCustomOrder())
+					if (applyList.isCustomOrder()) {
 						modPrint(applyMods, writer, "pmm_");
-					else
+					} else {
 						modPrint(applyMods, writer);
+					}
 				}
 				startEdit = false;
 			} else {
@@ -672,10 +673,11 @@ public class ListManager extends Stage {
 		}
 		if (noLast_Mods) {
 			writer.write("last_mods={" + System.getProperty("line.separator"));
-			if (applyList.isCustomOrder())
+			if (applyList.isCustomOrder()) {
 				modPrint(applyMods, writer, "pmm_");
-			else
+			} else {
 				modPrint(applyMods, writer);
+			}
 			writer.write("}" + System.getProperty("line.separator"));
 		}
 		writer.close();
@@ -734,8 +736,9 @@ public class ListManager extends Stage {
 		String modfolder = "mod/";
 		// if(!(modfolder.lastIndexOf("/")==modfolder.length()-1)) modfolder+="/";
 		String prefix = "";
-		if (applyList.isCustomOrder())
+		if (applyList.isCustomOrder()) {
 			prefix = "pmm_";
+		}
 
 		for (Mod mod : applyMods) {
 			String modpath = modfolder + prefix + mod.getFileName();
@@ -988,8 +991,9 @@ public class ListManager extends Stage {
 	 */
 	private void modPrint(List<Mod> applyMods, BufferedWriter writer, String prefix, String modfolder)
 			throws IOException {
-		if (!(modfolder.lastIndexOf("/") == modfolder.length() - 1))
+		if (!(modfolder.lastIndexOf("/") == modfolder.length() - 1)) {
 			modfolder += "/";
+		}
 		for (Mod mod : applyMods) {
 			String addLine = "\t\"" + modfolder + prefix + mod.getFileName() + "\"";
 			writer.write(addLine + System.getProperty("line.separator"));

@@ -33,8 +33,8 @@ public class MyJSON {
 	private static final String GAME_ID = "gameID";
 	private static final String LIST = "list";
 	private static final String NAME = "name";
-	private static final String CUSTOM_ORDER = "customOrder";
 	private static final String DESCR = "descr";
+	private static final String CUSTOM_ORDER = "customOrder";
 	private static final String LAUNCHARGS = "launchargs";
 	private static final String LANG = "lang";
 	private static final String MOD = "mod";
@@ -46,8 +46,8 @@ public class MyJSON {
 
 	private static final String APP_SETTINGS = "appsettings";
 
-	private static JsonObject root;
-	private String file;
+	private JsonObject root;
+	private File file;
 
 	/**
 	 * @param file
@@ -55,7 +55,11 @@ public class MyJSON {
 	 */
 	public void readFile(String file) throws IOException {
 		Gson gson = new Gson();
+		System.out.println(file);
 		File json = new File(file);
+
+		this.file = json;
+
 		if (json.exists()) {
 			FileReader fileReader = new FileReader(json);
 
@@ -65,9 +69,13 @@ public class MyJSON {
 		} else {
 			root = new JsonObject();
 			root.add(USER_LISTS, new JsonArray());
-		}
 
-		this.file = file;
+			if (json.getParentFile() != null) {
+				json.getParentFile().mkdirs();
+			}
+			json.createNewFile();
+			saveFile();
+		}
 	}
 
 	/**
@@ -78,6 +86,8 @@ public class MyJSON {
 		Gson gson = new Gson();
 		File json = new File(file);
 
+		this.file = json;
+
 		if (json.exists()) {
 			FileReader fileReader = new FileReader(json);
 
@@ -87,9 +97,13 @@ public class MyJSON {
 		} else {
 			root = new JsonObject();
 			root.add(APP_SETTINGS, new JsonObject());
-		}
 
-		this.file = file;
+			if (json.getParentFile() != null) {
+				json.getParentFile().mkdirs();
+			}
+			json.createNewFile();
+			saveFile();
+		}
 	}
 
 	/**
@@ -222,9 +236,6 @@ public class MyJSON {
 			if (listElementName.equals(listName)) {
 				modLists.remove(oneListElement);
 
-				// TODO check updated
-				// root.add(USER_LISTS, modLists);
-
 				break;
 			}
 		}
@@ -247,6 +258,7 @@ public class MyJSON {
 	 */
 	public void modifyList(ModList list, String listName) throws IOException {
 		JsonObject oneListElement = null, listModElement;
+		JsonArray listModArray = new JsonArray();
 		// JsonElement listDescrElement, listArgsElement, listLangElement;
 		JsonArray modLists = root.get(USER_LISTS).getAsJsonArray();
 
@@ -275,19 +287,18 @@ public class MyJSON {
 		} else {
 			oneListElement = new JsonObject();
 			modLists.add(oneListElement);
-
-			// TODO check updated
-			// root.add(USER_LISTS, modLists);
 		}
 
 		oneListElement.add(NAME, new JsonPrimitive(list.getName()));
-		oneListElement.add(NAME, new JsonPrimitive(list.isCustomOrder()));
-
 		oneListElement.add(DESCR, new JsonPrimitive(list.getDescription()));
+
+		oneListElement.add(CUSTOM_ORDER, new JsonPrimitive(list.isCustomOrder()));
+
 		oneListElement.add(LAUNCHARGS, new JsonPrimitive(list.getLaunchArgs()));
 		oneListElement.add(LANG, new JsonPrimitive(list.getLanguageName()));
 
 		listMods = list.getModlist();
+		oneListElement.add(MOD, listModArray);
 		for (int i = 0; i < listMods.size(); i++) {
 			Mod mod = listMods.get(i);
 
@@ -297,8 +308,7 @@ public class MyJSON {
 			listModElement.add(REMOTE_ID, new JsonPrimitive(mod.getRemoteFileID()));
 			listModElement.add(MOD_ORDER, new JsonPrimitive(i));
 
-			oneListElement.add(MOD, listModElement);
-			// TODO check updated
+			listModArray.add(listModElement);
 		}
 
 		this.saveFile();
@@ -308,7 +318,7 @@ public class MyJSON {
 	 * @param listName
 	 * @throws IOException
 	 */
-	public void exportList(String listName) throws IOException {
+	public void exportList(String game, String listName) throws IOException {
 		JsonArray modLists = root.get(USER_LISTS).getAsJsonArray();
 		Iterator<JsonElement> i = modLists.iterator();
 
@@ -321,9 +331,9 @@ public class MyJSON {
 				newroot.add(GAME_ID, new JsonPrimitive(ModManager.STEAM_ID));
 				newroot.add(EXPORTED_LIST, oneListElement.deepCopy());
 
-				String exportFileName = "Export_" + ModManager.GAME + "_" + listName + ".xml";
+				String exportFileName = "Export_" + game + "_" + listName + ".xml";
 
-				FileWriter fileWriter = new FileWriter(ModManager.xmlDir + File.separator + exportFileName);
+				FileWriter fileWriter = new FileWriter(this.file.getParentFile() + File.separator + exportFileName);
 				fileWriter.write(newroot.toString());
 				fileWriter.close();
 
@@ -338,7 +348,7 @@ public class MyJSON {
 	 * @return
 	 * @throws IOException
 	 */
-	public String importListS(String file, Map<String, Mod> availableMods) throws IOException {
+	public String importList(String file, Map<String, Mod> availableMods) throws IOException {
 		Gson gson = new Gson();
 		File json = new File(file);
 
@@ -396,11 +406,14 @@ public class MyJSON {
 	 */
 	public String getOneGameSetting(String gameLabel, String attrName) {
 		JsonObject appsettings = root.get(APP_SETTINGS).getAsJsonObject();
-		JsonObject gamesettings = appsettings.get(gameLabel).getAsJsonObject();
 
-		for (String key : gamesettings.keySet()) {
-			if (key.equals(attrName))
-				return gamesettings.get(key).getAsString();
+		if (appsettings.has(gameLabel)) {
+			JsonObject gamesettings = appsettings.get(gameLabel).getAsJsonObject();
+
+			for (String key : gamesettings.keySet()) {
+				if (key.equals(attrName))
+					return gamesettings.get(key).getAsString();
+			}
 		}
 
 		return null;
@@ -423,6 +436,8 @@ public class MyJSON {
 			gamesettings = new JsonObject();
 			appsettings.add(gameLabel, gamesettings);
 		}
+
+		gamesettings.add(attrName, new JsonPrimitive(value));
 
 		saveFile();
 	}
