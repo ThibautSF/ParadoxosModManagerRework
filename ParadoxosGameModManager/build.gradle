@@ -1,0 +1,48 @@
+plugins {
+  id 'application'
+  id 'eclipse'
+  id 'org.openjfx.javafxplugin' version '0.0.8'
+  id 'org.beryx.jlink' version '2.12.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+  // https://mvnrepository.com/artifact/com.google.code.gson/gson
+  implementation 'com.google.code.gson:gson:2.8.6'
+
+  //https://mvnrepository.com/artifact/org.kordamp.ikonli/
+  implementation 'org.kordamp.ikonli:ikonli-javafx:11.3.5'
+  implementation 'org.kordamp.ikonli:ikonli-fontawesome5-pack:11.3.5'
+  
+  // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+  implementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+}
+
+javafx {
+    version = "11"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+mainClassName = "$moduleName/com.pmm.ParadoxosGameModManager.ModManager"
+
+eclipse {
+    classpath {
+        file {
+            whenMerged {
+                entries.findAll { it.properties.kind.equals('lib') }.each {
+                    it.entryAttributes['module'] = 'true'
+                }
+            }
+        }
+    }
+}
+
+jlink {
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'LaunchParadoxosModManager'
+    }
+}

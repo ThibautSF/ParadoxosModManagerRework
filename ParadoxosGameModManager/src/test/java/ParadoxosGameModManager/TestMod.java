@@ -1,4 +1,4 @@
-package com.pmm.ParadoxosGameModManager.tests;
+package ParadoxosGameModManager;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -10,11 +10,12 @@ import org.junit.jupiter.api.Test;
 
 import com.pmm.ParadoxosGameModManager.ModManager;
 import com.pmm.ParadoxosGameModManager.mod.Mod;
- 
+
 /**
  * Test the Mod class
- * 
- * @see about Parameterized test : https://github.com/junit-team/junit4/wiki/parameterized-tests
+ *
+ * @see about Parameterized test :
+ *      https://github.com/junit-team/junit4/wiki/parameterized-tests
  * @author GROSJEAN Nicolas (alias Mouchi)
  *
  */
@@ -27,10 +28,9 @@ public class TestMod {
 	public String modName;
 
 	public String modType;
-	
+
 	@BeforeAll
-	public static void setUp()
-	{
+	public static void setUp() {
 		ModManager.PATH = System.getProperty("user.dir") + "/testRessources/";
 	}
 

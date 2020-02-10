@@ -26,6 +26,11 @@ settings.json
 # Maven 
 target/
 
+# Gradle
+.gradle/
+build/
+!gradle-wrapper.jar
+
 # IntelliJ project files 
 *.iml
 *.iws
@@ -46,12 +51,13 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 
-
 # OS
 .DS_Store
 
 # Misc
+bin/
 *.swp
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+

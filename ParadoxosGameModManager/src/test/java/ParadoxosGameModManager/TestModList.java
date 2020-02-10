@@ -1,4 +1,4 @@
-package com.pmm.ParadoxosGameModManager.tests;
+package ParadoxosGameModManager;
 
 import java.util.ArrayList;
 import java.util.HashSet;
