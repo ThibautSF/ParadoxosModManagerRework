@@ -6,19 +6,7 @@ I develop this app because i often have lots of mods and games with differents l
 ## Important
 This repository is for work in progress developpment for Java 11 migration of [Java 8 Paradoxos Mod Manager](https://github.com/ThibautSF/ParadoxosModManager)
 
-## Game supported
-* Crusader Kings II
-* Europa Universalis IV
-* Stellaris
-* Hearts of Iron 4
-* Imperator Rome
-
-## Requirements
-* OS : Windows, Linux, MacOS
-* ~~Java 8u40 (at least)~~ *Objective: No JRE needed*
-* Supported game(s) and mods installed (*not really necessary but without, this tool won't be really useful*)
-
-Build lastest :
+### Build lastest
 1. Install OpenJDK 11 and set `JAVA_HOME`
    - I use [AdoptOpenJDK 11 (HotSpot)](https://adoptopenjdk.net/): [installation instructions (installers should set JAVA_HOME)](https://adoptopenjdk.net/installation.html?variant=openjdk11#)
 2. Clone repo (download zip and extract or `git clone https://github.com/ThibautSF/ParadoxosModManagerRework.git`)
@@ -31,8 +19,20 @@ Build lastest :
    - Windows: `gradlew dist`
    - Get the zip `build/distributions/ParadoxosModManager-<distrib>.zip` (after extraction launch PMM with `bin\LaunchParadoxosModManager.bat` (for Windows) or `./bin/LaunchParadoxosModManager` (for Linux/macOS)
 
-
 See [OpenJFX Documentation](https://openjfx.io/openjfx-docs/) for more details.
+##
+
+## Game supported
+* Crusader Kings II
+* Europa Universalis IV
+* Stellaris
+* Hearts of Iron 4
+* Imperator Rome
+
+## Requirements
+* OS : Windows, Linux, MacOS
+* ~~Java 8u40 (at least)~~ *Objective: No JRE needed*
+* Supported game(s) and mods installed (*not really necessary but without, this tool won't be really useful*)
 
 ## Usefull links
 ### Download
