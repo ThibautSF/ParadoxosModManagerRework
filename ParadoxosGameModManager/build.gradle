@@ -1,9 +1,24 @@
+//https://github.com/beryx/badass-jlink-plugin/
+//https://github.com/brunoborges/javafx-jlink-starter-gradle
+
 plugins {
-  id 'application'
-  id 'eclipse'
-  id 'org.openjfx.javafxplugin' version '0.0.8'
-  id 'org.beryx.jlink' version '2.12.0'
+    id 'java'
+    id 'eclipse'
+    id 'application'
+    id 'org.openjfx.javafxplugin'      version '0.0.8'
+    id 'org.beryx.jlink'               version '2.17.1'
 }
+
+// Application Configuration
+ext {
+    appName = "Paradoxos Mod Manager"
+    appLauncher = "LaunchParadoxosModManager"
+    appPackaging = "ParadoxosModManager"
+    appModuleName = "com.pmm.ParadoxosGameModManager"
+    appMainClass = "com.pmm.ParadoxosGameModManager.ModManager"
+}
+
+mainClassName = "${ext.appModuleName}/${ext.appMainClass}"
 
 repositories {
     mavenCentral()
@@ -22,27 +37,53 @@ dependencies {
 }
 
 javafx {
-    version = "11"
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
-}
-
-mainClassName = "$moduleName/com.pmm.ParadoxosGameModManager.ModManager"
-
-eclipse {
-    classpath {
-        file {
-            whenMerged {
-                entries.findAll { it.properties.kind.equals('lib') }.each {
-                    it.entryAttributes['module'] = 'true'
-                }
-            }
-        }
-    }
+    version = '11'
+    modules = [
+       'javafx.controls',
+       'javafx.fxml'
+    ]
 }
 
 jlink {
+    imageZip = project.file("${buildDir}/distributions/${appPackaging}-${javafx.platform.classifier}.zip")
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     launcher {
-        name = 'LaunchParadoxosModManager'
+        name = "${appLauncher}"
+    }
+}
+
+task copyJson(type: Copy) {
+    dependsOn 'jlink'
+    from "supported_games.json"
+    into "${buildDir}/image"
+}
+
+task dist {
+    dependsOn clean, 'jlink', copyJson, jlinkZip
+    description "Calls clean and then jlinkZip [default]"
+}
+
+defaultTasks 'dist'
+
+if (project.hasProperty('debugRun') && project.debugRun as boolean) {
+    run {
+        jvmArgs '-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=*:5005'
+    }
+}
+
+eclipse {
+    classpath {
+        containers 'org.eclipse.buildship.core.gradleclasspathcontainer'
+        file {
+            whenMerged {
+                entries.findAll { it.properties.kind.equals('lib') /*&& !it.properties.path.contains("junit")*/ }.each {
+                    it.entryAttributes['module'] = 'true'
+                }
+                entries.findAll { it.properties.path.startsWith('org.eclipse.jdt.launching.JRE_CONTAINER') }.each {
+                    it.entryAttributes['module'] = 'true'
+                }
+
+            }
+        }
     }
 }
