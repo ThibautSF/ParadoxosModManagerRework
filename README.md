@@ -6,7 +6,7 @@ I develop this app because i often have lots of mods and games with differents l
 ## Important
 This repository is for work in progress developpment for Java 11 migration of [Java 8 Paradoxos Mod Manager](https://github.com/ThibautSF/ParadoxosModManager)
 
-### Build lastest
+### Build latest
 1. Install OpenJDK 11 and set `JAVA_HOME`
    - I use [AdoptOpenJDK 11 (HotSpot)](https://adoptopenjdk.net/): [installation instructions (installers should set JAVA_HOME)](https://adoptopenjdk.net/installation.html?variant=openjdk11#)
 2. Clone repo (download zip and extract or `git clone https://github.com/ThibautSF/ParadoxosModManagerRework.git`)
