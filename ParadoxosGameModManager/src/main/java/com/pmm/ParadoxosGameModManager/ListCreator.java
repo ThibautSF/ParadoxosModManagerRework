@@ -790,10 +790,11 @@ public class ListCreator extends Stage {
 	private void printModList() {
 		List<Mod> modsFromList = list.getModlist();
 
-		/*
-		 * for (Mod oneMod : userMods) { if(modsFromList.contains(oneMod)) {
-		 * selectedModsList.add(oneMod); } }
-		 */
+//		for (Mod oneMod : userMods) {
+//			if(modsFromList.contains(oneMod)) { 
+//				selectedModsList.add(oneMod);
+//			}
+//		}
 
 		for (Mod oneMod : modsFromList) {
 			if (oneMod.isMissing()) {

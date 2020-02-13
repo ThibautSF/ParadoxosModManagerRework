@@ -229,14 +229,14 @@ public class ListManager extends Stage {
 		lists.getColumns().add(nbModCol);
 		lists.getColumns().add(modOrderCol);
 
-		/*
-		 * listOfLists.addListener(new ListChangeListener<ModList>() {
-		 *
-		 * @Override public void onChanged(Change<? extends ModList> c) { // TODO
-		 * Improve sorting ? → maybe remake all the base of PMM...
-		 * System.out.println("La liste a changé"); System.out.println(c.toString()); }
-		 * });
-		 */
+//		listOfLists.addListener(new ListChangeListener<ModList>() {
+//			@Override
+//			public void onChanged(Change<? extends ModList> c) {
+//				// TODO Improve sorting ? → maybe remake all the base of PMM...
+//				System.out.println("La liste a changé");
+//				System.out.println(c.toString());
+//			}
+//		});
 
 		listNameCol.setCellValueFactory(new PropertyValueFactory<ModList, String>("name"));
 		listNameCol.setMinWidth(300);
@@ -257,15 +257,17 @@ public class ListManager extends Stage {
 
 		lists.setRowFactory(tv -> {
 			TableRow<ModList> row = new TableRow<>() {
-				/*
-				 * *
-				 *
-				 * @Override protected void updateItem(ModList item, boolean empty) {
-				 * super.updateItem(item, empty) ; if (item == null) setStyle(""); else if
-				 * (selectedListsList.contains(item))
-				 * setStyle("-fx-text-fill: white; -fx-background-color: #4CAF50;"); else
-				 * setStyle(""); } /*
-				 */
+//				@Override
+//				protected void updateItem(ModList item, boolean empty) {
+//					super.updateItem(item, empty);
+//					if (item == null) {
+//						setStyle("");
+//					} else if (selectedListsList.contains(item)) {
+//						setStyle("-fx-text-fill: white; -fx-background-color: #4CAF50;");
+//					} else {
+//						setStyle("");
+//					}
+//				}
 			};
 
 			row.setOnMouseClicked(event -> {
@@ -726,15 +728,16 @@ public class ListManager extends Stage {
 
 		json = gson.fromJson(fileReader, JsonObject.class);
 
-		/*
-		 * if(!json.containsKey("disabled_dlcs")) json.put("disabled_dlcs", new
-		 * String[0]);
-		 */
+//		if (!json.containsKey("disabled_dlcs")) {
+//			json.put("disabled_dlcs", new String[0]);
+//		}
 
 		JsonArray enabled_mods = new JsonArray();
 
 		String modfolder = "mod/";
-		// if(!(modfolder.lastIndexOf("/")==modfolder.length()-1)) modfolder+="/";
+//		if (!(modfolder.lastIndexOf("/") == modfolder.length() - 1)) {
+//			modfolder += "/";
+//		}
 		String prefix = "";
 		if (applyList.isCustomOrder()) {
 			prefix = "pmm_";
@@ -1054,8 +1057,7 @@ public class ListManager extends Stage {
 			for (int i = 0; i < childs.length; i++) {
 				File modDir = childs[i];
 
-				// if (modDir.isDirectory() &&
-				// ListManager.modFileNames.contains(modDir.getName().toLowerCase())) {
+//				if (modDir.isDirectory() && ListManager.modFileNames.contains(modDir.getName().toLowerCase())) {
 				if (modDir.isDirectory() && modDir.getName().toLowerCase().equals("mod")) {
 					// Clean customModFiles
 					deleteCustomModFiles();
@@ -1074,9 +1076,8 @@ public class ListManager extends Stage {
 						wd.currentProgress = j;
 					}
 				} else {
-					// throw new FileNotFoundException("The folder '"+modFile.getAbsolutePath()+"'
-					// is missing, please check the path.\nBe sure to have started the game launcher
-					// once !");
+//					throw new FileNotFoundException("The folder '" + modFile.getAbsolutePath()
+//							+ "'is missing, please check the path.\nBe sure to have started the game launcher once !");
 				}
 			}
 

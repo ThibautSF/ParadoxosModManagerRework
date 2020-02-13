@@ -40,8 +40,8 @@ import javafx.stage.Stage;
  *
  */
 public class OnlineVersionChecker {
-	private static String URL_APP_RELEASES = "https://github.com/ThibautSF/ParadoxosModManager/releases";
-	private static String URL_APP_INFO_TXT = "https://raw.githubusercontent.com/ThibautSF/ParadoxosModManager/master/AppInfoV2.txt";
+	private static String URL_APP_RELEASES = "https://github.com/ThibautSF/ParadoxosModManagerRework/releases";
+	private static String URL_APP_INFO_TXT = "https://raw.githubusercontent.com/ThibautSF/ParadoxosModManagerRework/master/AppInfo.txt";
 
 	private static String VERSION = "0.8.0";
 
@@ -110,8 +110,7 @@ public class OnlineVersionChecker {
 		} catch (Exception e) {
 			ErrorPrint.printError(e, "Check Online Version");
 			changelog = new StringBuilder();
-			// BasicDialog.showGenericDialog("Version checking error", "Unable to check
-			// online version", AlertType.ERROR);
+			BasicDialog.showGenericDialog("Version checking error", "Unable to check online version", AlertType.ERROR);
 		}
 
 		// We reach end of file (case final line was an AppVersion)
@@ -159,11 +158,11 @@ public class OnlineVersionChecker {
 	 */
 	private String getGithHubDownloadUrl() {
 		// Paradoxos Example :
-		// https://github.com/ThibautSF/ParadoxosModManager/releases/download/0.5.2/ParadoxosModManager0.5.2.zip
+		// https://github.com/ThibautSF/ParadoxosModManagerRework/releases/download/0.5.2/ParadoxosModManager0.5.2.zip
 
 		StringBuilder builder = new StringBuilder();
 
-		builder.append("https://github.com/ThibautSF/ParadoxosModManager/releases/download/");
+		builder.append("https://github.com/ThibautSF/ParadoxosModManagerRework/releases/download/");
 		builder.append(lastestOnlineVersionNumber);
 		builder.append("/ParadoxosModManager");
 		builder.append(lastestOnlineVersionNumber);
@@ -173,7 +172,7 @@ public class OnlineVersionChecker {
 
 	/**
 	 * Get the download GitHub release tag page URL. EX :
-	 * https://github.com/ThibautSF/ParadoxosModManager/releases/tag/0.5.2
+	 * https://github.com/ThibautSF/ParadoxosModManagerRework/releases/tag/0.5.2
 	 *
 	 * @return string of the url to see infos about the last version of the software
 	 *         (on GitHub)
@@ -181,7 +180,7 @@ public class OnlineVersionChecker {
 	private String getGithHubReleaseUrl() {
 		StringBuilder builder = new StringBuilder();
 
-		builder.append("https://github.com/ThibautSF/ParadoxosModManager/releases/tag/");
+		builder.append("https://github.com/ThibautSF/ParadoxosModManagerRework/releases/tag/");
 		builder.append(lastestOnlineVersionNumber);
 		return builder.toString();
 	}
@@ -265,7 +264,9 @@ public class OnlineVersionChecker {
 			dialog.close();
 		});
 
-		buttons.getChildren().addAll(buttonWebAll, buttonWebDownload, buttonCancel);
+		buttons.getChildren().add(buttonWebAll);
+//		buttons.getChildren().add(buttonWebDownload);
+		buttons.getChildren().add(buttonCancel);
 		buttons.setAlignment(Pos.BOTTOM_RIGHT);
 
 		expContent.add(buttons, 1, 2);

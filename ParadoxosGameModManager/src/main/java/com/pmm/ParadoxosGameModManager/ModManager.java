@@ -51,7 +51,7 @@ public class ModManager extends Application {
 	public static final String APP_NAME = "Paradoxos Mod Manager";
 	private static final String OS = System.getProperty("os.name").toLowerCase();
 
-	public static String UPDATE_ZIP_NAME = "update.zip";
+	public static String UPDATE_ZIP_NAME = "Update.zip";
 	public static String UPDATER_NAME = "Updater.jar";
 
 	private static final String SUPPORTED_GAMES_FILE = "supported_games.json";
@@ -271,15 +271,19 @@ public class ModManager extends Application {
 				}
 			}
 		});
-		/*
-		 * openExeGameButton.setOnAction( new EventHandler<ActionEvent>() {
-		 *
-		 * @Override public void handle(final ActionEvent e) { File file =
-		 * exeGameChooser.showOpenDialog(dialog.getOwner()); if (file!=null &&
-		 * !file.isDirectory()){ //System.out.println(file.toString()); String newPath =
-		 * file.getAbsolutePath()+File.separator; exeGameChooser.setInitialDirectory(new
-		 * File(newPath)); gamePath.setText(newPath); } } } );
-		 */
+
+//		openExeGameButton.setOnAction(new EventHandler<ActionEvent>() {
+//			@Override
+//			public void handle(final ActionEvent e) {
+//				File file = exeGameChooser.showOpenDialog(dialog.getOwner());
+//				if (file != null && !file.isDirectory()) {
+//					// System.out.println(file.toString());
+//					String newPath = file.getAbsolutePath() + File.separator;
+//					exeGameChooser.setInitialDirectory(new File(newPath));
+//					gamePath.setText(newPath);
+//				}
+//			}
+//		});
 
 		Label lbl = new Label("--- Change if different from default ---");
 		lbl.setMaxWidth(Double.MAX_VALUE);
@@ -320,10 +324,9 @@ public class ModManager extends Application {
 		grid.add(new Label("Doc path :"), 0, 4);
 		grid.add(docPath, 1, 4);
 		grid.add(openDirDocButton, 2, 4);
-		/*
-		 * grid.add(new Label("Game (exe) path :"), 0, 5); grid.add(gamePath, 1, 5);
-		 * grid.add(openExeGameButton, 2, 5);
-		 */
+
+//		grid.add(new Label("Game (exe) path :"), 0, 5); grid.add(gamePath, 1, 5);
+//		grid.add(openExeGameButton, 2, 5);
 
 		dialog.getDialogPane().setContent(grid);
 
