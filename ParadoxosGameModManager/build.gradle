@@ -38,14 +38,14 @@ repositories {
 }
 
 dependencies {
-  // https://mvnrepository.com/artifact/com.google.code.gson/gson
+  //https://mvnrepository.com/artifact/com.google.code.gson/gson
   implementation 'com.google.code.gson:gson:2.8.6'
 
   //https://mvnrepository.com/artifact/org.kordamp.ikonli/
   implementation 'org.kordamp.ikonli:ikonli-javafx:11.3.5'
   implementation 'org.kordamp.ikonli:ikonli-fontawesome5-pack:11.3.5'
   
-  // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+  //https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
   implementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
 }
 
@@ -63,6 +63,8 @@ jlink {
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     launcher {
         name = "${appLauncher}"
+        //unixScriptTemplate = file("${projectDir}/resources/gradle/jlink/unixScriptTemplate.txt")
+        windowsScriptTemplate = file("${projectDir}/resources/gradle/jlink/windowsScriptTemplate.txt")
     }
 }
 

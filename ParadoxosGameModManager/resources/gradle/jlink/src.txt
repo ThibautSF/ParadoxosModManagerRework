@@ -1,0 +1,1 @@
+https://github.com/beryx/badass-jlink-plugin/tree/master/src/main/resources

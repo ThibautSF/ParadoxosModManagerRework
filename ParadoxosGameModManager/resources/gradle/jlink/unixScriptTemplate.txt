@@ -1,0 +1,3 @@
+#!/bin/sh
+DIR="\${0%/*}"
+"\$DIR/java" ${jvmArgs} -p "\$DIR/../app" -m ${moduleName}/${mainClassName} ${args} "\$@"
