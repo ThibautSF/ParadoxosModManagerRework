@@ -1,6 +1,8 @@
 //https://github.com/beryx/badass-jlink-plugin/
 //https://github.com/brunoborges/javafx-jlink-starter-gradle
 
+import org.gradle.internal.os.OperatingSystem
+
 plugins {
     id 'java'
     id 'eclipse'
@@ -16,8 +18,19 @@ ext {
     appPackaging = "ParadoxosModManager"
     appModuleName = "com.pmm.ParadoxosGameModManager"
     appMainClass = "com.pmm.ParadoxosGameModManager.ModManager"
+    
+    platform = "other"
+    if (OperatingSystem.current().isMacOsX()) {
+        platform = "mac"
+    }
+    else if (OperatingSystem.current().isLinux()) {
+        platform = "linux"
+    }
+    else if (OperatingSystem.current().isWindows()) {
+        platform = "windows"
+    }
 }
-
+	
 mainClassName = "${ext.appModuleName}/${ext.appMainClass}"
 
 repositories {
@@ -53,14 +66,28 @@ jlink {
     }
 }
 
-task copyJson(type: Copy) {
+task copyResources(type: Copy) {
     dependsOn 'jlink'
-    from "supported_games.json"
+    
+    from("${projectDir}") {
+        include "supported_games.json"
+    }
+    
+    from("${projectDir}/resources/all") {
+        include "*"
+    }
+    
+    if (platform != "other") {
+        from("${projectDir}/resources/platform_specific/${platform}") {
+            include "*"
+        }
+    }
+    
     into "${buildDir}/${appPackaging}"
 }
 
 task dist {
-    dependsOn clean, 'jlink', copyJson, jlinkZip
+    dependsOn clean, 'jlink', copyResources, jlinkZip
     doLast {
     	System.out.println("::set-env name=BUILD_ARTIFACT_NAME::${appPackaging}-${javafx.platform.classifier}")
     	System.out.println("::set-env name=BUILD_ARTIFACT_PATH::${buildDir}/distributions/${appPackaging}-${javafx.platform.classifier}.zip")
