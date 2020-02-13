@@ -15,4 +15,5 @@ jobs:
     - uses: eskatos/gradle-command-action@v1
       with:
         wrapper-directory: ./ParadoxosGameModManager
+        build-root-directory: ./ParadoxosGameModManager
         arguments: dist
