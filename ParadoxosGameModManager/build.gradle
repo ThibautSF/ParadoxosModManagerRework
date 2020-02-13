@@ -62,8 +62,8 @@ task copyJson(type: Copy) {
 task dist {
     dependsOn clean, 'jlink', copyJson, jlinkZip
     doLast {
-    	System.out.println("::set-env name=BUILD_ARTIFACT_NAME::${appPackaging}-${javafx.platform.classifier}.zip")
-    	System.out.println("::set-env name=BUILD_ARTIFACT_PATH::${buildDir}/distributions/")
+    	System.out.println("::set-env name=BUILD_ARTIFACT_NAME::${appPackaging}-${javafx.platform.classifier}")
+    	System.out.println("::set-env name=BUILD_ARTIFACT_PATH::${buildDir}/${appPackaging}/")
     }
     description "Calls clean and then jlinkZip [default]"
 }
