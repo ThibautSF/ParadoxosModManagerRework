@@ -12,7 +12,8 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: 11
+    - name: cd
+      run: cd ParadoxosGameModManager/
     - uses: eskatos/gradle-command-action@v1
       with:
-        build-root-directory: ParadoxosGameModManager
         arguments: dist
