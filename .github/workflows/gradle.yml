@@ -17,11 +17,7 @@ jobs:
         wrapper-directory: ./ParadoxosGameModManager
         build-root-directory: ./ParadoxosGameModManager
         arguments: dist
-    - name: test
-      run: echo ${{ env.BUILD_ARTIFACT_NAME }}
-    - name: test
-      run: echo ${{ env.BUILD_ARTIFACT_FOLDER_PATH }}
     - uses: actions/upload-artifact@v1
       with:
         name: ${{ env.BUILD_ARTIFACT_NAME }}
-        path: ${{ env.BUILD_ARTIFACT_FOLDER_PATH }}
+        path: ${{ env.BUILD_ARTIFACT_PATH }}
