@@ -1,5 +1,5 @@
 # .github/workflows/gradle-build-pr.yml
-name: Run Gradle on PRs
+name: Build PMM
 on: push
 jobs:
   gradle:
