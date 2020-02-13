@@ -1,0 +1,92 @@
+AppVersion=0.8.0
+- Java 11 Update -> YOU NEED TO RE-DOWNLOAD
+- Link : TODO
+- No need to install Java 11 ! A custom one come with PMM
+- App setting and mod lists are now stored in JSON (lists made with previous version will be lost)
+- TODO
+
+AppVersion=0.7.1
+- WARNING AGAIN : AUTOMATIC UPDATE DON'T WORK (realy need to fix that !)
+- Support for new launcher (Stellaris & EUIV)
+- Improve UI info for the mod order system
+- Make game compatibility external: supported_games.json (Note: previous non-default save/mod folder settings will be lost, sorry for the inconvenience)
+- ABOUT: With the new launcher system; PMM objective is to keep order logic like the legacy launcher. That's mean: in PMM order, a patch must always be sorted before the patched mods
+
+AppVersion=0.7.0
+- Mod Ordering : You can now make your own mod order and chose which mod will be loaded first !
+- Imperator Rome : Add support for the new Paradox game !
+- Click on steam icon for a mod will now open the mod's workshop page through steam app (right click on the line will still open it with web navigator)
+- Add a "select all" button to select (or deselect) all mods during a Modlist edition
+- Mod conflict : add parameter to show the conflicted files (since this information is useless for common user, it's now hidden by default)
+- Add new confirm dialogs (we don't like to make mistakes...)
+
+AppVersion=0.6.1
+- Improve mod archive relative path detection
+- Correct archive path for unix system
+- Add button to open mod's steam workshop page
+- Add button to open mod's location in file system
+- Conflict detection now ignore the root folder
+
+AppVersion=0.6.0
+- Add conflict detection
+- Add auto-updater (download and extract new versions)
+- Improve new version information UI (see changelog, direct download...)
+- Main windows now in 800x600 (min and default)
+- Better window resize
+- Add a reload and back function in list manager window (no need to restart the app to change game or reload mods anymore !)
+- Add option to import the list of mods activated from the game ‘settings.txt’ (in list creation widow)
+- Add option to clear the selection (in list creation widow)
+- Fix the bug of “Missing Mod” when the .mod file name was different than the one stored in the list, if a .mod is missing, check if there is a mod with same remote file id present (case occurs mainly with list import)
+
+AppVersion=0.5.2
+- Add test and error window if mod/directory is missing in the game's document folder
+- Add support for following language : spanish, polish, italian, swedish, czech, hungarian, dutch, russian, finnish and brazilian portuguese (Remember that only english, french, german and spanish are officially supported by Paradox)
+
+AppVersion=0.5.1
+- Correct a bug for HoI4 where mod names were not read (file encoding)
+
+AppVersion=0.5.0
+- Add saved parameters (stored in settings.xml) : the last path used for a game is now saved
+- Add more debugs
+- Add “Local version” and “Online version” infos in the “New version online” window
+
+AppVersion=0.4.2
+- Fix a bug causing mod name to not correspond
+
+AppVersion=0.4.1
+- Correct some typos
+- Fix a bug causing the doc picker button to not open a file chooser window
+- Fix a major bug when the doc path don’t ended with the system file separator, causing mods to occurs as “missing”
+
+AppVersion=0.4.0
+- Welcome to Mouchi in the developpement (https://github.com/NicolasGrosjean)
+- Add option to set game language for a list of mods, all list are set in English as default
+- Add online check for new version, when app is launch it make a request online and print a dialog window if a new version is found
+- Now it should be impossible to modify/apply/delete/export when there is no list selected (to reduce error logs)
+- Fix a bug where mods were missing in the settings.txt after apply
+
+AppVersion=0.3.0
+- Add system file browser to select document’s path of a game
+- Mod load order aborted because no way to force it.
+- Add Import/Export options
+- More errors traced in the debug txt file
+- Fix the LaunchWindows.cmd
+- Fix some very minor bugs
+
+AppVersion=0.2.0
+- Add option to change the document’s path of a game
+- Make base support of load order (read the doc)
+- Add mod name in the xml save file when mod lists are saved
+
+AppVersion=0.1.2
+- Public launch
+- Add confirm dialog when user delete a list (to avoid miss click)
+- Write documentation (https://drive.google.com/open?id=1wThmbZIEGWzDO3rp8-zzJumebXDBE4-q6L6GnzVKmAY and PDF in the zip)
+
+AppVersion=0.1.1
+- Some minor bugs corrected
+- Add option to launch game through steam with the app
+- Release to some people
+
+AppVersion=0.1.0
+- First stable version (private)
