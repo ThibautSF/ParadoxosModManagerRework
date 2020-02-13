@@ -14,5 +14,5 @@ jobs:
         java-version: 11
     - uses: eskatos/gradle-command-action@v1
       with:
-        build-root-directory: ./ParadoxosGameModManager
+        build-root-directory: ParadoxosModManagerRework/ParadoxosGameModManager
         arguments: dist
