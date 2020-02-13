@@ -17,3 +17,5 @@ jobs:
         wrapper-directory: ./ParadoxosGameModManager
         build-root-directory: ./ParadoxosGameModManager
         arguments: dist
+    - name: test
+      run: echo ${{ env.BUILD_ARTIFACT_NAME }}
