@@ -244,6 +244,28 @@ public class MyJSON {
 	}
 
 	/**
+	 * @param availableMods
+	 * @param listName
+	 */
+	public ModList getList(Map<String, Mod> availableMods, String listName) {
+		ModList list = null;
+
+		JsonArray modLists = root.get(USER_LISTS).getAsJsonArray();
+		Iterator<JsonElement> i = modLists.iterator();
+
+		while (i.hasNext()) {
+			JsonObject oneListElement = i.next().getAsJsonObject();
+
+			String listElementName = oneListElement.get(NAME).getAsString();
+			if (listElementName.equals(listName)) {
+				list = getModList(availableMods, oneListElement);
+			}
+		}
+
+		return list;
+	}
+
+	/**
 	 * @param list
 	 * @throws IOException
 	 */

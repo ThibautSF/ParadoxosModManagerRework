@@ -16,6 +16,7 @@ import java.util.Map.Entry;
 import java.util.Optional;
 
 import org.kordamp.ikonli.fontawesome5.FontAwesomeBrands;
+import org.kordamp.ikonli.fontawesome5.FontAwesomeRegular;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 import org.kordamp.ikonli.javafx.FontIcon;
 
@@ -26,18 +27,15 @@ import com.pmm.ParadoxosGameModManager.mod.Languages;
 import com.pmm.ParadoxosGameModManager.mod.Mod;
 import com.pmm.ParadoxosGameModManager.mod.ModList;
 import com.pmm.ParadoxosGameModManager.window.BasicDialog;
+import com.pmm.ParadoxosGameModManager.window.Utils;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -62,7 +60,6 @@ import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DataFormat;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -91,7 +88,7 @@ public class ListCreator extends Stage {
 	private VBox helpBox = new VBox();
 	private Button buttonHelp = new Button();
 	private Tooltip tooltipHelp = new Tooltip(
-			"Primary Click on mod to activate/desactivate\nSecondary Click to open workshop in web browser");
+			"Primary Click on mod to select it (shift and ctrl multiple selection works too)\nSecondary Click to clear the selection");
 
 	private VBox descrBox = new VBox();
 	private Label lblListDesc = new Label("Description : ");
@@ -105,7 +102,7 @@ public class ListCreator extends Stage {
 	private String strYrMods = "Your mods (%d founds)";
 	private Label lblYrMods = new Label(strYrMods);
 
-	private VBox listBox = new VBox();
+	private VBox listModsBox = new VBox();
 	private TableView<Mod> mods = new TableView<>();
 	private TableColumn<Mod, Mod> actionsCol = new TableColumn<>("Actions");
 	private TableColumn<Mod, Boolean> conflictCol = new TableColumn<>("Conflict");
@@ -113,6 +110,9 @@ public class ListCreator extends Stage {
 	private TableColumn<Mod, String> fileNameCol = new TableColumn<>("File");
 	private TableColumn<Mod, String> versionCol = new TableColumn<>("Version");
 	private TableColumn<Mod, String> steamPath = new TableColumn<>("Workshop");
+	private HBox listModsActionBox = new HBox();
+	private Button activateSelectedRows = new Button();
+	private Button disableSelectedRows = new Button();
 
 	private VBox customOrderBox = new VBox();
 	private CheckBox cbCustomOrder = new CheckBox("Use custom order (ASCII order otherwise)");
@@ -133,12 +133,13 @@ public class ListCreator extends Stage {
 	private ObservableList<Mod> missingMods = FXCollections.observableArrayList();
 
 	private HBox clearListBox = new HBox();
-	private Button clearList = new Button("Clear");
-	private Button selectAllList = new Button("Un/Select All");
+	private Button clearList = new Button("Clear List");
+	private Button selectAllList = new Button("Add/Remove All");
 	private HBox cancelListBox = new HBox();
 	private Button cancelList = new Button("Cancel");
 	private HBox saveListBox = new HBox();
 	private Button saveList = new Button("Save");
+	private Button saveListExit = new Button("Save & Close");
 	private HBox importCurrentListBox = new HBox();
 	private Button importCurrentList = new Button("Import from current");
 	private String lblSaveifMissings = "Missings mods will be cleared !";
@@ -152,7 +153,8 @@ public class ListCreator extends Stage {
 	private List<Mod> modListBckp;
 
 	private static final DataFormat SERIALIZED_MIME_TYPE = new DataFormat("application/x-java-serialized-object");
-	private ArrayList<Mod> selections = new ArrayList<>();
+	private ArrayList<Mod> modSelections = new ArrayList<>();
+	private ArrayList<Mod> orderingSelections = new ArrayList<>();
 
 	/**
 	 * @param path
@@ -188,7 +190,7 @@ public class ListCreator extends Stage {
 		window.setPadding(new Insets(0, 0, 5, 0));
 
 		// Uncomment when editing window to see cells
-		// window.setGridLinesVisible(true);
+//		window.setGridLinesVisible(true);
 
 		RowConstraints row1 = new RowConstraints(50, 50, 50);
 		RowConstraints row2 = new RowConstraints(50, 50, 50);
@@ -196,7 +198,7 @@ public class ListCreator extends Stage {
 		RowConstraints row4 = new RowConstraints();
 		row4.setMaxHeight(Double.MAX_VALUE);
 		row4.setVgrow(Priority.ALWAYS);
-		listBox.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+		listModsBox.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		VBox.setVgrow(mods, Priority.ALWAYS);
 		listOrderBox.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
 		VBox.setVgrow(modsOrdering, Priority.ALWAYS);
@@ -236,28 +238,12 @@ public class ListCreator extends Stage {
 
 		// ModList help/info fields
 		window.add(helpBox, 4, 0, 1, 1);
-		// buttonHelp.setGraphic(new FontAwesomeIconView(FontAwesomeIcon.INFO));
 		buttonHelp.setGraphic(new FontIcon(FontAwesomeSolid.INFO));
 		buttonHelp.setTooltip(tooltipHelp);
 		helpBox.getChildren().add(buttonHelp);
 		helpBox.setAlignment(Pos.TOP_RIGHT);
 
-		// Remove delay to show tooltip when mouse over button
-		buttonHelp.setOnMouseEntered(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				Point2D p = buttonHelp.localToScreen(buttonHelp.getLayoutBounds().getMaxX(),
-						buttonHelp.getLayoutBounds().getMaxY());
-				tooltipHelp.show(buttonHelp, p.getX(), p.getY());
-			}
-		});
-		// Hide the tooltip when mouse leave button
-		buttonHelp.setOnMouseExited(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				tooltipHelp.hide();
-			}
-		});
+		Utils.setTooltip(buttonHelp, tooltipHelp);
 
 		// ModList Descr fields
 		window.add(descrBox, 1, 1, 4, 1);
@@ -267,24 +253,60 @@ public class ListCreator extends Stage {
 		fieldListDesc.setText(list.getDescription());
 
 		// ModList "Your mods" field
-		window.add(yrModsBox, 1, 2, 4, 1);
+		window.add(yrModsBox, 2, 2, 2, 1);
 		yrModsBox.getChildren().add(lblYrMods);
 		yrModsBox.setStyle("-fx-alignment: center;");
 		lblYrMods.setText(String.format(strYrMods, userMods.size()));
 		lblYrMods.setStyle("-fx-font: bold 20 serif;");
 
 		// ModList list of mods (start)
-		window.add(listBox, 1, 3, 4, 1);
-		listBox.getChildren().add(mods);
+		window.add(listModsActionBox, 1, 2, 1, 1);
+		listModsActionBox.getChildren().addAll(activateSelectedRows, disableSelectedRows);
+		listModsActionBox.setStyle("-fx-alignment: center-left;");
+		listModsActionBox.setSpacing(5);
+		activateSelectedRows.setGraphic(new FontIcon(FontAwesomeSolid.CHECK_SQUARE));
+		Utils.setTooltip(activateSelectedRows, new Tooltip("Add selected mods to the list"));
+		disableSelectedRows.setGraphic(new FontIcon(FontAwesomeRegular.SQUARE));
+		Utils.setTooltip(disableSelectedRows, new Tooltip("Remove selected mods to the list"));
+
+		activateSelectedRows.setOnAction(event -> {
+			for (Mod sI : modSelections) {
+				if (!sI.isMissing()) {
+					if (!selectedModsList.contains(sI)) {
+						selectedModsList.add(sI);
+						list.addMod(sI);
+					}
+					mods.refresh();
+					modsOrdering.refresh();
+				}
+			}
+		});
+
+		disableSelectedRows.setOnAction(event -> {
+			for (Mod sI : modSelections) {
+				if (!sI.isMissing()) {
+					if (selectedModsList.contains(sI)) {
+						selectedModsList.remove(sI);
+						list.removeMod(sI);
+					}
+					mods.refresh();
+					modsOrdering.refresh();
+				}
+			}
+		});
+
+		window.add(listModsBox, 1, 3, 4, 1);
+		listModsBox.getChildren().add(mods);
 		actionsCol.setSortable(false);
-		actionsCol.setMinWidth(75);
-		actionsCol.setMaxWidth(75);
+		actionsCol.setMinWidth(100);
+		actionsCol.setMaxWidth(100);
 		conflictCol.setSortable(false);
 		conflictCol.setMinWidth(65);
 		conflictCol.setMaxWidth(65);
 		modNameCol.setSortable(false);
 		fileNameCol.setSortable(false);
 		versionCol.setSortable(false);
+		mods.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		mods.getColumns().add(actionsCol);
 		if (ModManager.isConflictComputed()) {
 			mods.getColumns().add(conflictCol);
@@ -293,6 +315,8 @@ public class ListCreator extends Stage {
 		mods.getColumns().add(fileNameCol);
 		mods.getColumns().add(versionCol);
 		mods.getColumns().add(steamPath);
+
+		Utils.setTooltip(mods, new Tooltip("Tip: Use shift and ctrl for multiple selection"));
 
 		actionsCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Mod, Mod>, ObservableValue<Mod>>() {
 			@Override
@@ -345,33 +369,50 @@ public class ListCreator extends Stage {
 				}
 			};
 
+			// Old selection
+//			row.setOnMouseClicked(event -> {
+//				Mod mod = row.getItem();
+//				mods.getSelectionModel().clearSelection();
+//				if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
+//					if (!mod.isMissing()) {
+//						if (selectedModsList.contains(mod)) {
+//							selectedModsList.remove(mod);
+//							list.removeMod(mod);
+//						} else {
+//							selectedModsList.add(mod);
+//							list.addMod(mod);
+//						}
+//						mods.refresh();
+//						modsOrdering.refresh();
+//					}
+//				} else if (event.getButton() == MouseButton.SECONDARY) {
+//					if (Desktop.isDesktopSupported()) {
+//						new Thread(() -> {
+//							try {
+//								URI uri = new URI(mod.getSteamPath());
+//								Desktop.getDesktop().browse(uri);
+//							} catch (IOException | URISyntaxException e) {
+//								ErrorPrint.printError(e);
+//								e.printStackTrace();
+//							}
+//						}).start();
+//					}
+//				}
+//			});
+
 			row.setOnMouseClicked(event -> {
-				Mod mod = row.getItem();
-				mods.getSelectionModel().clearSelection();
 				if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY) {
-					if (!mod.isMissing()) {
-						if (selectedModsList.contains(mod)) {
-							selectedModsList.remove(mod);
-							list.removeMod(mod);
-						} else {
-							selectedModsList.add(mod);
-							list.addMod(mod);
-						}
-						mods.refresh();
-						modsOrdering.refresh();
+					modSelections.clear();// important...
+
+					ObservableList<Mod> items = mods.getSelectionModel().getSelectedItems();
+
+					for (Mod iI : items) {
+						modSelections.add(iI);
 					}
+
 				} else if (event.getButton() == MouseButton.SECONDARY) {
-					if (Desktop.isDesktopSupported()) {
-						new Thread(() -> {
-							try {
-								URI uri = new URI(mod.getSteamPath());
-								Desktop.getDesktop().browse(uri);
-							} catch (IOException | URISyntaxException e) {
-								ErrorPrint.printError(e);
-								e.printStackTrace();
-							}
-						}).start();
-					}
+					mods.getSelectionModel().clearSelection();
+					modSelections.clear();
 				}
 			});
 
@@ -416,6 +457,9 @@ public class ListCreator extends Stage {
 		modsOrdering.getColumns().add(orderPosCol);
 		modsOrdering.getColumns().add(orderActionCol);
 		modsOrdering.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+		Utils.setTooltip(modsOrdering,
+				new Tooltip("Tips: Use shift and ctrl for multiple selection.\nDrag&Drop to order."));
 
 		orderModNameCol.setCellValueFactory(new PropertyValueFactory<Mod, String>("name"));
 
@@ -466,16 +510,23 @@ public class ListCreator extends Stage {
 		modsOrdering.setRowFactory(tv -> {
 			TableRow<Mod> row = new TableRow<>();
 
+			row.setOnMouseClicked(event -> {
+				if (event.getButton() == MouseButton.SECONDARY) {
+					modsOrdering.getSelectionModel().clearSelection();
+					orderingSelections.clear();
+				}
+			});
+
 			row.setOnDragDetected(event -> {
 				if (!row.isEmpty()) {
 					Integer index = row.getIndex();
 
-					selections.clear();// important...
+					orderingSelections.clear();// important...
 
 					ObservableList<Mod> items = modsOrdering.getSelectionModel().getSelectedItems();
 
 					for (Mod iI : items) {
-						selections.add(iI);
+						orderingSelections.add(iI);
 					}
 
 					Dragboard db = row.startDragAndDrop(TransferMode.MOVE);
@@ -513,7 +564,7 @@ public class ListCreator extends Stage {
 					}
 					int delta = 0;
 					if (dI != null) {
-						while (selections.contains(dI)) {
+						while (orderingSelections.contains(dI)) {
 							delta = 1;
 							--dropIndex;
 							if (dropIndex < 0) {
@@ -525,7 +576,7 @@ public class ListCreator extends Stage {
 						}
 					}
 
-					for (Mod sI : selections) {
+					for (Mod sI : orderingSelections) {
 						modsOrdering.getItems().remove(sI);
 					}
 
@@ -537,7 +588,7 @@ public class ListCreator extends Stage {
 
 					modsOrdering.getSelectionModel().clearSelection();
 
-					for (Mod sI : selections) {
+					for (Mod sI : orderingSelections) {
 						// draggedIndex = selections.get(i);
 						modsOrdering.getItems().add(dropIndex, sI);
 						modsOrdering.getSelectionModel().select(dropIndex);
@@ -545,7 +596,7 @@ public class ListCreator extends Stage {
 					}
 
 					event.setDropCompleted(true);
-					selections.clear();
+					orderingSelections.clear();
 					event.consume();
 				}
 			});
@@ -562,153 +613,93 @@ public class ListCreator extends Stage {
 		clearListBox.setSpacing(5);
 		clearListBox.getChildren().addAll(clearList, selectAllList);
 
-		clearList.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent t) {
-				selectedModsList.clear();
-				listOfMods.removeAll(missingMods);
-				missingMods.clear();
-				list.setModlist(new ArrayList<Mod>());
-				mods.refresh();
-				modsOrdering.refresh();
-				saveifMissings.setVisible(false);
-			}// end action
+		clearList.setOnAction(action -> {
+			selectedModsList.clear();
+			listOfMods.removeAll(missingMods);
+			missingMods.clear();
+			list.setModlist(new ArrayList<Mod>());
+			mods.refresh();
+			modsOrdering.refresh();
+			saveifMissings.setVisible(false);
 		});
 
-		selectAllList.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent t) {
-				if (selectedModsList.size() >= listOfMods.size() - missingMods.size()) {
-					selectedModsList.clear();
-					list.setModlist(new ArrayList<Mod>());
-				} else {
-					selectedModsList.clear();
-					selectedModsList.addAll(listOfMods);
-					selectedModsList.removeAll(missingMods);
-					list.setModlist(new ArrayList<>(selectedModsList));
-				}
+		selectAllList.setOnAction(action -> {
+			if (selectedModsList.size() >= listOfMods.size() - missingMods.size()) {
+				selectedModsList.clear();
+				list.setModlist(new ArrayList<Mod>());
+			} else {
+				selectedModsList.clear();
+				selectedModsList.addAll(listOfMods);
+				selectedModsList.removeAll(missingMods);
+				list.setModlist(new ArrayList<>(selectedModsList));
+			}
 
-				mods.refresh();
-				modsOrdering.refresh();
-			}// end action
+			mods.refresh();
+			modsOrdering.refresh();
 		});
 		// Clear list button (end)
 
-		// Buttons Cancel & Apply (start)
+		// Buttons Cancel & Save (start)
 		window.add(cancelListBox, 2, 5, 1, 1);
 		cancelListBox.setStyle("-fx-alignment: center-right;");
 		cancelListBox.getChildren().add(cancelList);
 
 		window.add(saveListBox, 3, 5, 1, 1);
 		saveListBox.setStyle("-fx-alignment: center-left;");
-		saveListBox.getChildren().add(saveList);
+		saveListBox.setSpacing(5);
+		saveListBox.getChildren().addAll(saveList, saveListExit);
 
 		saveifMissings.setStyle("-fx-text-fill: red;");
 		window.add(saveifMissings, 3, 4, 2, 1);
-		if (missingMods.size() > 0) {
-			saveifMissings.setVisible(true);
-		} else {
-			saveifMissings.setVisible(false);
-		}
+		saveifMissings.setVisible(missingMods.size() > 0);
 
-		cancelList.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent t) {
-				list.setModlist(modListBckp);
-				Node source = (Node) t.getSource();
-				Stage stage = (Stage) source.getScene().getWindow();
-				stage.close();
-			}// end action
+		cancelList.setOnAction(event -> {
+			list.setModlist(modListBckp);
+			close();
 		});
-		saveList.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent t) {
-				if (fieldListName.getText() == null || fieldListName.getText().equals("")) {
-					BasicDialog.showGenericDialog("No list name !", "You need to give a name to the list",
-							AlertType.WARNING);
-					return;
-				}
-				String title = "Confirm saving";
-				List<ButtonType> buttons = new ArrayList<>();
-				ButtonType buttonYes = new ButtonType("Yes");
-				ButtonType buttonNo = new ButtonType("No", ButtonData.CANCEL_CLOSE);
-				buttons.add(buttonYes);
-				buttons.add(buttonNo);
-				if (!ModManager.isConflictComputed() && selectedModsList.size() > 1) {
-					String header = "The conflict manager is not activated";
-					String message = "Do you want to save this mod list even it can have conflicts between mods ?";
-					Optional<ButtonType> choice = BasicDialog.showGenericConfirm(title, header, message, buttons,
-							false);
-					if (choice.get().getButtonData() == ButtonData.CANCEL_CLOSE)
-						return;
-				} else if (list.hasConflict()) {
-					String header = "Some conflicts have been detected between mods";
-					String message = "Do you want to save this mod list even if there is potential conflicts ?";
-					Optional<ButtonType> choice = BasicDialog.showGenericConfirm(title, header, message, buttons,
-							false);
-					if (choice.get().getButtonData() == ButtonData.CANCEL_CLOSE)
-						return;
-				}
-				String listOldName = list.getName();
-				list.setModlist(selectedModsList);
-				list.setName(fieldListName.getText());
-				list.setDescription(fieldListDesc.getText());
-				list.setLanguage(cbListLang.getValue());
-				list.setCustomOrder(cbCustomOrder.isSelected());
-				try {
-					ModManager.userlistsJSON.readFile(ModManager.GAME_LIST_STORAGE_FILE.getAbsolutePath());
-					if (listOldName != null) {
-						ModManager.userlistsJSON.modifyList(list, listOldName);
-					} else {
-						ModManager.userlistsJSON.modifyList(list);
-					}
-				} catch (Exception e) {
-					ErrorPrint.printError(e, "When save list in mod");
-					e.printStackTrace();
-				}
-				Node source = (Node) t.getSource();
-				Stage stage = (Stage) source.getScene().getWindow();
-				stage.close();
-			}// end action
+
+		saveList.setOnAction(event -> save());
+
+		saveListExit.setOnAction(event -> {
+			if (save()) {
+				close();
+			}
 		});
-		// Buttons Cancel & Apply (end)
+		// Buttons Cancel & Save (end)
 
 		// Import current config button (start)
 		window.add(importCurrentListBox, 4, 5, 1, 1);
 		importCurrentListBox.setStyle("-fx-alignment: center-right;");
 		importCurrentListBox.getChildren().add(importCurrentList);
 
-		importCurrentList.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent t) {
-				String title = "Import current mod config";
-				String header = "What do you want to do ?";
-				String message = "- Append the mod from the game configuration to the list\n- Replace all the mods selected with the game config";
+		importCurrentList.setOnAction(event -> {
+			String title = "Import current mod config";
+			String header = "What do you want to do ?";
+			String message = "- Append the mod from the game configuration to the list\n- Replace all the mods selected with the game config";
 
-				List<ButtonType> buttons = new ArrayList<>();
+			List<ButtonType> buttons = new ArrayList<>();
 
-				ButtonType buttonAppend = new ButtonType("Append");
-				ButtonType buttonReplace = new ButtonType("Replace");
+			ButtonType buttonAppend = new ButtonType("Append");
+			ButtonType buttonReplace = new ButtonType("Replace");
 
-				buttons.add(buttonAppend);
-				buttons.add(buttonReplace);
+			buttons.add(buttonAppend);
+			buttons.add(buttonReplace);
 
-				Optional<ButtonType> choice = BasicDialog.showGenericConfirm(title, header, message, buttons, true);
+			Optional<ButtonType> choice = BasicDialog.showGenericConfirm(title, header, message, buttons, true);
 
-				if (choice.get().getButtonData() != ButtonData.CANCEL_CLOSE) {
-					try {
-						if (choice.get() == buttonReplace) {
-							list.setModlist(new ArrayList<Mod>());
-							selectedModsList.clear();
-							listOfMods.removeAll(missingMods);
-							missingMods.clear();
-						}
-						getModList();
-					} catch (IOException e) {
-						e.printStackTrace();
+			if (choice.get().getButtonData() != ButtonData.CANCEL_CLOSE) {
+				try {
+					if (choice.get() == buttonReplace) {
+						list.setModlist(new ArrayList<Mod>());
+						selectedModsList.clear();
+						listOfMods.removeAll(missingMods);
+						missingMods.clear();
 					}
+					getModList();
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-			}// end action
+			}
 		});
 		// Import current config button (end)
 
@@ -718,60 +709,54 @@ public class ListCreator extends Stage {
 		resetOrderBox.setSpacing(5);
 		resetOrderBox.getChildren().addAll(btnResetOrder, btnResetInvOrder);
 
-		btnResetOrder.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent t) {
-				String title = "Reset to default order";
-				String header = "What do you want to do ?";
-				String message = "";
+		btnResetOrder.setOnAction(action -> {
+			String title = "Reset to default order";
+			String header = "What do you want to do ?";
+			String message = "";
 
-				List<ButtonType> buttons = new ArrayList<>();
+			List<ButtonType> buttons = new ArrayList<>();
 
-				ButtonType buttonOk = new ButtonType("Continue");
+			ButtonType buttonOk = new ButtonType("Continue");
 
-				buttons.add(buttonOk);
+			buttons.add(buttonOk);
 
-				Optional<ButtonType> choice = BasicDialog.showGenericConfirm(title, header, message, buttons, true);
+			Optional<ButtonType> choice = BasicDialog.showGenericConfirm(title, header, message, buttons, true);
 
-				if (choice.get().getButtonData() != ButtonData.CANCEL_CLOSE) {
-					if (choice.get() == buttonOk) {
-						Collections.sort(selectedModsList, new Comparator<Mod>() {
-							@Override
-							public int compare(Mod m1, Mod m2) {
-								return m1.getName().compareTo(m2.getName());
-							}
-						});
-					}
+			if (choice.get().getButtonData() != ButtonData.CANCEL_CLOSE) {
+				if (choice.get() == buttonOk) {
+					Collections.sort(selectedModsList, new Comparator<Mod>() {
+						@Override
+						public int compare(Mod m1, Mod m2) {
+							return m1.getName().compareTo(m2.getName());
+						}
+					});
 				}
-			}// end action
+			}
 		});
 
-		btnResetInvOrder.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent t) {
-				String title = "Reset to default reverse order";
-				String header = "What do you want to do ?";
-				String message = "";
+		btnResetInvOrder.setOnAction(action -> {
+			String title = "Reset to default reverse order";
+			String header = "What do you want to do ?";
+			String message = "";
 
-				List<ButtonType> buttons = new ArrayList<>();
+			List<ButtonType> buttons = new ArrayList<>();
 
-				ButtonType buttonOk = new ButtonType("Continue");
+			ButtonType buttonOk = new ButtonType("Continue");
 
-				buttons.add(buttonOk);
+			buttons.add(buttonOk);
 
-				Optional<ButtonType> choice = BasicDialog.showGenericConfirm(title, header, message, buttons, true);
+			Optional<ButtonType> choice = BasicDialog.showGenericConfirm(title, header, message, buttons, true);
 
-				if (choice.get().getButtonData() != ButtonData.CANCEL_CLOSE) {
-					if (choice.get() == buttonOk) {
-						Collections.sort(selectedModsList, new Comparator<Mod>() {
-							@Override
-							public int compare(Mod m1, Mod m2) {
-								return -m1.getName().compareTo(m2.getName());
-							}
-						});
-					}
+			if (choice.get().getButtonData() != ButtonData.CANCEL_CLOSE) {
+				if (choice.get() == buttonOk) {
+					Collections.sort(selectedModsList, new Comparator<Mod>() {
+						@Override
+						public int compare(Mod m1, Mod m2) {
+							return -m1.getName().compareTo(m2.getName());
+						}
+					});
 				}
-			}// end action
+			}
 		});
 
 		// Reset mod ordering button (end)
@@ -791,7 +776,7 @@ public class ListCreator extends Stage {
 		List<Mod> modsFromList = list.getModlist();
 
 //		for (Mod oneMod : userMods) {
-//			if(modsFromList.contains(oneMod)) { 
+//			if(modsFromList.contains(oneMod)) {
 //				selectedModsList.add(oneMod);
 //			}
 //		}
@@ -1045,6 +1030,70 @@ public class ListCreator extends Stage {
 		modsOrdering.refresh();
 	}
 
+	private boolean save() {
+		String listOldName = list.getName();
+
+		try {
+			ModManager.userlistsJSON.readFile(ModManager.GAME_LIST_STORAGE_FILE.getAbsolutePath());
+		} catch (Exception e) {
+			BasicDialog.showGenericDialog("Read/Write Error", "Error when reading or writing the file.",
+					AlertType.ERROR);
+			ErrorPrint.printError(e, "When save list in mod");
+			e.printStackTrace();
+			return false;
+		}
+
+		if (fieldListName.getText() == null || fieldListName.getText().equals("")) {
+			BasicDialog.showGenericDialog("No list name !", "You need to give a name to the list.", AlertType.WARNING);
+			return false;
+		}
+
+		if (!fieldListName.getText().equals(listOldName)
+				&& ModManager.userlistsJSON.getList(availableMods, fieldListName.getText()) != null) {
+			BasicDialog.showGenericDialog("List already exist !", "You already have a list with this name.",
+					AlertType.WARNING);
+			return false;
+		}
+
+		String title = "Confirm saving";
+		List<ButtonType> buttons = new ArrayList<>();
+		ButtonType buttonYes = new ButtonType("Yes");
+		ButtonType buttonNo = new ButtonType("No", ButtonData.CANCEL_CLOSE);
+		buttons.add(buttonYes);
+		buttons.add(buttonNo);
+		if (!ModManager.isConflictComputed() && selectedModsList.size() > 1) {
+			String header = "The conflict manager is not activated";
+			String message = "Do you want to save this mod list even it can have conflicts between mods ?";
+			Optional<ButtonType> choice = BasicDialog.showGenericConfirm(title, header, message, buttons, false);
+			if (choice.get().getButtonData() == ButtonData.CANCEL_CLOSE)
+				return false;
+		} else if (list.hasConflict()) {
+			String header = "Some conflicts have been detected between mods";
+			String message = "Do you want to save this mod list even if there is potential conflicts ?";
+			Optional<ButtonType> choice = BasicDialog.showGenericConfirm(title, header, message, buttons, false);
+			if (choice.get().getButtonData() == ButtonData.CANCEL_CLOSE)
+				return false;
+		}
+
+		list.setModlist(selectedModsList);
+		list.setName(fieldListName.getText());
+		list.setDescription(fieldListDesc.getText());
+		list.setLanguage(cbListLang.getValue());
+		list.setCustomOrder(cbCustomOrder.isSelected());
+		try {
+			ModManager.userlistsJSON.modifyList(list, listOldName);
+
+			return true;
+		} catch (Exception e) {
+			BasicDialog.showGenericDialog("Read/Write Error", "Error when reading or writing the file.",
+					AlertType.ERROR);
+			ErrorPrint.printError(e, "When save list in mod");
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+
 	// Define the button cell
 	private class ButtonCell extends TableCell<Mod, Boolean> {
 		final Button cellButton = new Button("...");
@@ -1054,18 +1103,14 @@ public class ListCreator extends Stage {
 			paddedButton.setPadding(new Insets(-5, 5, -5, 0));
 			paddedButton.getChildren().add(cellButton);
 			cellButton.setScaleY(0.5);
-			cellButton.setOnAction(new EventHandler<ActionEvent>() {
-
-				@Override
-				public void handle(ActionEvent t) {
-					Mod mod = getTableRow().getItem();
-					Map<Mod, List<String>> conflicts = list.getMappedConflicts(mod);
-					if (conflicts.isEmpty()) {
-						BasicDialog.showGenericDialog("No conflicts", "Only highlighted items in orange have conflicts",
-								AlertType.ERROR);
-					} else {
-						displayConflicts(mod, conflicts, ModManager.isShowFileConflict());
-					}
+			cellButton.setOnAction(action -> {
+				Mod mod = getTableRow().getItem();
+				Map<Mod, List<String>> conflicts = list.getMappedConflicts(mod);
+				if (conflicts.isEmpty()) {
+					BasicDialog.showGenericDialog("No conflicts", "Only highlighted items in orange have conflicts",
+							AlertType.ERROR);
+				} else {
+					displayConflicts(mod, conflicts, ModManager.isShowFileConflict());
 				}
 			});
 		}
@@ -1127,6 +1172,7 @@ public class ListCreator extends Stage {
 
 	// Define the multi button cell
 	private class MultipleButtonCell extends TableCell<Mod, Mod> {
+		final Button selectButton = new Button();
 		final Button steamButton = new Button();
 		final Button dirButton = new Button();
 		final HBox paddedButtons = new HBox();
@@ -1134,54 +1180,61 @@ public class ListCreator extends Stage {
 		MultipleButtonCell() {
 			paddedButtons.setPadding(new Insets(-2, 0, -2, 0));
 			paddedButtons.setAlignment(Pos.CENTER);
-			paddedButtons.getChildren().addAll(steamButton, dirButton);
+			paddedButtons.getChildren().addAll(selectButton, steamButton, dirButton);
 
-			// FontAwesomeIconView iconSteamButton = new
-			// FontAwesomeIconView(FontAwesomeIcon.STEAM_SQUARE);
-			FontIcon iconSteamButton = new FontIcon(FontAwesomeBrands.STEAM_SQUARE);
-			steamButton.setScaleX(0.8);
-			steamButton.setScaleY(0.8);
-			steamButton.setGraphic(iconSteamButton);
-			steamButton.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent t) {
-					Mod mod = getTableRow().getItem();
-					if (Desktop.isDesktopSupported()) {
-						new Thread(() -> {
-							try {
-								// URI uri = new URI(mod.getSteamPath());
-								URI uri = new URI(mod.getSteamInAppPath());
-								Desktop.getDesktop().browse(uri);
-							} catch (IOException | URISyntaxException e) {
-								ErrorPrint.printError(e);
-								e.printStackTrace();
-							}
-						}).start();
+			selectButton.setScaleX(0.9);
+			selectButton.setScaleY(0.9);
+			selectButton.setOnAction(action -> {
+				Mod mod = getTableRow().getItem();
+				if (!mod.isMissing()) {
+					if (!selectedModsList.contains(mod)) {
+						selectedModsList.add(mod);
+						list.addMod(mod);
+					} else {
+						selectedModsList.remove(mod);
+						list.removeMod(mod);
 					}
+					mods.refresh();
+					modsOrdering.refresh();
 				}
 			});
 
-			// FontAwesomeIconView iconDirButton = new
-			// FontAwesomeIconView(FontAwesomeIcon.FOLDER_OPEN);
+			FontIcon iconSteamButton = new FontIcon(FontAwesomeBrands.STEAM_SQUARE);
+			steamButton.setScaleX(0.9);
+			steamButton.setScaleY(0.9);
+			steamButton.setGraphic(iconSteamButton);
+			steamButton.setOnAction(action -> {
+				Mod mod = getTableRow().getItem();
+				if (Desktop.isDesktopSupported()) {
+					new Thread(() -> {
+						try {
+							// URI uri = new URI(mod.getSteamPath());
+							URI uri = new URI(mod.getSteamInAppPath());
+							Desktop.getDesktop().browse(uri);
+						} catch (IOException | URISyntaxException e) {
+							ErrorPrint.printError(e);
+							e.printStackTrace();
+						}
+					}).start();
+				}
+			});
+
 			FontIcon iconDirButton = new FontIcon(FontAwesomeSolid.FOLDER_OPEN);
-			dirButton.setScaleX(0.8);
-			dirButton.setScaleY(0.8);
+			dirButton.setScaleX(0.9);
+			dirButton.setScaleY(0.9);
 			dirButton.setGraphic(iconDirButton);
-			dirButton.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent t) {
-					Mod mod = getTableRow().getItem();
-					if (Desktop.isDesktopSupported()) {
-						new Thread(() -> {
-							try {
-								File folder = new File(mod.getModDirPath());
-								Desktop.getDesktop().open(folder);
-							} catch (IOException e) {
-								ErrorPrint.printError(e);
-								e.printStackTrace();
-							}
-						}).start();
-					}
+			dirButton.setOnAction(action -> {
+				Mod mod = getTableRow().getItem();
+				if (Desktop.isDesktopSupported()) {
+					new Thread(() -> {
+						try {
+							File folder = new File(mod.getModDirPath());
+							Desktop.getDesktop().open(folder);
+						} catch (IOException e) {
+							ErrorPrint.printError(e);
+							e.printStackTrace();
+						}
+					}).start();
 				}
 			});
 		}
@@ -1198,17 +1251,37 @@ public class ListCreator extends Stage {
 		}
 
 		private void enableOrDisableButtons(Mod mod) {
+			if (mod.isMissing()) {
+				selectButton.setVisible(false);
+				selectButton.setGraphic(null);
+				Utils.setTooltip(selectButton, null);
+			} else {
+				selectButton.setVisible(true);
+
+				if (!selectedModsList.contains(mod)) {
+					selectButton.setGraphic(new FontIcon(FontAwesomeRegular.SQUARE));
+					Utils.setTooltip(selectButton, new Tooltip("Enable " + mod.getName()));
+				} else {
+					selectButton.setGraphic(new FontIcon(FontAwesomeSolid.CHECK_SQUARE));
+					Utils.setTooltip(selectButton, new Tooltip("Disable " + mod.getName()));
+				}
+			}
+
 			if (mod.getRemoteFileID() != "") {
 				steamButton.setDisable(false);
+				Utils.setTooltip(steamButton, new Tooltip("Open workshop page of " + mod.getName()));
 			} else {
 				steamButton.setDisable(true);
+				Utils.setTooltip(steamButton, null);
 			}
 
 			File f = new File(mod.getModDirPath());
 			if (f.exists()) {
 				dirButton.setDisable(false);
+				Utils.setTooltip(dirButton, new Tooltip("Open directory of " + mod.getName()));
 			} else {
 				dirButton.setDisable(true);
+				Utils.setTooltip(dirButton, null);
 			}
 		}
 	}
@@ -1225,57 +1298,42 @@ public class ListCreator extends Stage {
 			paddedButtons.setAlignment(Pos.CENTER);
 			paddedButtons.getChildren().addAll(upButton, downButton, removeButton);
 
-			// FontAwesomeIconView iconUpButton = new
-			// FontAwesomeIconView(FontAwesomeIcon.ARROW_UP);
 			FontIcon iconUpButton = new FontIcon(FontAwesomeSolid.ARROW_UP);
 			upButton.setScaleX(0.8);
 			upButton.setScaleY(0.8);
 			upButton.setGraphic(iconUpButton);
-			upButton.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent t) {
-					int pos = getTableRow().getIndex();
+			upButton.setOnAction(action -> {
+				int pos = getTableRow().getIndex();
 
-					if (pos - 1 >= 0) {
-						Mod mod = selectedModsList.remove(pos);
-						selectedModsList.add(pos - 1, mod);
-					}
+				if (pos - 1 >= 0) {
+					Mod mod = selectedModsList.remove(pos);
+					selectedModsList.add(pos - 1, mod);
 				}
 			});
 
-			// FontAwesomeIconView iconDownButton = new
-			// FontAwesomeIconView(FontAwesomeIcon.ARROW_DOWN);
 			FontIcon iconDownButton = new FontIcon(FontAwesomeSolid.ARROW_DOWN);
 			downButton.setScaleX(0.8);
 			downButton.setScaleY(0.8);
 			downButton.setGraphic(iconDownButton);
-			downButton.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent t) {
-					int pos = getTableRow().getIndex();
+			downButton.setOnAction(action -> {
+				int pos = getTableRow().getIndex();
 
-					if (pos + 1 <= selectedModsList.size()) {
-						Mod mod = selectedModsList.remove(pos + 1);
-						selectedModsList.add(pos, mod);
-					}
+				if (pos + 1 <= selectedModsList.size()) {
+					Mod mod = selectedModsList.remove(pos + 1);
+					selectedModsList.add(pos, mod);
 				}
 			});
 
-			// FontAwesomeIconView iconRemoveButton = new
-			// FontAwesomeIconView(FontAwesomeIcon.REMOVE);
 			FontIcon iconRemoveButton = new FontIcon(FontAwesomeSolid.TIMES);
 			removeButton.setScaleX(0.8);
 			removeButton.setScaleY(0.8);
 			removeButton.setGraphic(iconRemoveButton);
-			removeButton.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent t) {
-					int pos = getTableRow().getIndex();
+			removeButton.setOnAction(action -> {
+				int pos = getTableRow().getIndex();
 
-					selectedModsList.remove(pos);
-					mods.refresh();
-					modsOrdering.refresh();
-				}
+				selectedModsList.remove(pos);
+				mods.refresh();
+				modsOrdering.refresh();
 			});
 		}
 
