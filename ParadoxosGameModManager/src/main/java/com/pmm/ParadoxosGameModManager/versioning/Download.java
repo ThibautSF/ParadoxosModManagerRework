@@ -6,12 +6,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Observable;
 
-// This class downloads a file from a URL.
 /**
+ * This class downloads a file from a URL.
+ *
  * Source :
  * https://www.java-tips.org/java-se-tips-100019/15-javax-swing/1391-how-to-create-a-download-manager-in-java.html
  *
+ * TODO Update due to deprecation
  */
+@SuppressWarnings("deprecation")
 class Download extends Observable implements Runnable {
 	// Max size of download buffer.
 	private static final int MAX_BUFFER_SIZE = 1024;

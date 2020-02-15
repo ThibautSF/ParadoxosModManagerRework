@@ -73,8 +73,6 @@ import javafx.stage.Stage;
  *
  */
 public class ListManager extends Stage {
-	// private static List<String> modFileNames = Arrays.asList("mod","mods");
-
 	// Window Var
 	private static int WINDOW_WIDTH = 800;
 	private static int WINDOW_HEIGHT = 600;
@@ -97,15 +95,13 @@ public class ListManager extends Stage {
 	private VBox content = new VBox();
 	private TableView<ModList> lists = new TableView<>();
 	private TableColumn<ModList, String> listNameCol = new TableColumn<>("List Name");
-	// private TableColumn<ModList,String> listDescrCol = new
-	// TableColumn<ModList,String>("Description");
+//	private TableColumn<ModList,String> listDescrCol = new TableColumn<ModList,String>("Description");
 	private TableColumn<ModList, String> languageCol = new TableColumn<>("Language");
 	private TableColumn<ModList, Integer> nbModCol = new TableColumn<>("NB");
 	private TableColumn<ModList, String> modOrderCol = new TableColumn<>("Order");
 
 	private ObservableList<ModList> listOfLists = FXCollections.observableArrayList();
-	// private ObservableList<ModList> selectedListsList =
-	// FXCollections.observableArrayList();
+//	private ObservableList<ModList> selectedListsList = FXCollections.observableArrayList();
 
 	private HBox buttons = new HBox(8);
 	private Button newList = new Button("New");
@@ -140,7 +136,7 @@ public class ListManager extends Stage {
 		window.setPadding(new Insets(0, 0, 5, 0));
 
 		// Uncomment when editing window to see cells
-		// window.setGridLinesVisible(true);
+//		window.setGridLinesVisible(true);
 
 		RowConstraints row1 = new RowConstraints(40, 40, 40);
 		RowConstraints row2 = new RowConstraints(25, 25, 25);
@@ -176,10 +172,7 @@ public class ListManager extends Stage {
 		refreshTexts();
 
 		window.add(actionsBox, 4, 0);
-		// buttonRefresh.setGraphic(new FontAwesomeIconView(FontAwesomeIcon.REFRESH));
 		buttonRefresh.setGraphic(new FontIcon(FontAwesomeSolid.REDO_ALT));
-		// buttonBack.setGraphic(new
-		// FontAwesomeIconView(FontAwesomeIcon.LONG_ARROW_LEFT));
 		buttonBack.setGraphic(new FontIcon(FontAwesomeSolid.LONG_ARROW_ALT_LEFT));
 		actionsBox.setAlignment(Pos.CENTER_RIGHT);
 		actionsBox.getChildren().addAll(buttonRefresh, buttonBack);
