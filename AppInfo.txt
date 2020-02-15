@@ -1,9 +1,16 @@
 AppVersion=0.8.0
 - Java 11 Update -> YOU NEED TO RE-DOWNLOAD
-- Link : TODO
+- LINK : https://github.com/ThibautSF/ParadoxosModManagerRework/releases/tag/0.8.0
+- OR search 'ParadoxosModManagerRework github' on google and go to 'release' section
 - No need to install Java 11 ! A custom one come with PMM
 - App setting and mod lists are now stored in JSON (lists made with previous version will be lost)
-- TODO
+- [List Creation] Separate "save" action in list creation into "save" and "save & close" actions
+- [List Creation] Add multi-selection of mods in list creation (use shift and ctrl)
+- [List Creation] Change left-click on mod from "open web workshop" to "empty list selection"
+- [List Creation] Add a check during save to avoid create lists with the same name
+- [List Creation] Add some tooltips
+- [List Manager] Add a warning at "apply list" action to inform about possible visual errors for the Paradox Launcher mod order visual
+- Update documentation
 
 AppVersion=0.7.1
 - WARNING AGAIN : AUTOMATIC UPDATE DON'T WORK (realy need to fix that !)
