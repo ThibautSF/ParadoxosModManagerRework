@@ -2,10 +2,9 @@
 name: Build PMM
 on:
   push:
-    branches:    
-      - master
-    tags-ignore:
-      - indev
+    tags:
+      - '*'
+
 jobs:
   gradle:
     strategy:
