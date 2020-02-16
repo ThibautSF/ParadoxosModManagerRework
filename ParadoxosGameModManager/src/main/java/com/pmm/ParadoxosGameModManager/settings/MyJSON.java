@@ -353,8 +353,13 @@ public class MyJSON {
 				newroot.add(GAME_ID, new JsonPrimitive(ModManager.STEAM_ID));
 				newroot.add(EXPORTED_LIST, oneListElement.deepCopy());
 
-				String exportFile = this.file.getParentFile() + File.separator + "Export_" + game + "_" + listName
-						+ ".json";
+				listName = listName.replaceAll("[\\\\/:*?\"<>|.]", "");
+				if (listName.equals("")) {
+					listName = "WhyYouUseOnlySpecialChar";
+				}
+				String fileName = "Export_" + game + "_" + listName;
+
+				String exportFile = this.file.getParentFile() + File.separator + fileName + ".json";
 
 				FileWriter fileWriter = new FileWriter(exportFile);
 				fileWriter.write(newroot.toString());
