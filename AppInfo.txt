@@ -1,5 +1,6 @@
 AppVersion=0.8.1
 - Import/Export fixes
+- INSTALL INSTRUCTIONS: Download the archive for your OS, extract and replace all
 - [List Manager] Fix import function asking for XML files instead of JSON
 - [List Manager] Fix export fail when list name contained forbidden characters for file names (thus characters are now removed from the generated file name, list name will be kept since it's stored in the JSON)
 - [List Manager] Add some Info/Warning dialog on import/export functions (ie success or fail)
