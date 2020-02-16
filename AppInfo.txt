@@ -1,11 +1,11 @@
 AppVersion=0.8.1
 - Import/Export fixes
-- [List Manager] Fix import function asking for xml files instead of json
-- [List Manager] Fix export fail when list name contained forbidden characters for file names (thus characters are now removed from the generated file name, list name will be keeped since it's stored in the json)
+- [List Manager] Fix import function asking for XML files instead of JSON
+- [List Manager] Fix export fail when list name contained forbidden characters for file names (thus characters are now removed from the generated file name, list name will be kept since it's stored in the JSON)
 - [List Manager] Add some Info/Warning dialog on import/export functions (ie success or fail)
-- [General] Works and improve build with github (You can now access manually to indev build - it will generally be updated when I fix an issue or add one functionnality with not enough tests for release)
-- Link for Indev : https://github.com/ThibautSF/ParadoxosModManagerRework/releases/tag/indev
-- Previous link is also available on the git readme download section : (https://github.com/ThibautSF/ParadoxosModManagerRework/tree/master#download)
+- [General] Works and improve build with GitHub (You can now access manually to indev build - it will generally be updated when I fix an issue or add one functionality with not enough tests for release)
+- Link for Indev: https://github.com/ThibautSF/ParadoxosModManagerRework/releases/tag/indev
+- The previous link is also available on the git readme download section : (https://github.com/ThibautSF/ParadoxosModManagerRework/tree/master#download)
 
 AppVersion=0.8.0
 - Java 11 Update -> YOU NEED TO RE-DOWNLOAD
