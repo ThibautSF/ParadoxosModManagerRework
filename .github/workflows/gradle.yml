@@ -20,11 +20,11 @@ jobs:
         wrapper-directory: ./ParadoxosGameModManager
         build-root-directory: ./ParadoxosGameModManager
         arguments: dist
-#    - name : Upload produced bin
-#      uses: actions/upload-artifact@v1
-#      with:
-#        name: ${{ env.BUILD_ARTIFACT_NAME }}
-#        path: ${{ env.BUILD_ARTIFACT_PATH }}
+    - name : Upload produced bin
+      uses: actions/upload-artifact@v1
+      with:
+        name: ${{ env.BUILD_ARTIFACT_NAME }}
+        path: ${{ env.BUILD_ARTIFACT_PATH }}
     - uses: haya14busa/action-cond@v1
       id: tag
       with:
@@ -34,6 +34,7 @@ jobs:
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
+      continue-on-error: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
