@@ -19,7 +19,9 @@ This repository is for the Java 11 port of [Java 8 Paradoxos Mod Manager](https:
 
 ## Usefull links
 ### Download
-* Github release : https://github.com/ThibautSF/ParadoxosModManagerRework/releases
+* Latest : https://github.com/ThibautSF/ParadoxosModManagerRework/releases/latest
+* Indev : https://github.com/ThibautSF/ParadoxosModManagerRework/releases/tag/indev
+* All releases : https://github.com/ThibautSF/ParadoxosModManagerRework/releases
 
 For version previous 0.8.0 : [Java 8 Paradoxos Mod Manager](https://github.com/ThibautSF/ParadoxosModManager)
 
