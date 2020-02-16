@@ -32,6 +32,7 @@ import com.google.gson.JsonObject;
 import com.pmm.ParadoxosGameModManager.debug.ErrorPrint;
 import com.pmm.ParadoxosGameModManager.mod.Mod;
 import com.pmm.ParadoxosGameModManager.mod.ModList;
+import com.pmm.ParadoxosGameModManager.window.BasicDialog;
 import com.pmm.ParadoxosGameModManager.window.WorkIndicatorDialog;
 
 import javafx.beans.property.ReadOnlyStringWrapper;
@@ -451,8 +452,9 @@ public class ListManager extends Stage {
 			@Override
 			public void handle(ActionEvent t) {
 				FileChooser importChooser = new FileChooser();
-				FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("XML files (*.xml)", "*.xml");
-				importChooser.setTitle("Choose an exported list xml file for " + ModManager.GAME);
+				FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("*JSON files (*.json)",
+						"*.json");
+				importChooser.setTitle("Choose an exported list json file for " + ModManager.GAME);
 				importChooser.setInitialDirectory(new File(File.separator));
 				importChooser.getExtensionFilters().add(extFilter);
 				File file = importChooser.showOpenDialog(stage.getOwner());
@@ -462,13 +464,9 @@ public class ListManager extends Stage {
 						updateList();
 						refreshTexts();
 
-						Alert alert = new Alert(AlertType.INFORMATION);
-						alert.setTitle("Import result");
-						alert.setHeaderText(null);
-						alert.setContentText(strResult);
-
-						alert.showAndWait();
+						BasicDialog.showGenericDialog("Import result", null, strResult, AlertType.INFORMATION);
 					} catch (Exception e) {
+						BasicDialog.showGenericDialog("Error", e.getMessage(), AlertType.ERROR);
 						ErrorPrint.printError(e, "When import list");
 						e.printStackTrace();
 					}
@@ -482,19 +480,17 @@ public class ListManager extends Stage {
 				int pos = lists.getSelectionModel().getSelectedIndex();
 				ModList toExport = lists.getSelectionModel().getSelectedItem();
 				try {
-					ModManager.userlistsJSON.exportList(ModManager.GAME, toExport.getName());
+					String strResult = ModManager.userlistsJSON.exportList(ModManager.GAME, toExport.getName());
 
-					Alert a = new Alert(AlertType.INFORMATION);
-					a.setTitle("Import result");
-					a.setHeaderText(null);
-					a.setContentText("List exported");
-
-					a.showAndWait();
+					BasicDialog.showGenericDialog("Export result", "List '" + toExport.getName() + "' exported in :",
+							strResult, AlertType.INFORMATION, true);
 				} catch (Exception e) {
 					if (pos == -1) {
 						ErrorPrint.printError(e, "User try to export a list without selecting a list");
+						BasicDialog.showGenericDialog("Error", "No list selected", AlertType.ERROR);
 					} else {
 						ErrorPrint.printError(e, "When export a list");
+						BasicDialog.showGenericDialog("Error", e.getMessage(), AlertType.ERROR);
 					}
 					e.printStackTrace();
 				}

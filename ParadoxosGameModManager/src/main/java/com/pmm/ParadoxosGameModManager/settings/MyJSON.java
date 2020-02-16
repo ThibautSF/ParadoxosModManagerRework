@@ -31,7 +31,7 @@ public class MyJSON {
 	private static final String USER_LISTS = "userlists";
 	private static final String EXPORTED_LIST = "exportedlist";
 	private static final String GAME_ID = "gameID";
-	private static final String LIST = "list";
+//	private static final String LIST = "list";
 	private static final String NAME = "name";
 	private static final String DESCR = "descr";
 	private static final String CUSTOM_ORDER = "customOrder";
@@ -340,7 +340,7 @@ public class MyJSON {
 	 * @param listName
 	 * @throws IOException
 	 */
-	public void exportList(String game, String listName) throws IOException {
+	public String exportList(String game, String listName) throws IOException {
 		JsonArray modLists = root.get(USER_LISTS).getAsJsonArray();
 		Iterator<JsonElement> i = modLists.iterator();
 
@@ -353,15 +353,18 @@ public class MyJSON {
 				newroot.add(GAME_ID, new JsonPrimitive(ModManager.STEAM_ID));
 				newroot.add(EXPORTED_LIST, oneListElement.deepCopy());
 
-				String exportFileName = "Export_" + game + "_" + listName + ".xml";
+				String exportFile = this.file.getParentFile() + File.separator + "Export_" + game + "_" + listName
+						+ ".json";
 
-				FileWriter fileWriter = new FileWriter(this.file.getParentFile() + File.separator + exportFileName);
+				FileWriter fileWriter = new FileWriter(exportFile);
 				fileWriter.write(newroot.toString());
 				fileWriter.close();
 
-				break;
+				return new File(exportFile).getAbsolutePath();
 			}
 		}
+
+		return "Error on export, list not found.";
 	}
 
 	/**
@@ -382,18 +385,12 @@ public class MyJSON {
 			fileReader.close();
 
 			if (importRoot.get(GAME_ID).getAsInt() == ModManager.STEAM_ID) {
-				JsonArray modLists = importRoot.get(LIST).getAsJsonArray();
-				Iterator<JsonElement> i = modLists.iterator();
+				JsonObject oneListElement = importRoot.get(EXPORTED_LIST).getAsJsonObject();
 
-				while (i.hasNext()) {
+				ModList oneList = getModList(availableMods, oneListElement);
+				oneList.setName("[Imported]" + oneList.getName());
 
-					JsonObject oneListElement = i.next().getAsJsonObject();
-
-					ModList oneList = getModList(availableMods, oneListElement);
-					oneList.setName("[Imported]" + oneList.getName());
-
-					modifyList(oneList);
-				}
+				modifyList(oneList);
 
 				return "Import done.";
 			}
@@ -401,7 +398,7 @@ public class MyJSON {
 			return "Import procedure aborted, this list is not for the current game !";
 		}
 
-		return "Error, file '" + file + "' not found.";
+		throw new IOException("Error, file '" + file + "' not found.");
 	}
 
 	/**
