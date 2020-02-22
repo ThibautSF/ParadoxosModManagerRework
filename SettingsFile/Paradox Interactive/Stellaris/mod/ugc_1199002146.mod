@@ -1,0 +1,9 @@
+version="2.5.*"
+tags={
+	"Balance"
+	"Technologies"
+	"Events"
+}
+name="advancedascension"
+path="J:/SteamLibrary/steamapps/workshop/content/281990/1199002146"
+remote_file_id="1199002146"

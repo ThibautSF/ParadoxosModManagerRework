@@ -1,0 +1,9 @@
+name="SME_spaceport"
+archive="J:/SteamLibrary/steamapps/workshop/content/281990/1170198960/spaceport+.zip"
+tags={
+	"Buildings"
+	"Gameplay"
+}
+picture="spaceport.png"
+supported_version="1.9.*"
+remote_file_id="1170198960"

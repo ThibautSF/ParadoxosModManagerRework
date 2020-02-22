@@ -1,0 +1,83 @@
+force_pow2_textures=no
+language="l_french"
+graphics={
+	size={
+		x=1280
+		y=720
+	}
+
+	min_gui={
+		x=1280
+		y=720
+	}
+
+	gui_scale=1.000000
+	refreshRate=60
+	fullScreen=yes
+	borderless=no
+	shadows=no
+	shadowSize=2048
+	multi_sampling=4
+	maxanisotropy=4
+	gamma=50.000000
+	vsync=yes
+}
+sound_fx_volume=100.000000
+music_volume=50.000000
+scroll_speed=50.000000
+camera_rotation_speed=50.000000
+zoom_speed=50.000000
+mouse_speed=50.000000
+master_volume=100.000000
+ambient_volume=50.000000
+dev_master_volume=50.000000
+combat_sound_random=6
+mapRenderingOptions={
+	draw_terrain=yes
+	draw_water=yes
+	draw_borders=yes
+	draw_trees=yes
+	draw_rivers=yes
+	draw_lakes=yes
+	draw_postfx=yes
+	draw_sky=yes
+	draw_bloom=yes
+	draw_tooltips=yes
+	draw_hires_terrain=no
+	draw_citysprawl=yes
+	draw_shadows=yes
+	draw_reflections=yes
+	draw_ambient_objects=yes
+	draw_particles=yes
+	moving_units=no
+	minimap_units=yes
+	draw_terrain_in_uncolonized=yes
+	draw_state_borders=yes
+}
+camera_speed=50.000000
+camera_tilt=100.000000
+centered_zoom_in=yes
+lastplayer="Player"
+lasthost=""
+debug_saves=0
+autosave="YEARLY"
+autosave_tocloud=no
+compress_autosave=no
+compress_saves=yes
+difficulty="LUCK_NONE"
+outliner={
+	2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 19 20 21 22 
+}
+outliner_open=yes
+messagelist_open=yes
+windowmovetime=0.200000
+floating_chat_text=yes
+hints=yes
+autosave_on_events=no
+autopause_in_countryview=yes
+told_user_autopause=no
+primary_mapmodes={
+	{ 0 } { 1 } { 4 } { 5 } { 2 } { } { } { } { } { } 
+}
+last_mods={
+}

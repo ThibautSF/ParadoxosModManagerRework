@@ -1,0 +1,11 @@
+name = "AGOT Century of Blood"
+path = "mod/AGOT Century of Blood"
+dependencies = { "A Game of Thrones" }
+supported_checksums = { GAYT }
+replace_path = "history/characters"
+replace_path = "history/diplomacy"
+replace_path = "history/provinces"
+replace_path = "history/titles"
+replace_path = "history/wars"
+replace_path = "history/technology"
+replace_path = "history/eu4_converter"

@@ -1,0 +1,88 @@
+gui=
+{
+	language=l_french
+	has_set_language=yes
+}
+graphics=
+{
+	size=
+	{
+		x=1280
+		y=800
+	}
+
+	refreshRate=0
+	fullScreen=no
+	borderless=no
+	shadows=no
+	shadowSize=2048
+	multi_sampling=8
+	anisotropic_filtering=0
+	gamma=50.000000
+	vsync=yes
+}
+sound_fx_volume=100.000000
+music_volume=0.000000
+scroll_speed=50.000000
+camera_rotation_speed=50.000000
+zoom_speed=50.000000
+mouse_speed=50.000000
+master_volume=100.000000
+ambient_volume=52.000000
+dynamic_sound=no
+dynamic_sound_treshold=50.000000
+mapRenderingOptions=
+{
+	draw_terrain=yes
+	draw_water=yes
+	draw_borders=yes
+	draw_trees=yes
+	draw_rivers=yes
+	draw_postfx=yes
+	draw_sky=yes
+	draw_bloom=no
+	draw_tooltips=yes
+	draw_hires_terrain=no
+	draw_citysprawl=yes
+}
+camera_speed=50.000000
+camera_tilt=100.000000
+centered_zoom_in=yes
+lastplayer=""
+lasthost=""
+serveradress="diplomacy.valkyrienet.com"
+autosave="YEARLY"
+difficulty="NORMAL"
+outliner=
+{
+	1 2 3 4 5 6 7 9 13 14 15 }
+outliner_open=no
+windowmovetime=0.200000
+disable_wikipedia_links=no
+nudge_allowed=no
+has_disabled_welcome_screen=yes
+accepted_eula_version=1
+hints=no
+ironman=no
+mp_max_day_lead=7
+compress_autosaves=no
+disabled_alerts=
+{
+	28 21 }
+autosaves_to_keep=0
+last_mods=
+{
+"mod/orangeransom.mod.mod" "mod/archduchy.mod.mod" }
+low_res_textures=no
+force_pow2_textures=no
+last_used_id="76561198006110755"
+context_music=yes
+death_sound=yes
+province_embellishment=yes
+game_rules=
+{
+	minor_epidemics="default"
+	turkic_invasions="historical"
+	shattered_retreat="on"
+	gender="default"
+}

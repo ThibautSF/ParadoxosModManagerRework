@@ -1,0 +1,8247 @@
+SLACKEN={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+EXPLOITDEVELOPMENT={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+LEGALISM={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MYSTICISM={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+GOLDENERA={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+GOLDENERA_OTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=yes
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+GOLDENERAENDED={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEWPERSONALITY_MONARCH={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEWPERSONALITY_HEIR={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEWPERSONALITY_CONSORT={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+EMBRACEINST={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+EMBRACEINST_OTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+THEYATTACK={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+THEYATTACKUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+THEYATTACKSPY={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+THEYATTACKUSSPY={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SHAREMAP={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WESHAREMAP={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+THEYDECLINESHAREMAP={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERSHAREMAP={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRADELEAGUE_DISBANDED={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+LOST_TRADELEAGUE_LEADER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEW_TRADELEAGUE_LEADER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEJOINEDTRADELEAGUE={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+WEJOINEDTRADELEAGUEDECLINE={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+OTHERJOINSOURTRADELEAGUE={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+WELEAVEOURTRADELEAGUE={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+WELEAVEOWNTRADELEAGUE={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+WELEAVEOWNTRADELEAGUEDISMANTLED={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+OTHERLEAVESOURTRADELEAGUE={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+OTHERLEAVESOTHERTRADELEAGUE={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERKICKEDOUTOURTRADELEAGUE={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+OTHERJOINSOURTRADELEAGUEDECLINE={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+OTHERJOINSOTHERTRADELEAGUE={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WESLAVERAID={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SLAVERAIDONUS={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FAVORSGAINED={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+VICTORYCARD={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FULL_VICTORYCARD={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FAILING_VICTORYCARD={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ESTATEMOD_LOST={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CULTURALUNION={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CULTURALUNION_LOST={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CULTURALUNION_CS={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CULTURALUNION_CS_LOST={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEWSEATINPARLIAMENT={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ISSUETHROUGHPARLIAMENT={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ISSUEFAILED={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+TORDESILLAS_US={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=no
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+TORDESILLAS_THEM={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=yes
+	interesting={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+RELEASEDCOLONY={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+NEWCOLONIALCOUNTRY={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	from_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+NEWCLIENTCOUNTRY={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	default={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+JUSTIFYTRADECONFLICTME={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+JUSTIFYTRADECONFLICTTHEM={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FABRICATECLAIMSME={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FABRICATECLAIMSTHEM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+INFILTRATEADMINME={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+INFILTRATEADMINTHEM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CANCEL_INFILTRATEADMINME={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CANCEL_INFILTRATEADMINTHEM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SLANDERMERCHANTSME={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SLANDERMERCHANTSTHEM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SABOTAGERECRUITMENTME={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SABOTAGERECRUITMENTTHEM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CORRUPTOFFICIALSME={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CORRUPTOFFICIALSTHEM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SABOTAGEREPME={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SABOTAGEREPTHEM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTREBELSME={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTREBELSTHEM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CANCEL_SUPPORTREBELSME={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CANCEL_SUPPORTREBELSTHEM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SOWDISCONTENTME={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SOWDISCONTENTTHEM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+AGITATELIBERTYME={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+AGITATELIBERTYTHEM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+AGITATELIBERTYOVERLORD={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+EVILDISCOVEREDOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+EVILDISCOVEREDUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+EVILWEDISCOVERED={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+EVILDISCOVEREDUSFABRICATECLAIM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+EVILWEDISCOVEREDFABRICATECLAIM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+STOPIMPROVERELATIONS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+IMPROVERELATIONS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+STOPIMPROVERELATIONSMAXOPINIONUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+STOPIMPROVERELATIONSMAXOPINION={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+STOPSUPPORTHEIR={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTHEIR={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+KNOWLEDGE_SHARING={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+FLEETBASING={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OFFER_FLEETBASING={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CANCEL_FLEETBASING={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DIPLO_NO_MAINT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+REBELS_ENFORCE={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+GOLDDEPLETED={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEWTRADEGOOD={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+TREASURE_FLEET_TO_US={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+TREASURE_FLEET_WE_INTERCEPT={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MERCHANT_ARRIVED={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+MERCHANT_CANCEL={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRADEPOSTCREATED={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=no
+	to_me={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRADEPOSTCREATEDOTHER={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=no
+	to_me={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+ENEMYMILALLHONOUR={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+ENEMYMILALLHONOURSUBJECT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEWFACTION={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEWMONOTHER={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+NEWMON={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+USURPEROTHER={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+NEWHEIR={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEWQUEEN={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+QUEENDEATH={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OURFOREIGNHEIRWINS={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CONSORT_REGENT_TAKEOVER={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HEIR_DISINHERIT={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HEIRDEATH={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DOOMSDAY={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DOOMSDAYOTHER={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+LEADER_ARRIVED={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ADVISOR_DEATH={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ADVISOR_DEATH_HIRED={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ADVISOR_DEATH_OTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ADVISOR_ARRIVED_PROV={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+NEW_FEDERATION_LEADER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+BUILDING_DONE={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+BANKRUPT={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+BANKRUPT_OTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+DEBASE_CURRENCY={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+BANKLOAN={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+BANKLOAN_RENEW={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WARTAX={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WARTAX_OTHER={
+	msg_icontype="combat"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+EMPEROR={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEWPOPE={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DISCOVER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DISCOVERY_SPREAD={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+CLAIM_DEFENDER={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CLAIM_DEFENDER_OTHER={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+WEDICTATORTOREPUBLIC={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERDICTATORTOREPUBLIC={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WEDICTATORTOMONARCHY={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERDICTATORTOMONARCHY={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WECONVERT={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERCONVERT={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WECONVERT_SECONDARY={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERCONVERT_SECONDARY={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WEJOINLEAGUE={
+	msg_icontype="combat"
+	category="cat_religion"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERJOINLEAGUE={
+	msg_icontype="combat"
+	category="cat_religion"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+WELEAVELEAGUE={
+	msg_icontype="combat"
+	category="cat_religion"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERLEAVELEAGUE={
+	msg_icontype="combat"
+	category="cat_religion"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+WEDEFECT={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+THEYDEFECT={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERDEFECT={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+EVENTHAPPENOTHER={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+EVENTHAPPENOTHEROPTION={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+MAJOREVENTHAPPENOTHER={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+MAJOREVENTHAPPENOTHEROPTION={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+EVENTHAPPENUS={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+COLSUCCESS={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TECH={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+TRIGMOD={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+TRIGMODLOST={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DECLWAR={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DECLWAROTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+WEDECLWAR={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DECLWARCOLATT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DECLWARCOLDEF={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ENDOFWARPOPUP={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+PEACEACCEPT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+PEACEWEINVOLVED={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+PEACEACCEPTOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+PEACEACCEPTENEMY={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+PEACEREJECT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+PEACEWEACCEPT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+PEACEWEREJECT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+PEACEREJECTOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ROYMARACCEPT={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ROYMARREJECT={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ROYMARACCEPTOTHER={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ROYMARREJECTOTHER={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ROYMARWEACCEPT={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ROYMARWEREJECT={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ROYMAROTHERBREAK={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ROYMAROTHERBREAKUS={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ROYMARWEBREAK={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+MILALLWEREJECT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+MILALLWEACCEPT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+MILALLWEBAN={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MILALLBAN={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MILALLBANOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+MILLALLINVACCEPTENEMY={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MILLALLINVACCEPTOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+MILLALLJOINREJECTOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+MILALLREJECT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MILALLACCEPT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTINDEPENDENCEWEREJECT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTINDEPENDENCEWEACCEPT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTINDEPENDENCEWEBAN={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTINDEPENDENCEBAN={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTINDEPENDENCEBANOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTINDEPENDENCEINVACCEPTENEMY={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTINDEPENDENCEINVACCEPTOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTINDEPENDENCEJOINREJECTOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTINDEPENDENCEREJECT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SUPPORTINDEPENDENCEACCEPT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FORMCOALITIONACCEPT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+LEAVECOALITION={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FORMCOALITIONWEACCEPT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+LEAVECOALITIONWEACCEPT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FORMCOALITIONINVACCEPTOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+LEAVECOALITIONOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+LEAVEFEDERATION={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+WEJOINEDFEDERATION={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+WEJOINEDFEDERATIONDECLINE={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+OTHERJOINSOURFEDERATION={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+OTHERLEAVSOURFEDERATION={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+OTHERKICKEDOUTOURFEDERATION={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+OTHERJOINSOURFEDERATIONDECLINE={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+OTHERJOINSOTHERFEDERATION={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERLEAVSOTHERFEDERATION={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ENFORCEPEACEACCEPT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ENFORCEPEACEWEACCEPT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ENFORCEPEACEINVACCEPTOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ENFORCEPEACEREJECT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ENFORCEPEACEWEREJECT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ENFORCEPEACEREJECTOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+INTERVENE_SAME_SIDE={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+INTERVENE_OTHER_SIDE={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OWNTRADEREFUSAL={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRADEREFUSAL={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+TRADEREFUSALOTHER={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OWNTRADEALLOW={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRADEALLOW={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRADEALLOWOTHER={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+ANNEXACCEPT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEANNEXACCEPT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ANNEXACCEPTOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+ANNEXREJECT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ANNEXREJECTOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ANNEXREJECTWE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ANNEXINGUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=yes
+		icon=no
+	}
+}
+MARCHTOOLARGE={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MARCHTOOLARGEUS={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+VASALLACCEPT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+VASALLREJECT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+VASALLACCEPTOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+VASALLREJECTOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+VASALLWEREJECT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+VASALLWEACCEPT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+VASALLBREAK={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+VASALLBREAKOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WEVASALLBREAK={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+GUARATOUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+GUARATOOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WEGUARAT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+REVOKEGUARATOUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+REVOKEGUARATOOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WEREVOKEGUARAT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WARNTOUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WARNTOOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WEWARN={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+INSUTOUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEINSU={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+INSUOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+INSUTOUS_SCORNFUL={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEINSU_SCORNFUL={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+INSUOTHER_SCORNFUL={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TAKEONOURDEBT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WETAKEONDEBT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERTAKEONDEBT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+THEYINFLUENCE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEINFLUENCE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERINFLUENCE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CLAIMTOUS={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CLAIMTOOTH={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WECLAIM={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WELOSECLAIM={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+THEYLOSECLAIMUS={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+ACCMILUS={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEACCMIL={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ACCMILOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DECMILUS={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEDECMIL={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DECMILOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CANCMILUS={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CANMILOTHE={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WECANMIL={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WECANTHEIRMIL={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OFFACCMILUS={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEOFFACCMIL={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OFFACCMILOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OFFDECMILUS={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEDECOFFMIL={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DECOFFMILOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+MILALLHONOUR={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+WEMILALLHONOUR={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WEMILALLSUPPORTIND={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEJOINSUBJECTWAR={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERMILALLHONOUR={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+MILALLDISHONOUR={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEMILALLDISHONOUR={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERMILALLDISHONOUR={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CURIACONTROLLER={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CURIACONTROLLEROTHER={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+COLONYBURNED={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+COLONYBURNEDUS={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+COLONYBURNEDOTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+COLONYTAKEN={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+COLONYTAKENUS={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+COLONYTAKENOTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+SUCCESSIONWAR={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+SUCCESSIONWARUS={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+STABDROP={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+STABINCREASE={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+REGENT={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+REGENTOTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+QUEENREGENT={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+QUEENREGENTOTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DISBAND={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+COLONYDAMAGED={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NATIVERISING={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+REPAIDLOAN={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+REPAIDLOANOTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CANCELLOAN={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CANCELLOANOTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DECLINELOAN={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DECLINELOANOTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ACCEPTLOAN={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+BREAKCOUNTRY={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+BREAKCOUNTRYOTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+ACCEPTLOANOTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CHANGEDCULTURE={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ASSIMILATEDCULTURE={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ASSIMILATEDCULTUREGROUP={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NONASSIMILATEDCULTUREGROUP={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+LEADERDIED={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MISSSUCC_SELF={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MISSSUCC_OTHER_IN_US={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MISSSUCC_US_IN_OTHER={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CENTEROFREFORMCONVERT={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CENTEROFREFORMDONE={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CENTEROFREFORMREMOVE={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+RELIGIOUSCENTERREMOVE={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DIPLOMAT_RETURNED={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ATTACKTHEM={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=yes
+	from_me={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ATTACKUS={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+SIEGETHEM={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=yes
+	from_me={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+SIEGEUS={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+LANDBATTLEOVER={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+SIEGEOVER={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=yes
+	from_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+OCCUPATIONOVER={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=yes
+	from_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+NAVALBATTLEOVER={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+CHATMESSAGE={
+	msg_icontype="event"
+	category="cat_other"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+FREEIDEA={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+IDEA={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+IDEAGROUP={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEWFOGWE={
+	msg_icontype="gov"
+	category="cat_other"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+NEWFOGOTHER={
+	msg_icontype="gov"
+	category="cat_other"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+INHERITWE={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+INHERITOTHER={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+UNIONWEMASTER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+UNIONWELESSER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+UNIONOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WHITEPEACEWE={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WHITEPEACEOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+PIRATES={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+WEGIFT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+GIFTTOUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+GIFTTOOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WEIMPREL={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+IMPRELTOUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+IMPRELTOOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+CLAIMLOSS={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+COREGAIN={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CORELOSS={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+COREGAINOTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+OURTRUCEENDS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WARSUBSIDIES={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEWARSUBSIDIES={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERWARSUBSIDIES={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CANCELWARSUBSIDIES={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WECANCELWARSUBSIDIES={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WEENDWARSUBSIDIES={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ENDWARSUBSIDIES={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ENDKNOWLEDGESHARE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERCANCELWARSUBSIDIES={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+ALLYTAKEOVER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ALLYTAKEOVERWE={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+INDEPENDANCE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+THREATENWAR={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WETHREATENWAR={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+THEYDECLINETHREATENWAR={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERTHREATENWAR={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CHARTERCOMPANY={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WECHARTERCOMPANY={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+THEYDECLINECHARTERCOMPANY={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERCHARTERCOMPANY={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+SELLPROV={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WESELLPROV={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+THEYDECLINESELLPROV={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERSELLPROV={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+RETURNPROV={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WERETURNPROV={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERRETURNPROV={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+SELLSHIPS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WESELLSHIPS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+THEYDECLINESELLSHIPS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+REVOLT={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+REVOLTSIEGE={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+REBELENTERED={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SHIPSUNK={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+PROVINCELOST={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NAVALATTACKTHEM={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=yes
+	from_me={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+NAVALATTACKUS={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+UNITARRIVED={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+RMEND={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+PUEND={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+PUENDWAR={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+PUENDMASTER={
+	msg_icontype="diplo"
+	category="cat_dynasty"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CAPITALMOVED={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CAPITALMOVEDOTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRADEPORTMOVED={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRADEPORTMOVEDOTHER={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DECISIONOTHER={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DECISIONUS={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+REBELACCEPTANCEOTHER={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+REBELACCEPTANCEUS={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CRUSADEONUS={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CRUSADEONOTHER={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+WECRUSADE={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+EXCOMONUS={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+EXCOMONOTHER={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+WEEXCOM={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+EXCOMREVONUS={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+EXCOMREVONOTHER={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+WEREVEXCOM={
+	msg_icontype="gov"
+	category="cat_religion"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+MISSIONDONEUS={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MISSIONDONEOTHER={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+NEWMISSIONUS={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+MISSIONFAILEDUS={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MISSIONCANCELUS={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+CREATELEADER={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DISMISSLEADER={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+COLONYCITYUS={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FULLALLYINWAR={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+SCORCHEDEARTH={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+SCORCHEDEARTHUS={
+	msg_icontype="combat"
+	category="cat_combat"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WEGAINCB={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WELOSECB={
+	msg_icontype="combat"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEACCRELUNITY={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+RELUNITYWITHUS={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+RELUNITYWITHOTHER={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+DECRELUNITYWITHUS={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DECRELUNITYWITHOTHER={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+WEACCGRANTELECTORATE={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+GRANTELECTORATEWITHUS={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+GRANTELECTORATEWITHOTHER={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+DECGRANTELECTORATEWITHUS={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DECGRANTELECTORATEWITHOTHER={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WE_LOST_ELECTORATE={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHER_LOST_ELECTORATE={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEACCGRANTFREECITY={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+GRANTFREECITYWITHUS={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+GRANTFREECITYWITHOTHER={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+DECGRANTFREECITYWITHUS={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DECGRANTFREECITYWITHOTHER={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WE_LOST_FREECITY={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+OTHER_LOST_FREECITY={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+WEACCDEMANDUNLAWFULTERRITORY={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DEMANDUNLAWFULTERRITORYWITHUS={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DEMANDUNLAWFULTERRITORYWITHOTHER={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+DECDEMANDUNLAWFULTERRITORYWITHUS={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+DECDEMANDUNLAWFULTERRITORYWITHOTHER={
+	msg_icontype="gov"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+PROVMODEXP={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+COUNTRYMODEXP={
+	msg_icontype="event"
+	category="cat_event"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+RELIGIOUS_SCHOLAR_EXPIRY={
+	msg_icontype="diplo"
+	category="cat_religion"
+	option=yes
+	go_to="religion"
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+ICON_EXPIRY={
+	msg_icontype="diplo"
+	category="cat_religion"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEWACTIVECARDINAL={
+	msg_icontype="diplo"
+	category="cat_religion"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FUTURECARDINALDEAD={
+	msg_icontype="diplo"
+	category="cat_religion"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FUTURECARDINALLOYALTYSTOP={
+	msg_icontype="diplo"
+	category="cat_religion"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+RETURNCOREUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HREREFORMBYUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	from_me={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HREREFORM={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HREREVOKE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HREDISMANTLEBYUS={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HREDISMANTLE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HREAUTODISMANTLE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HREADDPROVINCEEMPEROR={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HREADDPROVINCEOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=yes
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+HREREMOVEPROVINCEEMPEROR={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HREREMOVEPROVINCEOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	interesting={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HRELEAVEEMPEROR={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+HRELEAVEOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+REFNATIVE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+REFNATIVE_OTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+REFRELIGION={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+REFRELIGION_OTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+TARIFFINC={
+	msg_icontype="gov"
+	category="cat_government"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+EVILDISCOVEREDUSJUSTIFYTRADECONFLICT={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+EVILWEDISCOVEREDJUSTIFYTRADECONFLICT={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+RIVAL_SET={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+RIVAL_REMOVED={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+RIVAL_LOST={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+POLICY_AVAILABLE={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+POLICY_ENACTED={
+	msg_icontype="adm"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+POLICY_REPEALED={
+	msg_icontype="adm"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRADE_RELATION_CANCEL={
+	msg_icontype="adm"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+TRADE_RELATION_ACCEPT={
+	msg_icontype="adm"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+STEER_TRADE_RELATION_CANCEL={
+	msg_icontype="adm"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+STEER_TRADE_RELATION_ACCEPT={
+	msg_icontype="adm"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+}
+ASK_PROT_ACCEPT={
+	msg_icontype="adm"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+ASK_PROT_DECLINE={
+	msg_icontype="adm"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+DESIGNATE_MARCH={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+MARCH_CANCELED={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+ASK_FOR_MARCH_DENIED={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+EXPLORATION_FINISHED={
+	msg_icontype="dip"
+	category="cat_military"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+DRILL_SKILL_GAIN={
+	msg_icontype="mil"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FLAGSHIP_SKILL_GAIN={
+	msg_icontype="mil"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SUBJECTINTERACT_INSTANT={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+SUBJECTINTERACT_OVERLORD_INSTANT={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+SUBJECTINTERACT_START={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+SUBJECTINTERACT_STOP={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+MULTISUBJECTINTERACT={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+CONDOTTIERI_ACCEPTED={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CONDOTTIERI_DECLINED={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CANCELCONDOTTIERI={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+CONDOTTIERI_ACCEPTED_OTHER={
+	msg_icontype="mil"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+CONDOTTIERI_CANCELLED_OTHER={
+	msg_icontype="mil"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+CONDOTTIERI_CANCELLED_SAMEWAR={
+	msg_icontype="mil"
+	category="cat_military"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+CONDOTTIERI_CANCELLED_SAMEWAR_US={
+	msg_icontype="mil"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FORCEDBREAKALLIANCE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+WEFORCEDBREAKALLIANCE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FORCEDALLYBREAKALLIANCE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OTHERFORCEDBREAKALLIANCE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+BREAKALLIANCE_DECLINED={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OVERLORD_DEVELOPED_SUBJECT_PROVINCE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+GREAT_POWER_STATUS_LOST={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+GREAT_POWER_STATUS_LOST_OTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+GREAT_POWER_STATUS_GAINED_OTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+GREAT_POWER_STATUS_GAINED={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+PUABANDON={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+PUABANDON_US={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+PUABANDON_OTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	interesting={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+LEADERTRAIT_GAINED={
+	msg_icontype="combat"
+	category="cat_military"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=no
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+OVERLORD_SACRIFICED_OUR_RULER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+OVERLORD_SACRIFICED_OUR_HEIR={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+FORCED_SEPPUKU_MESSAGE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+TRIBUTARYACCEPT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+TRIBUTARYREJECT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+TRIBUTARYACCEPTOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=yes
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRIBUTARYREJECTOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRIBUTARYWEREJECT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRIBUTARYWEACCEPT={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+WETRIBUTARYBREAK={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+TRIBUTARYBREAK={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	from_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+TRIBUTARYBREAKOTHER={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=yes
+	interesting={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+	default={
+		log=yes
+		onmap=no
+		popup=no
+		pausepopup=no
+		icon=no
+	}
+}
+ASK_FOR_TRIBUTARY_ACCEPT={
+	msg_icontype="adm"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+ASK_FOR_TRIBUTARY_DENIED={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+TRIBUTE_REFUSED={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+TRIBUTE_TEMP_CHANGED={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+TRIBUTE_CHANGED={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+OVERLORD_CHANGED_TRIBUTE={
+	msg_icontype="dip"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=yes
+	}
+}
+PRESS_SAILORS_MESSAGE={
+	msg_icontype="diplo"
+	category="cat_diplomacy"
+	option=no
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+INVALID_TRADING_POLICY={
+	msg_icontype="trade"
+	category="cat_trade"
+	option=no
+	to_me={
+		log=yes
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+NEW_ARMY_PROFESSIONALISM_ABILITY={
+	msg_icontype="mil"
+	category="cat_military"
+	option=yes
+	go_to="military"
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MISSION_COMPLETED={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SETTLEMENT_GROWTH_DEVELOPMENT_INCREASED={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=no
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+RECEIVED_FLEEING_SERFS={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=no
+		onmap=yes
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+SERFS_FLED={
+	msg_icontype="event"
+	category="cat_event"
+	option=no
+	to_me={
+		log=no
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MINORITY_EXPELLED={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}
+MINORITY_EXPULSION_CANCELED={
+	msg_icontype="gov"
+	category="cat_government"
+	option=yes
+	to_me={
+		log=yes
+		onmap=no
+		popup=yes
+		pausepopup=no
+		icon=no
+	}
+}

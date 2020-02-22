@@ -1,0 +1,144 @@
+force_pow2_textures=no
+language="l_french"
+graphics={
+	size={
+		x=1920
+		y=1080
+	}
+
+	min_gui={
+		x=1280
+		y=720
+	}
+
+	gui_scale=1.000000
+	gui_safe_ratio=1.000000
+	refreshRate=60
+	fullScreen=yes
+	borderless=no
+	display_index=0
+	shadowSize=2048
+	multi_sampling=4
+	multi_sampling_quality=0
+	maxanisotropy=16
+	gamma=50.000000
+	vsync=yes
+	adapter=0
+}
+sound_fx_volume=21.000000
+music_volume=100.000000
+scroll_speed=50.000000
+camera_rotation_speed=50.000000
+zoom_speed=50.000000
+mouse_speed=50.000000
+soundgroup="l_english"
+master_volume=100.000000
+ambient_volume=33.000000
+dev_master_volume=75.000000
+input_type=0
+voice_volume=65.000000
+camera_look_sensitivity=1.000000
+camera_speed=50.000000
+name="Bisougai(Thithi)"
+last_mods={
+	"mod/ugc_1599975741.mod"
+}
+autosave=4
+tutorial=0
+gfx_quality=2
+bloom={
+	quality=2
+	lens_flare=yes
+}
+mp_max_ticks_ahead=30
+mapmode_sectors=yes
+show_startup_game_info="Shelley v2.5"
+shown_legal_documents={
+	"gdpr-popup-2018-05-17"
+	"privacy-policy-2018-05-15"
+	"privacy-policy-2018-11-02"
+}
+outliner={
+	"planet"
+={
+	}
+	"sectors"
+={
+	}
+	"special_planets"
+={
+	}
+	"observation_post"
+={
+	}
+	"civilian_ship"
+={
+	}
+	"fleet"
+={
+	}
+	"army"
+={
+	}
+	"shipyards"
+={
+	}
+	"starbases"
+={
+	}
+	"disabled_alerts"
+={
+	}
+	"pop_factions"
+={
+	}
+	"integrations"
+={
+	}
+	"terraforming"
+={
+	}
+	"player_countries"
+={
+	}
+	"ai_countries"
+={
+	}
+	"fallen_empires"
+={
+	}
+	"minors"
+={
+	}
+}
+galaxy_config_sp={
+	template="huge"
+	shape=spiral_2
+	num_empires=18
+	num_advanced_empires=0
+	num_marauder_empires=1
+	colonizable_planet_odds=5.000
+	primitive_odds=5.000
+	crises=1.000
+	mid_game_start=75
+	end_game_start=175
+	victory_year=1050
+	scaling=yes
+	num_gateways=1.500
+	num_wormhole_pairs=1.500
+	clustered=no
+}
+galaxy_config_mp={
+	template="huge"
+	shape=spiral_2
+	num_advanced_empires=0
+	num_fallen_empires=5
+	num_marauder_empires=1
+	colonizable_planet_odds=2.500
+	primitive_odds=2.500
+	mid_game_start=75
+	end_game_start=300
+	num_gateways=2.000
+	num_wormhole_pairs=1.500
+	player_locations=random
+}

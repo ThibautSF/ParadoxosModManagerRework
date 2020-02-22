@@ -1,0 +1,9 @@
+name="MegaCity"
+archive="J:/SteamLibrary/steamapps/workshop/content/281990/1160488027/MegaCity.zip"
+tags={
+	"Gameplay"
+	"Buildings"
+}
+picture="thumb.jpg"
+supported_version="1.9.*"
+remote_file_id="1160488027"

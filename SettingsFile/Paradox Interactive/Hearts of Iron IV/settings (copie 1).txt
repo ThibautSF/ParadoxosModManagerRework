@@ -1,0 +1,81 @@
+force_pow2_textures=no
+language="l_french"
+graphics={
+	size={
+		x=2560
+		y=1440
+	}
+
+	min_gui={
+		x=1280
+		y=720
+	}
+
+	gui_scale=1.000000
+	refreshRate=60
+	max_refresh_rate=75
+	fullScreen=no
+	borderless=yes
+	shadows=no
+	shadowSize=2048
+	multi_sampling=8
+	maxanisotropy=4
+	gamma=50.000000
+	vsync=yes
+}
+sound_fx_volume=23.000000
+music_volume=10.000000
+scroll_speed=22.000000
+camera_rotation_speed=50.000000
+zoom_speed=50.000000
+mouse_speed=50.000000
+master_volume=100.000000
+ambient_volume=21.000000
+voice_volume=100.000000
+dev_master_volume=50.000000
+combat_sound_random=6
+mapRenderingOptions={
+	draw_terrain=yes
+	draw_water=yes
+	draw_borders=yes
+	draw_trees=yes
+	draw_rivers=yes
+	draw_postfx=no
+	draw_sky=yes
+	draw_bloom=yes
+	draw_tooltips=yes
+	draw_hires_terrain=no
+	draw_citysprawl=yes
+	draw_shadows=yes
+	draw_weather_effects=yes
+	draw_water_reflections=yes
+	draw_units=yes
+	draw_buildings=yes
+	high_gfx_shaders=yes
+	draw_map_full_res=yes
+	texture_quality=0
+}
+camera_speed=50.000000
+camera_tilt=100.000000
+centered_zoom_in=yes
+lastplayer="Player"
+lasthost=""
+debug_saves=3
+autosave="MONTHLY"
+autosave_tocloud=no
+skip_setup=no
+outliner_open=yes
+windowmovetime=0.200000
+hints=yes
+last_mods={
+	"mod/ugc_862190346.mod"
+	"mod/ugc_863674959.mod"
+	"mod/ugc_860522886.mod"
+}
+counter_color_mode=0
+template_counter=0
+hide_daynight_cycle=yes
+use_ingame_browser=yes
+save_as_binary=yes
+default_offline_wiki=no
+pause_on_popups=no

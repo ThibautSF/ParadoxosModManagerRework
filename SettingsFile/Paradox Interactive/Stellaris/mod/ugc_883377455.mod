@@ -1,0 +1,16 @@
+name="Enigmatic Technologies"
+archive="J:/SteamLibrary/steamapps/workshop/content/281990/883377455/enigmatic_technologies.zip"
+tags={
+	"Technologies"
+	"Buildings"
+	"Traits"
+	"Utilities"
+	"Stations"
+	"Enigmatic"
+	"Loop"
+	"Worm"
+	"Worm-in-waiting"
+}
+picture="thumbnail.jpg"
+supported_version="2.3.*"
+remote_file_id="883377455"

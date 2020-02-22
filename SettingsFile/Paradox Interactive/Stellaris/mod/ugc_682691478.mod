@@ -1,0 +1,16 @@
+name="Cybrxkhan's Assortment of Namelists for Stellaris"
+path="J:/SteamLibrary/steamapps/workshop/content/281990/682691478"
+tags={
+	"Names"
+	"Namelists"
+	"cybrxkhan"
+	"Variety"
+	"Flavor"
+	"Species"
+	"Tocharians"
+	"random AI"
+	"galaxy generation"
+}
+picture="CANS.jpg"
+supported_version="2.5.*"
+remote_file_id="682691478"
