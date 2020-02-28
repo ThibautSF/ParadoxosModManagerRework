@@ -77,8 +77,8 @@ import javafx.util.Callback;
  */
 public class ListCreator extends Stage {
 	// Window Var
-	private static int WINDOW_WIDTH = 1000;
-	private static int WINDOW_HEIGHT = 600;
+	private static int WINDOW_WIDTH = 1200;
+	private static int WINDOW_HEIGHT = 750;
 	private GridPane window = new GridPane();
 
 	private VBox titleBox = new VBox();
@@ -211,13 +211,13 @@ public class ListCreator extends Stage {
 		ColumnConstraints col2 = new ColumnConstraints();
 		col2.setPercentWidth(20);
 		ColumnConstraints col3 = new ColumnConstraints();
-		col3.setPercentWidth(15);
+		col3.setPercentWidth(10);
 		ColumnConstraints col4 = new ColumnConstraints();
 		col4.setPercentWidth(15);
 		ColumnConstraints col5 = new ColumnConstraints();
 		col5.setPercentWidth(20);
 		ColumnConstraints col6 = new ColumnConstraints();
-		col6.setPercentWidth(30);
+		col6.setPercentWidth(35);
 		ColumnConstraints col7 = new ColumnConstraints();
 		col7.setPercentWidth(0);
 		window.getColumnConstraints().addAll(col1, col2, col3, col4, col5, col6, col7);
@@ -423,24 +423,28 @@ public class ListCreator extends Stage {
 		// ModList list of mods (end)
 
 		// Use custom mod order
-		window.add(customOrderBox, 5, 1, 1, 1);
+		window.add(customOrderBox, 5, 0, 1, 2);
 		customOrderBox.setStyle("-fx-alignment: bottom-left;");
 		customOrderBox.getChildren().addAll(cbCustomOrder, lblOrderInfo);
 		cbCustomOrder.setSelected(list.isCustomOrder());
 
-		switch (ModManager.ACTMOD_TYPE) {
-		case "json":
-			// Version 2 → Imperator, new launcher Stellaris/EU4 (like)
-			lblOrderInfo.setText(
-					"New order detected: #1 is loaded firstly by the game.\nThus mods will be applied bottom to top.");
-			break;
+		lblOrderInfo.setText("Info: mod #1 have the highest priority (like legacy launcher)\n"
+				+ "Thus mean that, if #1 and #2 have similar modifications, \n"
+				+ "PMM will ensure that #1 overwrite #2 in the launcher order.");
 
-		default:
-			// Version 1 → Crusader Kings II to Stellaris legacy (like)
-			lblOrderInfo.setText(
-					"Legacy order detected: #1 is loaded lastly by the game.\nThus mods will be applied top to bottom.");
-			break;
-		}
+//		switch (ModManager.ACTMOD_TYPE) {
+//		case "json":
+//			// Version 2 → Imperator, new launcher Stellaris/EU4 (like)
+//			lblOrderInfo.setText(
+//					"New order detected: #1 is loaded firstly by the game.\nThus mods will be applied bottom to top.");
+//			break;
+//
+//		default:
+//			// Version 1 → Crusader Kings II to Stellaris legacy (like)
+//			lblOrderInfo.setText(
+//					"Legacy order detected: #1 is loaded lastly by the game.\nThus mods will be applied top to bottom.");
+//			break;
+//		}
 
 		// TableView order mods (start)
 		window.add(listOrderBox, 5, 2, 1, 3);
