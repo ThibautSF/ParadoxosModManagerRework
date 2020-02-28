@@ -1,15 +1,15 @@
 # .github/workflows/gradle-build-pr.yml
 name: Build PMM
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
 #  push:
-#    tags:
-#      - '*'
+#    branches:
+#      - master
+#  pull_request:
+#    branches:
+#      - master
+  push:
+    tags:
+      - '*'
 
 jobs:
   gradle:
