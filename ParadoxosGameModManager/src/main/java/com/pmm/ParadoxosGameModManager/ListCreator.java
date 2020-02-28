@@ -428,6 +428,7 @@ public class ListCreator extends Stage {
 		customOrderBox.getChildren().addAll(cbCustomOrder, lblOrderInfo);
 		cbCustomOrder.setSelected(list.isCustomOrder());
 
+		lblOrderInfo.setStyle("-fx-text-fill: red;");
 		lblOrderInfo.setText("Info: mod #1 have the highest priority (like legacy launcher)\n"
 				+ "Thus mean that, if #1 and #2 have similar modifications, \n"
 				+ "PMM will ensure that #1 overwrite #2 in the launcher order.");
