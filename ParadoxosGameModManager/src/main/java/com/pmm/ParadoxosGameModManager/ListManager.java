@@ -695,7 +695,8 @@ public class ListManager extends Stage {
 
 		if (applyList.isCustomOrder()) {
 			// Generate .mod files with custom name
-			generateCustomModFiles(applyMods);
+			// Since it's new launcher version, custom mod files should be useless
+//			generateCustomModFiles(applyMods);
 		} else {
 			// Sort list to ASCII order before apply
 			Collections.sort(applyMods, new Comparator<Mod>() {
@@ -731,7 +732,8 @@ public class ListManager extends Stage {
 //		}
 		String prefix = "";
 		if (applyList.isCustomOrder()) {
-			prefix = "pmm_";
+			// Since it's new launcher version, custom mod files should be useless
+//			prefix = "pmm_";
 		}
 
 		for (Mod mod : applyMods) {
