@@ -121,11 +121,13 @@ public class BasicDialog {
 
 		alert.getDialogPane().setContent(expContent);
 
-		if (cancel) {
-			buttons.add(new ButtonType("Cancel", ButtonData.CANCEL_CLOSE));
-		}
+		if (buttons != null) {
+			if (cancel) {
+				buttons.add(new ButtonType("Cancel", ButtonData.CANCEL_CLOSE));
+			}
 
-		alert.getButtonTypes().setAll(buttons);
+			alert.getButtonTypes().setAll(buttons);
+		}
 
 		return alert.showAndWait();
 	}
