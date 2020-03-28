@@ -1,3 +1,11 @@
+AppVersion=0.8.2
+- UI enhancements and fixes
+- INSTALL INSTRUCTIONS: Download the archive for your OS, extract and replace all
+- [List Creator] New text info for custom order functionality
+- [List Creator] Text info for custom order now in red
+- [General] The generation of custom .mod files was removed for new launcher compatibilities
+- [General] Minor enhancement for confirm UI dialogs
+
 AppVersion=0.8.1
 - Import/Export fixes
 - INSTALL INSTRUCTIONS: Download the archive for your OS, extract and replace all
