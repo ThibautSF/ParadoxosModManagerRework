@@ -120,7 +120,7 @@ public class ListCreator extends Stage {
 	private Label lblOrderInfo = new Label(strOrderInfo);
 	private HBox resetOrderBox = new HBox();
 	private Button btnResetOrder = new Button("Reset ASCII order");
-	private Button btnResetInvOrder = new Button("Reset reverse ASCII order");
+	private Button btnInvOrder = new Button("Reverse order");
 
 	private VBox listOrderBox = new VBox();
 	private TableView<Mod> modsOrdering = new TableView<>();
@@ -712,7 +712,7 @@ public class ListCreator extends Stage {
 		window.add(resetOrderBox, 5, 5, 1, 1);
 		resetOrderBox.setStyle("-fx-alignment: center;");
 		resetOrderBox.setSpacing(5);
-		resetOrderBox.getChildren().addAll(btnResetOrder, btnResetInvOrder);
+		resetOrderBox.getChildren().addAll(btnResetOrder, btnInvOrder);
 
 		btnResetOrder.setOnAction(action -> {
 			String title = "Reset to default order";
@@ -737,31 +737,13 @@ public class ListCreator extends Stage {
 					});
 				}
 			}
+
+			modsOrdering.refresh();
 		});
 
-		btnResetInvOrder.setOnAction(action -> {
-			String title = "Reset to default reverse order";
-			String header = "What do you want to do ?";
-			String message = "";
-
-			List<ButtonType> buttons = new ArrayList<>();
-
-			ButtonType buttonOk = new ButtonType("Continue");
-
-			buttons.add(buttonOk);
-
-			Optional<ButtonType> choice = BasicDialog.showGenericConfirm(title, header, message, buttons, true);
-
-			if (choice.get().getButtonData() != ButtonData.CANCEL_CLOSE) {
-				if (choice.get() == buttonOk) {
-					Collections.sort(selectedModsList, new Comparator<Mod>() {
-						@Override
-						public int compare(Mod m1, Mod m2) {
-							return -m1.getName().compareTo(m2.getName());
-						}
-					});
-				}
-			}
+		btnInvOrder.setOnAction(action -> {
+			Collections.reverse(selectedModsList);
+			modsOrdering.refresh();
 		});
 
 		// Reset mod ordering button (end)
