@@ -39,8 +39,8 @@ public class Mod {
 	private boolean missing;
 	private Set<String> modifiedFiles = new HashSet<>();
 
-	private final List<String> filterDir = Arrays.asList(".git", "");
-	private final List<String> filterFile = Arrays.asList("");
+	private final List<String> filterDir = Arrays.asList(".git");
+	private final List<String> filterFile = Arrays.asList();
 
 	/**
 	 *
