@@ -11,6 +11,9 @@ plugins {
     id 'org.beryx.jlink'               version '2.17.1'
 }
 
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
 // Application Configuration
 ext {
     appName = "Paradoxos Mod Manager"
@@ -18,7 +21,7 @@ ext {
     appPackaging = "ParadoxosModManager"
     appModuleName = "com.pmm.ParadoxosGameModManager"
     appMainClass = "com.pmm.ParadoxosGameModManager.ModManager"
-    
+	
     platform = "other"
     if (OperatingSystem.current().isMacOsX()) {
         platform = "mac"
@@ -30,7 +33,7 @@ ext {
         platform = "windows"
     }
 }
-	
+
 mainClassName = "${ext.appModuleName}/${ext.appMainClass}"
 
 repositories {
