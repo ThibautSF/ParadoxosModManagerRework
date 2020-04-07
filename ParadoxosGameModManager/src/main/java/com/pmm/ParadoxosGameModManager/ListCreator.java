@@ -180,7 +180,7 @@ public class ListCreator extends Stage {
 				return m1.getName().compareTo(m2.getName());
 			}
 		});
-		this.modListBckp = list.getModlist();
+		this.modListBckp = this.list.getModlist();
 
 		setTitle(ModManager.APP_NAME + " : " + ModManager.GAME);
 
@@ -1319,7 +1319,8 @@ public class ListCreator extends Stage {
 			removeButton.setOnAction(action -> {
 				int pos = getTableRow().getIndex();
 
-				selectedModsList.remove(pos);
+				Mod mod = selectedModsList.remove(pos);
+				list.removeMod(mod);
 				mods.refresh();
 				modsOrdering.refresh();
 			});
