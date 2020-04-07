@@ -908,7 +908,8 @@ public class ListCreator extends Stage {
 		if (json.keySet().contains("enabled_mods")) {
 			String[] mods = gson.fromJson(json.get("enabled_mods"), String[].class);
 
-			for (String mod : mods) {
+			for (int i = mods.length - 1; i >= 0; i--) {
+				String mod = mods[i];
 				readMods(mod);
 			}
 		}
