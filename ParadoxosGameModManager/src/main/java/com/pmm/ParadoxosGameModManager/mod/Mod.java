@@ -2,11 +2,13 @@ package com.pmm.ParadoxosGameModManager.mod;
 
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -36,6 +38,9 @@ public class Mod {
 	private SimpleStringProperty realModDirectoryPath;
 	private boolean missing;
 	private Set<String> modifiedFiles = new HashSet<>();
+
+	private final List<String> filterDir = Arrays.asList(".git", "");
+	private final List<String> filterFile = Arrays.asList("");
 
 	/**
 	 *
@@ -209,7 +214,22 @@ public class Mod {
 	}
 
 	private void addModifiedFiles(File directory, String relativeDirPath) {
-		File[] files = directory.listFiles();
+		File[] files = directory.listFiles(new FileFilter() {
+			@Override
+			public boolean accept(File file) {
+				if (filterFile.contains(file.getName()))
+					return false;
+
+				File parent = file.getParentFile();
+				while (parent != null) {
+					if (filterDir.contains(parent.getName()))
+						return false;
+					parent = parent.getParentFile();
+				}
+
+				return true;
+			}
+		});
 		if (files == null) {
 			ErrorPrint.printError("Unable to find mod files from the directory");
 			return;
@@ -247,6 +267,25 @@ public class Mod {
 					continue;
 				}
 				String fileRelativePath = zEntry.getName();
+
+				File file = new File(fileRelativePath);
+				if (filterFile.contains(file.getName())) {
+					continue;
+				}
+
+				File parent = file.getParentFile();
+				boolean hasFilteredDir = false;
+				while (parent != null) {
+					if (filterDir.contains(parent.getName())) {
+						hasFilteredDir = true;
+						break;
+					}
+					parent = parent.getParentFile();
+				}
+				if (hasFilteredDir) {
+					continue;
+				}
+
 				fileRelativePath = fileRelativePath.replace('/', '\\');
 				if (fileRelativePath.contains("\\")) {
 					// Don't consider files in the root mod directory
