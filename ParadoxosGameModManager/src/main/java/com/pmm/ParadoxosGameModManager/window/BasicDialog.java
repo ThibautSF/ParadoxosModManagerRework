@@ -81,6 +81,8 @@ public class BasicDialog {
 		expContent.add(contentText, 0, 0);
 
 		alert.getDialogPane().setContent(expContent);
+		alert.getDialogPane().getScene().getStylesheets()
+				.add(BasicDialog.class.getResource("/application.css").toExternalForm());
 
 		alert.showAndWait();
 	}
@@ -120,6 +122,8 @@ public class BasicDialog {
 		expContent.add(contentText, 0, 0);
 
 		alert.getDialogPane().setContent(expContent);
+		alert.getDialogPane().getScene().getStylesheets()
+				.add(BasicDialog.class.getResource("/application.css").toExternalForm());
 
 		if (buttons != null) {
 			if (cancel) {

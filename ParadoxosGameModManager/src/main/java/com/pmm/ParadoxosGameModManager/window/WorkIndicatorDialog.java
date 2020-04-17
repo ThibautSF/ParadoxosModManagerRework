@@ -95,6 +95,7 @@ public class WorkIndicatorDialog<P> {
 		dialog.setOpacity(0.8);
 
 		dialog.setScene(scene);
+		scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
 
 		dialog.setOnHiding(event -> {
 			/*

@@ -750,6 +750,7 @@ public class ListCreator extends Stage {
 
 		// Print the scene
 		Scene sc = new Scene(window, WINDOW_WIDTH, WINDOW_HEIGHT);
+		sc.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
 		this.setScene(sc);
 		this.setMinHeight(WINDOW_HEIGHT);
 		this.setMinWidth(WINDOW_WIDTH);

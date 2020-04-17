@@ -48,7 +48,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
@@ -309,6 +308,7 @@ public class ListManager extends Stage {
 		exportList.setDisable(true);
 
 		Scene sc = new Scene(window, WINDOW_WIDTH, WINDOW_HEIGHT);
+		sc.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
 		this.setScene(sc);
 		this.setMinHeight(WINDOW_HEIGHT);
 		this.setMinWidth(WINDOW_WIDTH);
@@ -430,13 +430,9 @@ public class ListManager extends Stage {
 								}
 							}
 						} else {
-							Alert alertError = new Alert(AlertType.ERROR);
-							alertError.setTitle("Error");
-							alertError.setHeaderText("Ooops, there was an error !");
-							alertError.setContentText(
-									"Sorry but the list apply failed :(\nA debug file should be generated :)");
-
-							alertError.showAndWait();
+							BasicDialog.showGenericDialog("Error", "Ooops, there was an error !",
+									"Sorry but the list apply failed :(\nA debug file should be generated :)",
+									AlertType.ERROR);
 						}
 					} catch (IOException e) {
 						ErrorPrint.printError(e, "When list application");
