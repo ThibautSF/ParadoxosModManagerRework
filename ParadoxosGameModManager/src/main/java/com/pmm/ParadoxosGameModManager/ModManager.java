@@ -37,7 +37,6 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -79,8 +78,6 @@ public class ModManager extends Application {
 
 	public ModManager() {
 		super();
-		System.out.println(Font.getDefault());
-		ErrorPrint.printError(Font.getDefault().toString());
 	}
 
 	public ModManager(boolean restart) throws Exception {
