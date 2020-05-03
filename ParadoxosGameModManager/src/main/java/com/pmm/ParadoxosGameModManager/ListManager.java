@@ -28,7 +28,9 @@ import org.kordamp.ikonli.javafx.FontIcon;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
 import com.pmm.ParadoxosGameModManager.debug.ErrorPrint;
 import com.pmm.ParadoxosGameModManager.mod.Mod;
 import com.pmm.ParadoxosGameModManager.mod.ModList;
@@ -435,7 +437,10 @@ public class ListManager extends Stage {
 									AlertType.ERROR);
 						}
 					} catch (IOException e) {
-						ErrorPrint.printError(e, "When list application");
+						BasicDialog.showGenericDialog("Error", "Ooops, there was an error !",
+								"Sorry but the list apply failed :(\nA debug file should be generated :)",
+								AlertType.ERROR);
+						ErrorPrint.printError(e, "When list is applied");
 						e.printStackTrace();
 					}
 				}
@@ -712,7 +717,12 @@ public class ListManager extends Stage {
 		Gson gson = new Gson();
 		JsonObject json = new JsonObject();
 
-		json = gson.fromJson(fileReader, JsonObject.class);
+		try {
+			json = gson.fromJson(fileReader, JsonObject.class);
+		} catch (JsonSyntaxException | JsonIOException e) {
+			ErrorPrint.printError(e, "When reading json from doc folder");
+			e.printStackTrace();
+		}
 
 //		if (!json.containsKey("disabled_dlcs")) {
 //			json.put("disabled_dlcs", new String[0]);
@@ -747,7 +757,16 @@ public class ListManager extends Stage {
 		fileReader.close();
 		fileWriter.close();
 		inputFile.delete();
-		boolean successful = tempFile.renameTo(inputFile);
+
+		boolean successful = false;
+
+		try {
+			successful = tempFile.renameTo(inputFile);
+		} catch (SecurityException | NullPointerException e) {
+			ErrorPrint.printError(e, "When renaming temp file");
+			e.printStackTrace();
+		}
+
 		return successful;
 	}
 
@@ -837,17 +856,6 @@ public class ListManager extends Stage {
 	 */
 	private void generateCustomModFiles(List<Mod> applyMods) {
 		String sep = File.separator;
-		File modDir = new File(ModManager.PATH + sep + "mod");
-
-		File[] content = modDir.listFiles(new FilenameFilter() {
-			@Override
-			public boolean accept(File dir, String name) {
-				return name.toLowerCase().startsWith("pmm_") && name.toLowerCase().endsWith(".mod");
-			}
-		});
-		for (File file : content) {
-			file.delete();
-		}
 
 		// Create the custom .mod file for each mod (XXX_idorname.mod)
 		int n = applyMods.size();
