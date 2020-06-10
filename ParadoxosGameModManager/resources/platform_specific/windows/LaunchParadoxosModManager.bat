@@ -1,3 +1,3 @@
 @echo off
-bin/LaunchParadoxosModManager.bat
+start /min bin\LaunchParadoxosModManager.bat ^& exit
 exit
