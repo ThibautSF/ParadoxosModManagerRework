@@ -45,8 +45,8 @@ dependencies {
   implementation 'com.google.code.gson:gson:2.8.6'
 
   //https://mvnrepository.com/artifact/org.kordamp.ikonli/
-  implementation 'org.kordamp.ikonli:ikonli-javafx:11.3.5'
-  implementation 'org.kordamp.ikonli:ikonli-fontawesome5-pack:11.3.5'
+  implementation 'org.kordamp.ikonli:ikonli-javafx:11.5.0'
+  implementation 'org.kordamp.ikonli:ikonli-fontawesome5-pack:11.5.0'
   
   //https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
   implementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
