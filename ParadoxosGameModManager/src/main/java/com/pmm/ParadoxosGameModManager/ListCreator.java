@@ -298,8 +298,8 @@ public class ListCreator extends Stage {
 		window.add(listModsBox, 1, 3, 4, 1);
 		listModsBox.getChildren().add(mods);
 		actionsCol.setSortable(false);
-		actionsCol.setMinWidth(100);
-		actionsCol.setMaxWidth(100);
+		actionsCol.setMinWidth(120);
+		actionsCol.setMaxWidth(120);
 		conflictCol.setSortable(false);
 		conflictCol.setMinWidth(65);
 		conflictCol.setMaxWidth(65);
@@ -1163,13 +1163,14 @@ public class ListCreator extends Stage {
 	private class MultipleButtonCell extends TableCell<Mod, Mod> {
 		final Button selectButton = new Button();
 		final Button steamButton = new Button();
+		final Button webButton = new Button();
 		final Button dirButton = new Button();
 		final HBox paddedButtons = new HBox();
 
 		MultipleButtonCell() {
 			paddedButtons.setPadding(new Insets(-2, 0, -2, 0));
 			paddedButtons.setAlignment(Pos.CENTER);
-			paddedButtons.getChildren().addAll(selectButton, steamButton, dirButton);
+			paddedButtons.getChildren().addAll(selectButton, steamButton, webButton, dirButton);
 
 			selectButton.setScaleX(0.9);
 			selectButton.setScaleY(0.9);
@@ -1197,8 +1198,26 @@ public class ListCreator extends Stage {
 				if (Desktop.isDesktopSupported()) {
 					new Thread(() -> {
 						try {
-							// URI uri = new URI(mod.getSteamPath());
 							URI uri = new URI(mod.getSteamInAppPath());
+							Desktop.getDesktop().browse(uri);
+						} catch (IOException | URISyntaxException e) {
+							ErrorPrint.printError(e);
+							e.printStackTrace();
+						}
+					}).start();
+				}
+			});
+
+			FontIcon iconWebButton = new FontIcon(FontAwesomeSolid.GLOBE);
+			webButton.setScaleX(0.9);
+			webButton.setScaleY(0.9);
+			webButton.setGraphic(iconWebButton);
+			webButton.setOnAction(action -> {
+				Mod mod = getTableRow().getItem();
+				if (Desktop.isDesktopSupported()) {
+					new Thread(() -> {
+						try {
+							URI uri = new URI(mod.getSteamPath());
 							Desktop.getDesktop().browse(uri);
 						} catch (IOException | URISyntaxException e) {
 							ErrorPrint.printError(e);
@@ -1258,10 +1277,16 @@ public class ListCreator extends Stage {
 
 			if (mod.getRemoteFileID() != "") {
 				steamButton.setDisable(false);
-				Utils.setTooltip(steamButton, new Tooltip("Open workshop page of " + mod.getName()));
+				Utils.setTooltip(steamButton, new Tooltip("Open (in steam) workshop page of " + mod.getName()));
+
+				webButton.setDisable(false);
+				Utils.setTooltip(webButton, new Tooltip("Open (in web browser) workshop page of " + mod.getName()));
 			} else {
 				steamButton.setDisable(true);
 				Utils.setTooltip(steamButton, null);
+
+				webButton.setDisable(true);
+				Utils.setTooltip(webButton, null);
 			}
 
 			File f = new File(mod.getModDirPath());
