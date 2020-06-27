@@ -711,6 +711,8 @@ public class ListManager extends Stage {
 		File inputFile = new File(ModManager.PATH + sep + ModManager.ACTMOD_FILE);
 		File tempFile = new File(ModManager.PATH + sep + ModManager.ACTMOD_FILE + ".tmp");
 
+//		if (!inputFile.isFile())
+		inputFile.createNewFile();
 		FileReader fileReader = new FileReader(inputFile);
 		FileWriter fileWriter = new FileWriter(tempFile);
 
