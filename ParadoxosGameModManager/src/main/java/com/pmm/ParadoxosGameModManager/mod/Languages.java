@@ -7,7 +7,7 @@ package com.pmm.ParadoxosGameModManager.mod;
 public enum Languages {
 	ENGLISH("english"), FRENCH("french"), GERMAN("german"), SPANISH("spanish"), POLISH("polish"), ITALIAN("italian"),
 	SWEDISH("swedish"), CZECH("czech"), HUNGARIAN("hungarian"), DUTCH("dutch"), RUSSIAN("russian"), FINNISH("finnish"),
-	BRAZ_PORTUGUESE("braz_por");
+	BRAZ_PORTUGUESE("braz_por"), SIMP_CHINESE("simp_chinese");
 
 	private String name;
 
