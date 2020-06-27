@@ -3,12 +3,13 @@ package com.pmm.ParadoxosGameModManager;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.regex.Matcher;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -374,7 +375,11 @@ public class ModManager extends Application {
 			APP_PARAMS.put("ShowFileConflict", showFileConflict);
 
 			// In case the user write wrong separator
-			docPathStr = docPathStr.replaceAll("(\\\\+|/+)", Matcher.quoteReplacement(File.separator));
+//			docPathStr = docPathStr.replaceAll("(\\\\+|/+)", Matcher.quoteReplacement(File.separator));
+			Path path = Paths.get(docPathStr);
+			path = Paths.get("/").resolve(path.normalize()).normalize();
+			docPathStr = path.toString();
+
 			if (!(docPathStr.lastIndexOf(File.separator) == docPathStr.length() - 1)) {
 				docPathStr += File.separator;
 			}
