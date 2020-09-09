@@ -2,7 +2,7 @@ package ParadoxosGameModManager;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Set;
+import java.util.Map;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -37,14 +37,15 @@ public class TestMod {
 	@Test
 	public void modifiedFilestest() {
 		Mod mod = new Mod(modName, true);
-		Set<String> modifiedFiles = mod.getModifiedFiles();
+//		Set<String> modifiedFiles = mod.getModifiedFiles();
+		Map<String, String> modifiedFiles = mod.getModifiedFiles();
 		Assertions.assertEquals(7, modifiedFiles.size());
-		Assertions.assertTrue(modifiedFiles.contains("gfx\\interface\\player_counters_toggle.dds"));
-		Assertions.assertTrue(modifiedFiles.contains("gfx\\interface\\radar_toggle.dds"));
-		Assertions.assertTrue(modifiedFiles.contains("gfx\\texticons\\air_experience_20x20.dds"));
-		Assertions.assertTrue(modifiedFiles.contains("gfx\\texticons\\army_experience_20x20.dds"));
-		Assertions.assertTrue(modifiedFiles.contains("gfx\\texticons\\navy_experience_20x20.dds"));
-		Assertions.assertTrue(modifiedFiles.contains("localisation\\additional.yml"));
-		Assertions.assertTrue(modifiedFiles.contains("localisation\\additional_l_french.yml"));
+		Assertions.assertTrue(modifiedFiles.containsKey("gfx\\interface\\player_counters_toggle.dds"));
+		Assertions.assertTrue(modifiedFiles.containsKey("gfx\\interface\\radar_toggle.dds"));
+		Assertions.assertTrue(modifiedFiles.containsKey("gfx\\texticons\\air_experience_20x20.dds"));
+		Assertions.assertTrue(modifiedFiles.containsKey("gfx\\texticons\\army_experience_20x20.dds"));
+		Assertions.assertTrue(modifiedFiles.containsKey("gfx\\texticons\\navy_experience_20x20.dds"));
+		Assertions.assertTrue(modifiedFiles.containsKey("localisation\\additional.yml"));
+		Assertions.assertTrue(modifiedFiles.containsKey("localisation\\additional_l_french.yml"));
 	}
 }

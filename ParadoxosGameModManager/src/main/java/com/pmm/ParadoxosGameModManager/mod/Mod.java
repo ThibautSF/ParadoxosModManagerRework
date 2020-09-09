@@ -1,23 +1,25 @@
 package com.pmm.ParadoxosGameModManager.mod;
 
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileFilter;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Files;
+import java.io.InputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
-import java.util.zip.ZipInputStream;
+import java.util.zip.ZipFile;
 
+import com.google.common.base.Charsets;
+import com.google.common.hash.Hashing;
+import com.google.common.hash.HashingInputStream;
+import com.google.common.io.Files;
 import com.pmm.ParadoxosGameModManager.ModManager;
 import com.pmm.ParadoxosGameModManager.debug.ErrorPrint;
 
@@ -37,7 +39,8 @@ public class Mod {
 	private SimpleStringProperty archivePath;
 	private SimpleStringProperty realModDirectoryPath;
 	private boolean missing;
-	private Set<String> modifiedFiles = new HashSet<>();
+//	private Set<String> modifiedFiles = new HashSet<>();
+	private Map<String, String> modifiedFiles = new HashMap<>();
 
 	private final List<String> filterDir = Arrays.asList(".git");
 	private final List<String> filterFile = Arrays.asList();
@@ -93,15 +96,18 @@ public class Mod {
 		}
 	}
 
+	/**
+	 * @param filename
+	 */
 	public Mod(String filename) {
-		this.name = new SimpleStringProperty("MOD MISSING");
-		this.fileName = new SimpleStringProperty(filename);
-		this.remoteFileID = new SimpleStringProperty("");
-		this.steamPath = new SimpleStringProperty("No remote ID found");
-		this.versionCompatible = new SimpleStringProperty("?");
-		this.missing = true;
+		this("", filename, "");
 	}
 
+	/**
+	 * @param modName
+	 * @param filename
+	 * @param remoteFileID
+	 */
 	public Mod(String modName, String filename, String remoteFileID) {
 		this.name = new SimpleStringProperty("MOD MISSING : " + modName);
 		this.fileName = new SimpleStringProperty(filename);
@@ -126,7 +132,7 @@ public class Mod {
 		Matcher m;
 
 		Path pth = Paths.get(ModManager.PATH + "mod" + sep + fileName.get());
-		List<String> lines = Files.readAllLines(pth);
+		List<String> lines = Files.readLines(pth.toFile(), Charsets.UTF_8);
 		for (String line : lines) {
 			String lineWFirstChar = (line.length() > 0) ? line.substring(1, line.length()) : "";
 			if (line.matches("\\s*name\\s*=.*") || lineWFirstChar.matches("\\s*name\\s*=.*")) {
@@ -189,6 +195,9 @@ public class Mod {
 
 	}
 
+	/**
+	 *
+	 */
 	private void setModifiedFiles() {
 		String dirOrArchivePath = (dirPath != null) ? dirPath.get()
 				: ((archivePath != null) ? archivePath.get() : null);
@@ -213,6 +222,10 @@ public class Mod {
 		}
 	}
 
+	/**
+	 * @param directory
+	 * @param relativeDirPath
+	 */
 	private void addModifiedFiles(File directory, String relativeDirPath) {
 		File[] files = directory.listFiles(new FileFilter() {
 			@Override
@@ -241,28 +254,46 @@ public class Mod {
 				addModifiedFiles(file, newRelativeDirPath);
 			} else if (!"".equals(relativeDirPath)) {
 				// Don't consider files in the root mod directory
-				modifiedFiles.add(relativeDirPath + File.separator + file.getName());
+				String rpath = relativeDirPath + File.separator + file.getName();
+				String hash = "";
+				try {
+					hash = Files.asByteSource(file).hash(Hashing.murmur3_128()).toString();
+				} catch (IOException e) {
+					ErrorPrint.printError(e,
+							"At file hash of '" + rpath + "' in mod '" + this.realModDirectoryPath + "'");
+					e.printStackTrace();
+				}
+//				modifiedFiles.add(rpath);
+				modifiedFiles.put(rpath, hash);
 			}
 		}
 	}
 
+	/**
+	 * @param dirOrArchivePath
+	 */
 	private void addModifiedFiles(String dirOrArchivePath) {
-		FileInputStream fis = null;
-		ZipInputStream zipIs = null;
+//		FileInputStream fis = null;
+//		ZipInputStream zipIs = null;
+		ZipFile zf = null;
+
 		try {
-			fis = new FileInputStream(dirOrArchivePath);
-			zipIs = new ZipInputStream(new BufferedInputStream(fis));
-			while (true) {
-				ZipEntry zEntry = null;
-				try {
-					zEntry = zipIs.getNextEntry();
-				} catch (ZipException e) {
-					ErrorPrint.printError("Unable to unzip some files of " + dirOrArchivePath);
-					break;
-				}
-				if (zEntry == null) {
-					break;
-				}
+//			fis = new FileInputStream(dirOrArchivePath);
+//			zipIs = new ZipInputStream(new BufferedInputStream(fis));
+			zf = new ZipFile(dirOrArchivePath);
+
+			final Enumeration<? extends ZipEntry> entries = zf.entries();
+			while (entries.hasMoreElements()) {
+				ZipEntry zEntry = entries.nextElement();
+//				try {
+//					zEntry = zipIs.getNextEntry();
+//				} catch (ZipException e) {
+//					ErrorPrint.printError("Unable to unzip some files of " + dirOrArchivePath);
+//					break;
+//				}
+//				if (zEntry == null) {
+//					break;
+//				}
 				if (zEntry.isDirectory()) {
 					continue;
 				}
@@ -288,25 +319,52 @@ public class Mod {
 
 				fileRelativePath = fileRelativePath.replace('/', '\\');
 				if (fileRelativePath.contains("\\")) {
+					String hash = null;
+					InputStream is = zf.getInputStream(zEntry);
+					HashingInputStream his = new HashingInputStream(Hashing.murmur3_128(), is);
+					try {
+						while (his.read() != -1) {
+						}
+
+						hash = his.hash().toString();
+					} catch (IOException e) {
+						ErrorPrint.printError(e, "At file hash of '" + fileRelativePath + "' in mod '"
+								+ this.realModDirectoryPath + "'");
+						e.printStackTrace();
+					} finally {
+						his.close();
+					}
+
 					// Don't consider files in the root mod directory
-					modifiedFiles.add(fileRelativePath);
+//					modifiedFiles.add(fileRelativePath);
+					modifiedFiles.put(fileRelativePath, hash);
 				}
 			}
-		} catch (IOException e) {
-			ErrorPrint.printError("Unable to unzip " + dirOrArchivePath);
+		} catch (
+
+		IOException e) {
+			ErrorPrint.printError(e, "Unable to unzip " + dirOrArchivePath);
 		} finally {
 			try {
-				if (zipIs != null) {
-					zipIs.close();
+				if (zf != null) {
+					zf.close();
 				}
-			} catch (IOException e1) {
+			} catch (IOException e) {
+				ErrorPrint.printError(e, "Error closing zip " + dirOrArchivePath);
+				e.printStackTrace();
 			}
-			try {
-				if (fis != null) {
-					fis.close();
-				}
-			} catch (IOException e1) {
-			}
+//			try {
+//				if (zipIs != null) {
+//					zipIs.close();
+//				}
+//			} catch (IOException e1) {
+//			}
+//			try {
+//				if (fis != null) {
+//					fis.close();
+//				}
+//			} catch (IOException e1) {
+//			}
 		}
 	}
 
@@ -388,7 +446,7 @@ public class Mod {
 		return missing;
 	}
 
-	public Set<String> getModifiedFiles() {
+	public Map<String, String> getModifiedFiles() {
 		return modifiedFiles;
 	}
 }

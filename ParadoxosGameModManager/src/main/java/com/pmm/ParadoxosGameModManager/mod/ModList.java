@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javafx.beans.property.SimpleStringProperty;
 
@@ -258,9 +259,18 @@ public class ModList {
 
 	private void addModsConflict(Mod mod1, Mod mod2) {
 		ModConflict modConflict = new ModConflict(mod1, mod2);
-		for (String modifiedFile : mod1.getModifiedFiles()) {
-			if (mod2.getModifiedFiles().contains(modifiedFile)) {
-				modConflict.addConflictFile(modifiedFile);
+		for (Entry<String, String> modifiedFile : mod1.getModifiedFiles().entrySet()) {
+			if (mod2.getModifiedFiles().containsKey(modifiedFile.getKey())) {
+
+				// Compare equal hashes
+				if (modifiedFile.getValue() != null
+						&& modifiedFile.getValue().equals(mod2.getModifiedFiles().get(modifiedFile.getKey()))) {
+					// Consider same hash files as not conflicting
+					System.out.println(modifiedFile.getKey() + " has same hash in both mods");
+					continue;
+				}
+
+				modConflict.addConflictFile(modifiedFile.getKey());
 			}
 		}
 		if (modConflict.getConflictFiles().size() > 0) {

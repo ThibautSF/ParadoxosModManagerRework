@@ -1,14 +1,13 @@
-//https://github.com/beryx/badass-jlink-plugin/
-//https://github.com/brunoborges/javafx-jlink-starter-gradle
-
 import org.gradle.internal.os.OperatingSystem
 
 plugins {
     id 'java'
     id 'eclipse'
     id 'application'
-    id 'org.openjfx.javafxplugin'      version '0.0.8'
-    id 'org.beryx.jlink'               version '2.19.0'
+    // https://github.com/beryx/badass-jlink-plugin/
+    id 'org.openjfx.javafxplugin'      version '0.0.9'
+    // https://github.com/brunoborges/javafx-jlink-starter-gradle
+    id 'org.beryx.jlink'               version '2.21.0'
 }
 
 sourceCompatibility = JavaVersion.VERSION_11
@@ -41,15 +40,18 @@ repositories {
 }
 
 dependencies {
-  //https://mvnrepository.com/artifact/com.google.code.gson/gson
-  implementation 'com.google.code.gson:gson:2.8.6'
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation 'com.google.code.gson:gson:2.8.6'
 
-  //https://mvnrepository.com/artifact/org.kordamp.ikonli/
-  implementation 'org.kordamp.ikonli:ikonli-javafx:11.5.0'
-  implementation 'org.kordamp.ikonli:ikonli-fontawesome5-pack:11.5.0'
-  
-  //https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-  implementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+    // https://github.com/google/guava
+    implementation 'com.google.guava:guava:29.0-jre'
+
+    // https://mvnrepository.com/artifact/org.kordamp.ikonli/
+    implementation 'org.kordamp.ikonli:ikonli-javafx:11.5.0'
+    implementation 'org.kordamp.ikonli:ikonli-fontawesome5-pack:11.5.0'
+
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
 }
 
 javafx {
@@ -119,7 +121,6 @@ eclipse {
                 entries.findAll { it.properties.path.startsWith('org.eclipse.jdt.launching.JRE_CONTAINER') }.each {
                     it.entryAttributes['module'] = 'true'
                 }
-
             }
         }
     }

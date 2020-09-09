@@ -6,6 +6,7 @@ module com.pmm.ParadoxosGameModManager {
 	requires org.kordamp.ikonli.javafx;
 	requires org.kordamp.ikonli.fontawesome5;
 	requires org.junit.jupiter.api;
+	requires com.google.common;
 
 	exports com.pmm.ParadoxosGameModManager;
 	exports com.pmm.ParadoxosGameModManager.debug;
