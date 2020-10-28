@@ -12,6 +12,7 @@ This repository is for the Java 11 port of [Java 8 Paradoxos Mod Manager](https:
 * Stellaris
 * Hearts of Iron 4
 * Imperator Rome
+* Crusader Kings III (if you replace [this file](https://raw.githubusercontent.com/ThibautSF/ParadoxosModManagerRework/master/ParadoxosGameModManager/supported_games.json) over PMM)
 
 ## Requirements
 * OS : Windows, Linux, MacOS
