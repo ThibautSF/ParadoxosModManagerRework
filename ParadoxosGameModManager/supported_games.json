@@ -63,5 +63,12 @@
     "setting_file":"pdx_settings.txt",
     "actmod_file":"dlc_load.json",
     "actmod_type":"json"
+  },
+  "Crusader Kings III":{
+    "game_name":"Crusader Kings III",
+    "steam_id":1158310,
+    "setting_file":"pdx_settings.txt",
+    "actmod_file":"dlc_load.json",
+    "actmod_type":"json"
   }
 }
