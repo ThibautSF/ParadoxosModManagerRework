@@ -1,3 +1,9 @@
+# IMPORTANT About the new "playset" system in Paradox Launcher
+
+For now, PMM is still incompatible with the Paradox playset system.
+PMM will still work if you launch the game right after mod list application.
+DO NOT start the launcher or it will erase your activated mods (still need to launch it after each new mod install to generate .mod files).
+
 # Paradoxos Mod Manager (Rework)
 Paradoxos Mod Manager is a java application which can be used to manage your mods in recent Paradox Interactive’s games
 
